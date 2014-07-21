@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{Sekhar:2008}
+Sribalamurugan Sekhar, Waleed Al-Nuaimy, and Asoke~K Nandi.
+\newblock Automated localisation of retinal optic disk using hough transform.
+\newblock In {\em Biomedical Imaging: From Nano to Macro, 2008. ISBI 2008. 5th
+  IEEE International Symposium on}, pages 1577--1580. IEEE, 2008.
+
+\bibitem{Walter:2002}
+Thomas Walter, J-C Klein, Pascale Massin, and Ali Erginay.
+\newblock A contribution of image processing to the diagnosis of diabetic
+  retinopathy-detection of exudates in color fundus images of the human retina.
+\newblock {\em Medical Imaging, IEEE Transactions on}, 21(10):1236--1243, 2002.
+
+\bibitem{Ada:1999}
+R.A. Adams.
+\newblock {\em Calculus}.
+\newblock Addison Wesley Longman, Inc, 4th edition, 1999.
+\newblock ISBN 0-201-39607-6.
+
+\end{thebibliography}
