@@ -122,15 +122,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 \begin{tiivis}
-Laajojen pintojen kuvaaminen rajoitetussa työskentelytilassa riittävällä
-kuvatarkkuudella voi olla vaikeaa. Kuvaaminen on suoritettava osissa ja
-osat koottava saumattomaksi kokonaisnäkymäksi eli mosaiikkikuvaksi.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Tähän kirjoitetaan ytimekäs
+% Tähän kirjoitetaan ytimekäs tiivistelmä: tausta, tavoite, tulokset ja johtopäätökset.
+% Tiivistelmässä kannattaa käyttää lyhyen nasevia lauseita. Itse tekstissä voi käyttää
+% monimutkaisempia lauseita. Tiivistelmä-sivu on yksi sivu ja tiivistelmäteksti on yksi
+% kappale, ei useita kappaleita. On hyvä kertoa työn tavoitteet. Mikäli työ sisältää oleellisia
+% aiheen rajauksia, ne kannattaa mainita jo tiivistelmässä. Työn tulokset ja johtopäätökset
+% luetellaan lukijan mielenkiinnon lisäämiseksi. Opinnäytetyö kirjoitetaan passiivissa tyyliin
 \end{tiivis}
 
 
@@ -185,10 +184,10 @@ $\matr{X}$ & a matrix\\
 \subsection{Background}
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
-The growing amount of diabetes patients and arguably more importantly the estimated amount of undiagnosed patients 
+The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
 motivate the research for an effective mass screening method for early detection of diabetes. Diabetic retinopathy
-is a complication of diabetes that causes abnormalities in the eye. A promising mass screening method is detecting
-these abnormalities in the eye fundus. Images where ophthalmologists have marked these abnormalities, such as
+is a complication of diabetes that causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
+is a promising mass screening method. Images where ophthalmologists have marked these abnormalities, such as
 exudates, are used as ground truths in eye fundus image segmentation research.
 
 Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
@@ -204,15 +203,13 @@ and segmentation methods.
 
 Ground truth accuracy is explored only from the perspective of exudate detection, and Bristol database is used as it has
 accurate ground truths of exudates. Blood vessel detection is explored only to create a mask for them. A rough method
-for optic disk detection is also implemented as a preprocessing phase for the same reasons.
+for optic disk detection is also implemented as a preprocessing step for masking reasons.
 
-Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used as labels.
-In unsupervised methods, ground truth is used to evaluate segmentation results, which in turn are used to select the best
-parameters for each method.
+Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used to label
+observations as either exudate or background. In unsupervised methods, ground truth is used to evaluate segmentation
+results. Best parameters for each method are chosen based on their performance.
 
 \subsection{Structure of the Thesis}
-
-% lyhyt kuvaus, 1-2 lausetta per aliluku
 
 Section~\ref{sec:segmentation} takes a look at the different features
 of eye fundus images, and how they are relevant in this thesis.
@@ -235,9 +232,45 @@ Kirjallisuuskatsaus.
 \subsection{Optic disc detection}
 
 Optic disc is very similar to exudates in terms of color and intensity, so detection
-and filtering is an important preprocessing step in exudate detection. There are papers
-dedicated to the localisation of the optic disk ~\cite{Sekhar:2008}, and it is also covered
-in papers concerning the detection of other parts of the eye fundus, such as exudates ~\cite{Walter:2002}.
+and masking of the optic disk is an important preprocessing step in exudate detection.
+There are papers dedicated to the localisation of the optic disk ~\cite{Sekhar:2008},
+and it is also covered in papers concerning the detection of other parts of the eye
+fundus, such as exudates ~\cite{Walter:2002}.
+
+This method is based on the brightness of the optic disk, and the vertical blood vessels inside it.
+The horizontal image gradient is calculated using Sobel gradient operator, the result is shown in 
+Figure~\ref{fig:opticdisk_gradient}. Image is then divided into slightly overlapping square 
+areas with a side of 140 pixels (size is adjusted when operating close to image borders). The area
+with the highest sum of gradients is considered as region of interest, i.e. to hold the optic disk.
+This is because the dark blood vessels inside the bright optic disk result in a strong horizontal
+gradient. Images with a ``camera glare``,i.e. a high intensity strip in the corner of the eye fundus
+are problematic, as that area also has a high horizontal gradient. Region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
+
+Inside this area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
+to be inside the optic disk. This pixel is then used as a center of a circle that will mask out the optic disk.
+Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
+
+\begin{figure}[htp]
+{\par\centering
+  \subfloat[]{
+     \label{fig:opticdisk_gradient}
+     \includegraphics[width=0.45\textwidth]{OP_gradient}}
+  \subfloat[]{
+     \label{fig:opticdisk_ROI}
+     \includegraphics[width=0.45\textwidth]{OP_ROI}}
+     
+     
+  \subfloat[]{
+     \label{fig:opticdisk_masked}
+     \includegraphics[width=0.45\textwidth]{OP_masked}}
+
+  \caption[moving]{Locating and masking the optic disk:
+  \subref{fig:vesselmask_adaptive} Horizontal gradient
+  \subref{fig:vesselmask_threshold} Region of interest
+  \subref{fig:vesselmask_complement} Optic disk masked out}
+  \label{fig:opticdisk}
+}\end{figure}
+
 
 \subsection{Blood vessel detection}
 
