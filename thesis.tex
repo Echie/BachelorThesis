@@ -280,6 +280,8 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
 \subsection{Blood vessel detection}
 
++ image outline
+
 The purpose of blood vessel detection in this thesis is to create a mask, and to use that mask to remove false
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates.
@@ -295,6 +297,13 @@ mask is shown in Figure~\ref{fig:vesselmask_complement}.
 This method is inadequate for blood vessel detection as it also includes other darker areas of the image, 
 such as the fovea. As a mask however, it clearly reduces the amount of false positives in exudate segmentation results.
 It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
+
+\subsection{Used methods}
+
+Edge: Canny Kirsch (tophat?)
+
+Jaafar (kmeans?) mehdi ravishankar sauvola basic threshold
+naive-bayes / gmmbayes
 
 \begin{figure}[htp]
 {\par\centering
@@ -449,12 +458,17 @@ That way they may work as links in PDF.
 \section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
 \label{sec:sensitivity}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\subsection{Inaccurate ground truth}
+
+Miten tehtiin: periaate, mitä kuvia käytettiin, softa.
+
+The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
+more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
+made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was also present in the inaccurate ground truth.
+Markings were done in a way that estimated the way doctors marked their findings when given the freedom to make
+inaccurate markings. Essentially this means that clusters of exudates are grouped together, and single exudates were
+more loosely circled. This is illustrated in image (KUVA VIITTAUS TÄHÄ).
+
 
 An example of a table is presented in Table~\ref{tab:testcommon}.
 
@@ -505,6 +519,8 @@ Notice the automatic page breaks.
 
 \subsection{Future Work}
 
+Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
+todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
 It is always nice to give some ideas for the future.
 
 \section{CONCLUSIONS}

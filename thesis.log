@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  22 JUL 2014 13:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  7 AUG 2014 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,7 +505,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 \openout4 = `thesis.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--171
+Underfull \hbox (badness 10000) in paragraph at lines 28--171
 
  []
 
@@ -515,21 +515,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--171
 
 ] [7
 
-] [8] <resources/OP_gradient.png, id=160, 542.025pt x 538.01pt>
+] [8] <resources/OP_gradient.png, id=170, 542.025pt x 538.01pt>
 File: resources/OP_gradient.png Graphic file (type png)
 
 <use resources/OP_gradient.png>
 Package pdftex.def Info: resources/OP_gradient.png used on input line 263.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_ROI.png, id=161, 542.025pt x 538.01pt>
+<resources/OP_ROI.png, id=171, 542.025pt x 538.01pt>
 File: resources/OP_ROI.png Graphic file (type png)
 
 <use resources/OP_ROI.png>
 Package pdftex.def Info: resources/OP_ROI.png used on input line 266.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_masked.png, id=162, 542.025pt x 538.01pt>
+<resources/OP_masked.png, id=172, 542.025pt x 538.01pt>
 File: resources/OP_masked.png Graphic file (type png)
 
 <use resources/OP_masked.png>
@@ -541,46 +541,47 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 
 ] [10 <./resources/OP_gradient.png (PNG copy)> <./resources/OP_ROI.png (PNG cop
 y)> <./resources/OP_masked.png (PNG copy)>]
-<resources/vesselmask_adaptive.png, id=187, 542.025pt x 538.01pt>
+<resources/vesselmask_adaptive.png, id=196, 542.025pt x 538.01pt>
 File: resources/vesselmask_adaptive.png Graphic file (type png)
 
 <use resources/vesselmask_adaptive.png>
 Package pdftex.def Info: resources/vesselmask_adaptive.png used on input line 3
-03.
+12.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_threshold.png, id=188, 542.025pt x 538.01pt>
+<resources/vesselmask_threshold.png, id=197, 542.025pt x 538.01pt>
 File: resources/vesselmask_threshold.png Graphic file (type png)
 
 <use resources/vesselmask_threshold.png>
 Package pdftex.def Info: resources/vesselmask_threshold.png used on input line 
-306.
+315.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_complement.png, id=189, 542.025pt x 538.01pt>
+<resources/vesselmask_complement.png, id=198, 542.025pt x 538.01pt>
 File: resources/vesselmask_complement.png Graphic file (type png)
 
 <use resources/vesselmask_complement.png>
 Package pdftex.def Info: resources/vesselmask_complement.png used on input line
- 311.
+ 320.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
- [11 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselmask_t
-hreshold.png (PNG copy)> <./resources/vesselmask_complement.png (PNG copy)>]
-<resources/ranmovingpoints.pdf, id=208, 454.69875pt x 363.3575pt>
+ [11] [12 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselm
+ask_threshold.png (PNG copy)> <./resources/vesselmask_complement.png (PNG copy)
+>]
+<resources/ranmovingpoints.pdf, id=230, 454.69875pt x 363.3575pt>
 File: resources/ranmovingpoints.pdf Graphic file (type pdf)
 
 <use resources/ranmovingpoints.pdf>
-Package pdftex.def Info: resources/ranmovingpoints.pdf used on input line 357.
+Package pdftex.def Info: resources/ranmovingpoints.pdf used on input line 366.
 (pdftex.def)             Requested size: 192.0548pt x 153.47401pt.
 
-<resources/movingpoints.pdf, id=209, 454.69875pt x 363.3575pt>
+<resources/movingpoints.pdf, id=231, 454.69875pt x 363.3575pt>
 File: resources/movingpoints.pdf Graphic file (type pdf)
 
 <use resources/movingpoints.pdf>
-Package pdftex.def Info: resources/movingpoints.pdf used on input line 360.
+Package pdftex.def Info: resources/movingpoints.pdf used on input line 369.
 (pdftex.def)             Requested size: 192.0548pt x 153.47401pt.
- [12] [13 <./resources/ranmovingpoints.pdf> <./resources/movingpoints.pdf>]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 444.
+ [13 <./resources/ranmovingpoints.pdf> <./resources/movingpoints.pdf>]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 453.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -600,22 +601,22 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 
 
 ]
-<resources/exporesp.pdf, id=289, 496.85625pt x 391.4625pt>
+<resources/exporesp.pdf, id=299, 496.85625pt x 391.4625pt>
 File: resources/exporesp.pdf Graphic file (type pdf)
 
 <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 551.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 567.
 (pdftex.def)             Requested size: 405.45047pt x 319.44827pt.
 File: resources/exporesp.pdf Graphic file (type pdf)
  <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 561.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 577.
 (pdftex.def)             Requested size: 234.73654pt x 184.9431pt.
  [21
 
  <./resources/exporesp.pdf>] [22]
 File: resources/exporesp.pdf Graphic file (type pdf)
  <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 584.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 600.
 (pdftex.def)             Requested size: 149.37958pt x 117.69052pt.
  [23
 
@@ -623,20 +624,20 @@ Package pdftex.def Info: resources/exporesp.pdf used on input line 584.
 
 AED: lastpage setting LastPage
 [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 628.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 628.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 612.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 612.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 628.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 628.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: FAB446E5BD2240E975CE4A9A5647C9C0;1273.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 612.
+(rerunfilecheck)             Checksum: 286CB5B86AA4C180AFE22C930DB65E82;1408.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 628.
  ) 
 Here is how much of TeX's memory you used:
- 8562 strings out of 494465
- 127064 string characters out of 6166361
- 228848 words of memory out of 5000000
- 11568 multiletter control sequences out of 15000+600000
+ 8566 strings out of 494465
+ 127124 string characters out of 6166361
+ 227848 words of memory out of 5000000
+ 11570 multiletter control sequences out of 15000+600000
  43756 words of font info for 66 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  41i,21n,47p,296b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -656,10 +657,10 @@ exlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on thesis.pdf (25 pages, 677307 bytes).
+Output written on thesis.pdf (25 pages, 678740 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 341 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
