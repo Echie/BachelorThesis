@@ -44,6 +44,7 @@
 \newlabel{sec:segmentation}{{2}{9}{SEGMENTATION OF RETINAL IMAGES}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Optic disc detection}{9}{subsection.2.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Blood vessel detection}{9}{subsection.2.2}}
+\newlabel{subsec:vesselmask}{{2.2}{9}{Blood vessel detection}{subsection.2.2}{}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:opticdisk_gradient}{{1a}{10}{Subfigure 1a}{subfigure.1.1}{}}
 \newlabel{sub@fig:opticdisk_gradient}{{(a)}{a}{Subfigure 1a\relax }{subfigure.1.1}{}}
@@ -57,8 +58,6 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{10}{subfigure.1.2}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{10}{subfigure.1.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Used methods}{11}{subsection.2.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Examples of Equations}{11}{subsection.2.4}}
-\newlabel{eq:imderiv}{{1}{11}{Examples of Equations}{equation.2.1}{}}
 \newlabel{fig:vesselmask_adaptive}{{2a}{12}{Subfigure 2a}{subfigure.2.1}{}}
 \newlabel{sub@fig:vesselmask_adaptive}{{(a)}{a}{Subfigure 2a\relax }{subfigure.2.1}{}}
 \newlabel{fig:vesselmask_threshold}{{2b}{12}{Subfigure 2b}{subfigure.2.2}{}}
@@ -70,55 +69,42 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{12}{subfigure.2.1}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{12}{subfigure.2.2}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{12}{subfigure.2.3}}
-\newlabel{eq:harriserror}{{2}{13}{Examples of Equations}{equation.2.2}{}}
-\newlabel{eq:harrisquads}{{3}{13}{Examples of Equations}{equation.2.3}{}}
-\newlabel{fig:ranmovepts}{{3a}{13}{Subfigure 3a}{subfigure.3.1}{}}
-\newlabel{sub@fig:ranmovepts}{{(a)}{a}{Subfigure 3a\relax }{subfigure.3.1}{}}
-\newlabel{fig:truemovepts}{{3b}{13}{Subfigure 3b}{subfigure.3.2}{}}
-\newlabel{sub@fig:truemovepts}{{(b)}{b}{Subfigure 3b\relax }{subfigure.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces moving}}{13}{figure.3}}
-\newlabel{fig:movingpoints}{{3}{13}{moving}{figure.3}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{13}{subfigure.3.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{13}{subfigure.3.2}}
-\newlabel{eq:partradiance}{{4}{14}{Examples of Equations}{equation.2.4}{}}
-\newlabel{eq:funcillumatrix}{{5}{14}{Examples of Equations}{equation.2.5}{}}
-\citation{Ada:1999}
-\@writefile{toc}{\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{15}{section.3}}
-\newlabel{sec:sensitivity}{{3}{15}{SENSITIVITY ANALYSIS OF IMAGE FEATURES}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Inaccurate ground truth}{15}{subsection.3.1}}
-\newlabel{tab:testcommon}{{1}{15}{Method parameters for all tests.\relax }{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Method parameters for all tests.\relax }}{15}{table.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{16}{section.4}}
-\newlabel{sec:experiments}{{4}{16}{EXPERIMENTS AND RESULTS}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Retinal Image Databases}{16}{subsection.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}The Ground Truth}{16}{subsection.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Experiment 1}{16}{subsection.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experiment 2}{16}{subsection.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}DISCUSSION}{17}{section.5}}
-\newlabel{sec:discussion}{{5}{17}{DISCUSSION}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Segmentation Results}{17}{subsection.5.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Sensitivity of Image Features}{17}{subsection.5.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Future Work}{17}{subsection.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}CONCLUSIONS}{18}{section.6}}
-\newlabel{sec:conclusion}{{6}{18}{CONCLUSIONS}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{13}{section.3}}
+\newlabel{sec:sensitivity}{{3}{13}{SENSITIVITY ANALYSIS OF IMAGE FEATURES}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Inaccurate ground truth}{13}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Parameter selection for unsupervised methods}{13}{subsection.3.2}}
+\newlabel{eq:dice}{{1}{13}{Parameter selection for unsupervised methods}{equation.3.1}{}}
+\newlabel{eq:diceTn}{{2}{14}{Parameter selection for unsupervised methods}{equation.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{15}{section.4}}
+\newlabel{sec:experiments}{{4}{15}{EXPERIMENTS AND RESULTS}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Retinal Image Databases}{15}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}The Ground Truth}{15}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Experiment 1}{15}{subsection.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experiment 2}{15}{subsection.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}DISCUSSION}{16}{section.5}}
+\newlabel{sec:discussion}{{5}{16}{DISCUSSION}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Segmentation Results}{16}{subsection.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Sensitivity of Image Features}{16}{subsection.5.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Future Work}{16}{subsection.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}CONCLUSIONS}{17}{section.6}}
+\newlabel{sec:conclusion}{{6}{17}{CONCLUSIONS}{section.6}{}}
 \bibdata{resources/thesis}
 \bibcite{Sekhar:2008}{1}
 \bibcite{Walter:2002}{2}
-\bibcite{Ada:1999}{3}
-\@writefile{toc}{\contentsline {section}{REFERENCES}{19}{section.6}}
+\@writefile{toc}{\contentsline {section}{REFERENCES}{18}{section.6}}
 \@writefile{toc}{\contentsline {section}{APPENDICES}{}{}}
 \@writefile{toc}{\hspace  *{1.5em}Appendix~\makebox [1.5em][l]{1:} Appendix Guidelines\\}
 \@writefile{toc}{\hspace  *{1.5em}Appendix~\makebox [1.5em][l]{2:} Frame Schematics\\}
-\newlabel{app:frame}{{2}{21}{CONCLUSIONS}{appendix.B}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A2.1}{\ignorespaces Overall design, only one half drawn.\relax }}{21}{figure.B.1}}
-\newlabel{afig:frame1}{{A2.1}{21}{Overall design, only one half drawn.\relax }{figure.B.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A2.2}{\ignorespaces Another picture.\relax }}{22}{figure.B.2}}
-\newlabel{afig:frame2}{{A2.2}{22}{Another picture.\relax }{figure.B.2}{}}
+\newlabel{app:frame}{{2}{20}{CONCLUSIONS}{appendix.B}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A2.1}{\ignorespaces Overall design, only one half drawn.\relax }}{20}{figure.B.1}}
+\newlabel{afig:frame1}{{A2.1}{20}{Overall design, only one half drawn.\relax }{figure.B.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A2.2}{\ignorespaces Another picture.\relax }}{21}{figure.B.2}}
+\newlabel{afig:frame2}{{A2.2}{21}{Another picture.\relax }{figure.B.2}{}}
 \@writefile{toc}{\hspace  *{1.5em}Appendix~\makebox [1.5em][l]{3:} The Second\\}
-\@writefile{lof}{\contentsline {figure}{\numberline {A3.1}{\ignorespaces The same picture once more.\relax }}{23}{figure.C.1}}
-\newlabel{afig:frame3}{{A3.1}{23}{The same picture once more.\relax }{figure.C.1}{}}
-\newlabel{atab:test}{{A3.1}{23}{Appendix test table.\relax }{table.C.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A3.1}{\ignorespaces Appendix test table.\relax }}{23}{table.C.1}}
-\newlabel{LastPage}{{}{25}{}{page.25}{}}
-\xdef\lastpage@lastpage{25}
-\xdef\lastpage@lastpageHy{25}
+\@writefile{lof}{\contentsline {figure}{\numberline {A3.1}{\ignorespaces The same picture once more.\relax }}{22}{figure.C.1}}
+\newlabel{afig:frame3}{{A3.1}{22}{The same picture once more.\relax }{figure.C.1}{}}
+\newlabel{atab:test}{{A3.1}{22}{Appendix test table.\relax }{table.C.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A3.1}{\ignorespaces Appendix test table.\relax }}{22}{table.C.1}}
+\newlabel{LastPage}{{}{24}{}{page.24}{}}
+\xdef\lastpage@lastpage{24}
+\xdef\lastpage@lastpageHy{24}
