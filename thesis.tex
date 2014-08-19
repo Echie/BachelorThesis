@@ -161,7 +161,12 @@ Lappeenranta, October 19th, 2014
 \section*{ABBREVIATIONS AND SYMBOLS}
 
 \begin{tabular}{l l}
-
+\textbf{TP} & True Positive\\
+\textbf{TN} & True Negative\\
+\textbf{FP} & False Positive\\
+\textbf{FN} & False Negative\\
+\textbf{FPR} & False Positive Rate\\
+\textbf{FNR} & False Negative Rate\\
 \end{tabular}
 
 
@@ -184,7 +189,6 @@ Optimal ground truth would be a pixel-accurate binary representation of the abno
 done by a human hand, such accuracy is unrealistic. Because the marking of an accurate ground truth takes a good
 amount of time and patience, we often have to settle for rough markings of the present abnormalities. Clusters of
 exudates are circled, rather than each small finding specified separately.
-
 
 \subsection{Objectives and Restrictions}
 
@@ -272,7 +276,7 @@ borders of vessels as well as exudates.
 
 The mask is formed by first using adaptive histogram equalization to enhance contrast in the green channel of
 the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This contrast enhanced image
-is then thresholded with Otsu's method, which separates the image into foreground and background by minimizing
+is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground and background by minimizing
 the intra-class variance. This results in all the vessels and other darker areas showing as black (or background),
 and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
 To create a binary mask of the darker areas, we use the complement of this thresholded image. Final version of the
@@ -317,25 +321,42 @@ naive-bayes / gmmbayes
 \section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
 \label{sec:sensitivity}
 
-\subsection{Inaccurate ground truth}
+\subsection{Evaluation methods}
 
-Miten tehtiin: periaate, mitä kuvia käytettiin, softa.
+In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
+into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
+in the segmentation results, and true negatives are consequently findings correctly classified as background. False
+negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
+false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated on 
+Table ~\ref{tab:truepositive}.
 
-The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
-more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
-made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was also present in the inaccurate ground truth.
-Markings were done in a way that estimated the way doctors marked their findings when given the freedom to make
-inaccurate markings. Essentially this means that clusters of exudates are grouped together, and single exudates were
-more loosely circled. This is illustrated in image (KUVA VIITTAUS TÄHÄ).
+\begin{table}[hpt]
+\begin{center}
+\caption{Illustration of terms \label{tab:truepositive}}
+
+\begin{tabular}{cc|c|c|c|c|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+& & Positive & Negative  \\ \cline{1-4}
+\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}  &
+\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+
+\end{tabular}
+\end{center}
+\end{table}
 
 
-\subsection{Parameter selection for unsupervised methods}
+There exists a multitude of ways to evaluate segmentation results. In this thesis, a single numbers
+was used to describe the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Dice coefficient was used,
+as it is very simple to implement and understand. It can have values from the range [0,1], where 0 indicates no similarities,
+and 1 indicates perfect agreement. Other coefficients, such as sensitivity, specificity and precision~\cite{Fawcett:2006} were also considered,
+but Dice was chosen as it best described the ''goodness'' of the result as a whole, not just the amount of positives / negatives.
+Dice is defined as follows:
 
-When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
-it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
-First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
-the ground truth. Parameters with the highest Dice coefficient are then selected for later use. Dice coefficient can have values from the range [0,1],
-where 0 indicates no similarities, and 1 indicates perfect agreement. Dice is defined as follows:
+
+HUOM. DICE == F-MEASURE, VAIHDA?
 
 \begin{equation}\label{eq:dice}
 \begin{split}
@@ -352,12 +373,29 @@ D(A,B) = 2\frac{TP}{(FP+TP)+(TP +FN)}
 \end{equation}
 
 
+\subsection{Parameter selection for unsupervised methods}
+
+When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
+it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
+First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
+the ground truth. Parameters with the highest Dice (see Eq.~\ref{eq:dice}) coefficient are then selected to be used in experiments.
+
+
 
 \section{EXPERIMENTS AND RESULTS}
 \label{sec:experiments}
 \subsection{Retinal Image Databases}
 
 \subsection{The Ground Truth}
+
+Miten tehtiin: periaate, mitä kuvia käytettiin, softa.
+
+The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
+more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
+made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was also present in the inaccurate ground truth.
+Markings were done in a way that estimated the way doctors marked their findings when given the freedom to make
+inaccurate markings. Essentially this means that clusters of exudates are grouped together, and single exudates were
+more loosely circled. This is illustrated in image (KUVA VIITTAUS TÄHÄ).
 
 \subsection{Experiment 1}
 

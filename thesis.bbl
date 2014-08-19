@@ -12,4 +12,14 @@ Thomas Walter, J-C Klein, Pascale Massin, and Ali Erginay.
   retinopathy-detection of exudates in color fundus images of the human retina.
 \newblock {\em Medical Imaging, IEEE Transactions on}, 21(10):1236--1243, 2002.
 
+\bibitem{Fawcett:2006}
+Tom Fawcett.
+\newblock An introduction to roc analysis.
+\newblock {\em Pattern recognition letters}, 27(8):861--874, 2006.
+
+\bibitem{Otsu:1975}
+Nobuyuki Otsu.
+\newblock A threshold selection method from gray-level histograms.
+\newblock {\em Automatica}, 11(285-296):23--27, 1975.
+
 \end{thebibliography}
