@@ -76,19 +76,19 @@
 \Major{Degree Program in Computer Science}
 \Majorfin{Tietotekniikan koulutusohjelma}
 
-\Keywords{keyword, key, word}
+\Keywords{eye fundus, image segmentation, sensitivity analysis, ground truth}
 
-\Keywordsfin{avainsana, avain, sana}
+\Keywordsfin{silmänpohja, segmentointi, herkkyysanalyysi, pohjamerkintä}
 
 % For a single supervisor, \Supervisor{N.N.}
 % For multiple supervisors, \Supervisors{N.N.\\ K.K.}, that is,
 % use \\ to separate names.
 % the same with \Examiner{} or \Examiners{}
 \Supervisor{Lasse Lensu D.Sc. (Tech.)}
-\Examiners{Professor Esim Esimerkki \\ Lasse Lensu D.Sc. (Tech.)}
+\Examiners{Lasse Lensu D.Sc. (Tech.)}
 
 % The examiners for the Finnish abstract only.
-\Tarkastajat{Professori Esim Esimerkki\\TkT Lasse Lensu}
+\Tarkastajat{TkT Lasse Lensu}
 
 % date of topic accepted in the council
 \AcceptDate{January 1\textsuperscript{st}, 2014}
@@ -161,7 +161,13 @@ Lappeenranta, October 19th, 2014
 \section*{ABBREVIATIONS AND SYMBOLS}
 
 \begin{tabular}{l l}
-
+\textbf{RGB} & Red Green Blue\\
+\textbf{TP} & True Positive\\
+\textbf{TN} & True Negative\\
+\textbf{FP} & False Positive\\
+\textbf{FN} & False Negative\\
+\textbf{FPR} & False Positive Rate\\
+\textbf{FNR} & False Negative Rate\\
 \end{tabular}
 
 
@@ -218,6 +224,10 @@ might invoke.
 Korkeemmalta tasolta, mikä työssä on tehtävä (myös herkkyysanalyysi). 
 Kirjallisuuskatsaus.
 
+\subsection{Eye fundus features}
+
+Tarpeellista käydä läpi?
+
 \subsection{Optic disc detection}
 
 Optic disc is very similar to exudates in terms of color and intensity, so detection
@@ -239,7 +249,7 @@ Inside this area of highest sum of horizontal gradients, the pixel with the high
 to be inside the optic disk. This pixel is then used as a center of a circle that will mask out the optic disk.
 Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 {\par\centering
   \subfloat[]{
      \label{fig:opticdisk_gradient}
@@ -263,15 +273,14 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
 \subsection{Blood vessel detection}
 \label{subsec:vesselmask}
-+ image outline
 
 The purpose of blood vessel detection in this thesis is to create a mask, and to use that mask to remove false
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates.
 
-The mask is formed by first using adaptive histogram equalization to enhance contrast in the green channel of
+The mask is formed by first using contrast limited adaptive histogram equalization~\cite{Reza:2004} to enhance contrast in the green channel of
 the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This contrast enhanced image
-is then thresholded with Otsu's method, which separates the image into foreground and background by minimizing
+is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground and background by minimizing
 the intra-class variance. This results in all the vessels and other darker areas showing as black (or background),
 and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
 To create a binary mask of the darker areas, we use the complement of this thresholded image. Final version of the
@@ -281,7 +290,32 @@ This method is inadequate for blood vessel detection as it also includes other d
 such as the fovea. As a mask however, it clearly reduces the amount of false positives in exudate segmentation results.
 It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
 
-\subsection{Used methods}
+
+\subsection{Color transform}
+
+The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color. This is why
+a red chair will look (more or less) red in the sun and in the moonlight. In contrast, an image of an object taken under different
+light sources is perceived differently in terms of color by a computer. This is why color features need to be normalized in image
+sets where there's high variation in color properties.
+
+The illumination and general color properties of the eye fundus images in Bristol database vary quite heavily.
+To be able to effectively use color features in teaching a classifier, the variance between image needs to be minimized.
+This is achieved by estimating the illuminant by applying the gray-world assumption ~\cite{Buchsbaum:1980}:
+\textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
+then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
+of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in \textbf{KUVA}
+
+
+
+\subsection{Unsupervised methods}
+
+Unsupervised methods perform the same operations on each image, without any information of the image. The object is to cluster the data into meaningful
+sets, and
+
+An edge is defined as a sharp change in image and color intensity. The object of edge detection is quite self-explanatory,
+to emphasize and detect edges in an image. In an eye fundus image, this would include the exudates, but also
+the borders of the blood vessels and optic disc. Edge detection as such isn't sufficient for exudate detection.
+These unwanted regions need to be subtracted from the initial result.
 
 Edge: Kirsch Tophat Mehdi
 
@@ -289,9 +323,24 @@ Jaafar (kmeans?) ravishankar sauvola
 
 
 
+
+\subsection{Supervised methods}
+
+Before a supervised method (or its classifier) can be used to classify pixels, it needs to be taught. Teaching is done by 
+extracting chosen features from an image and labeling them. For example, to describe a fruit you might use its color and shape.
+Yellow and round equals orange, Yellow and long equals banana, green and round equals apple.
+
+K-Nearest Neighbor
+
+Naive-Bayes
+
+GMM-Bayes
+
+Gaussian Mixture Model Bayes
+
 naive-bayes / gmmbayes
 
-\begin{figure}[htp]
+\begin{figure}[ht]
 {\par\centering
   \subfloat[]{
      \label{fig:vesselmask_adaptive}
@@ -322,12 +371,12 @@ In evaluation, correctly classified samples can be split into true positives and
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
-false positives are classified as positive in results, when they are in fact background. These terms are illustrated on 
-Table ~\ref{tab:truepositive}.
+false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
+a error matrix shown in Table ~\ref{tab:truepositive}.
 
 \begin{table}[hpt]
 \begin{center}
-\caption{Illustration of terms \label{tab:truepositive}}
+\caption{General error matrix\label{tab:truepositive}}
 
 \begin{tabular}{cc|c|c|c|c|l}
 \cline{3-4}
@@ -343,23 +392,45 @@ Table ~\ref{tab:truepositive}.
 \end{table}
 
 
-There exists a multitude of methods and coefficients for evaluation of segmentation results. In this thesis, the most
-important one is the Dice coefficient, that can have values from the range [0,1], where 0 indicates no similarities,
-and 1 indicates perfect agreement. Dice is defined as follows:
+There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
+describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
+such as sensitivity, specificity and precision (defined in ~\cite{Fawcett:2006}) were considered, but these were ignored as they
+tended to only describe one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
+and F-score were considered. These coefficients are defined as follows:
 
 \begin{equation}\label{eq:dice}
 \begin{split}
-D(A,B) = 2\frac{A\cup B}{A + B}
+Dice = \frac{2|A\cap B|}{|A| + |B|}
 \end{split}
 \end{equation}
 
-Dice coefficient can also be described using true positives, true negatives, false positives and false negatives:
-
-\begin{equation}\label{eq:diceTn}
+\begin{equation}\label{eq:jaccard}
 \begin{split}
-D(A,B) = 2\frac{TP}{(FP+TP)+(TP +FN)}
+Jaccard = \frac{|A\cap B|}{|A\cup B|}
 \end{split}
 \end{equation}
+
+\begin{equation}\label{eq:fscore}
+\begin{split}
+F-score = \frac{2PR}{P + R}
+\end{split}
+\end{equation}
+
+
+where A is the segmented set, and B is the ground truth, P stands for precision and R stands for recall (sensitivity).
+%Dice coefficient can also be described using true positives, true negatives, false positives and false negatives:
+
+%\begin{equation}\label{eq:diceTn}
+%\begin{split}
+%Dice = \frac{2TP}{(FP+TP)+(TP +FN)}
+%\end{split}
+%\end{equation}
+
+Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal, and Jaccard index behaves 
+similary to the two. Dice coefficient was chosen as it is very simple to implement and understand. It can have values from the
+range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement.
+
 
 
 \subsection{Parameter selection for unsupervised methods}
@@ -384,7 +455,7 @@ more inaccurate ground truths were made by hand. Instead of the original color i
 made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was also present in the inaccurate ground truth.
 Markings were done in a way that estimated the way doctors marked their findings when given the freedom to make
 inaccurate markings. Essentially this means that clusters of exudates are grouped together, and single exudates were
-more loosely circled. This is illustrated in image (KUVA VIITTAUS TÄHÄ).
+more loosely circled. This is illustrated in image \textbf{KUVA}.
 
 \subsection{Experiment 1}
 

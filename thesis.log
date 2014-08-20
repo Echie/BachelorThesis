@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  19 AUG 2014 15:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  20 AUG 2014 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,7 +505,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 \openout4 = `thesis.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--158
+Underfull \hbox (badness 10000) in paragraph at lines 31--158
 
  []
 
@@ -515,62 +515,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--158
 
 ] [7
 
-] [8] <resources/OP_gradient.png, id=168, 542.025pt x 538.01pt>
+] [8] <resources/OP_gradient.png, id=183, 542.025pt x 538.01pt>
 File: resources/OP_gradient.png Graphic file (type png)
 
 <use resources/OP_gradient.png>
-Package pdftex.def Info: resources/OP_gradient.png used on input line 251.
+Package pdftex.def Info: resources/OP_gradient.png used on input line 256.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_ROI.png, id=169, 542.025pt x 538.01pt>
+<resources/OP_ROI.png, id=184, 542.025pt x 538.01pt>
 File: resources/OP_ROI.png Graphic file (type png)
 
 <use resources/OP_ROI.png>
-Package pdftex.def Info: resources/OP_ROI.png used on input line 254.
+Package pdftex.def Info: resources/OP_ROI.png used on input line 259.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_masked.png, id=170, 542.025pt x 538.01pt>
+<resources/OP_masked.png, id=185, 542.025pt x 538.01pt>
 File: resources/OP_masked.png Graphic file (type png)
 
 <use resources/OP_masked.png>
-Package pdftex.def Info: resources/OP_masked.png used on input line 259.
+Package pdftex.def Info: resources/OP_masked.png used on input line 264.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 264.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 269.
  [9
 
 ] [10 <./resources/OP_gradient.png (PNG copy)> <./resources/OP_ROI.png (PNG cop
 y)> <./resources/OP_masked.png (PNG copy)>]
-<resources/vesselmask_adaptive.png, id=195, 542.025pt x 538.01pt>
+[11] <resources/vesselmask_adaptive.png, id=225, 542.025pt x 538.01pt>
 File: resources/vesselmask_adaptive.png Graphic file (type png)
 
 <use resources/vesselmask_adaptive.png>
 Package pdftex.def Info: resources/vesselmask_adaptive.png used on input line 3
-03.
+49.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_threshold.png, id=196, 542.025pt x 538.01pt>
+<resources/vesselmask_threshold.png, id=226, 542.025pt x 538.01pt>
 File: resources/vesselmask_threshold.png Graphic file (type png)
 
 <use resources/vesselmask_threshold.png>
 Package pdftex.def Info: resources/vesselmask_threshold.png used on input line 
-306.
+352.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_complement.png, id=197, 542.025pt x 538.01pt>
+<resources/vesselmask_complement.png, id=227, 542.025pt x 538.01pt>
 File: resources/vesselmask_complement.png Graphic file (type png)
 
 <use resources/vesselmask_complement.png>
 Package pdftex.def Info: resources/vesselmask_complement.png used on input line
- 311.
+ 357.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
- [11] [12 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselm
+ [12] [13 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselm
 ask_threshold.png (PNG copy)> <./resources/vesselmask_complement.png (PNG copy)
 >]
 ! Undefined control sequence.
 \@sharp ->\multirow 
                     {}{}{Tests} 
-l.341 ...ticolumn{1}{ |c| }{\multirow{}{}{Tests} }
+l.387 ...ticolumn{1}{ |c| }{\multirow{}{}{Tests} }
                                                    &
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -578,77 +578,78 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[13
+[14
 
-] [14] [15
-
-] [16
+] [15] [16
 
 ] [17
 
-] (./thesis.bbl) [18
+] [18
+
+] (./thesis.bbl) [19
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 453.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 515.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [19
+) [20
 
 
 ]
-<resources/exporesp.pdf, id=262, 496.85625pt x 391.4625pt>
+<resources/exporesp.pdf, id=288, 496.85625pt x 391.4625pt>
 File: resources/exporesp.pdf Graphic file (type pdf)
 
 <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 469.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 531.
 (pdftex.def)             Requested size: 405.45047pt x 319.44827pt.
 File: resources/exporesp.pdf Graphic file (type pdf)
  <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 479.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 541.
 (pdftex.def)             Requested size: 234.73654pt x 184.9431pt.
- [20
+ [21
 
- <./resources/exporesp.pdf>] [21]
+ <./resources/exporesp.pdf>] [22]
 File: resources/exporesp.pdf Graphic file (type pdf)
  <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 502.
+Package pdftex.def Info: resources/exporesp.pdf used on input line 564.
 (pdftex.def)             Requested size: 149.37958pt x 117.69052pt.
- [22
+ [23
 
-] [23]
+] [24]
 
 AED: lastpage setting LastPage
-[24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 530.
+[25]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 592.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 592.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 530.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 592.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 592.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EB1EB341CB583F075EC328F6230E48F6;1426.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 530.
+(rerunfilecheck)             Checksum: 2688780FC69F2A46578685E2B6147323;1636.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 592.
  ) 
 Here is how much of TeX's memory you used:
- 8515 strings out of 494465
- 126324 string characters out of 6166361
- 224580 words of memory out of 5000000
- 11540 multiletter control sequences out of 15000+600000
+ 8528 strings out of 494465
+ 126505 string characters out of 6166361
+ 224722 words of memory out of 5000000
+ 11546 multiletter control sequences out of 15000+600000
  33949 words of font info for 47 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 41i,15n,47p,296b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,47p,296b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (24 pages, 591558 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (25 pages, 607222 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 236 words of extra memory for PDF output out of 10000 (max. 10000000)
 
