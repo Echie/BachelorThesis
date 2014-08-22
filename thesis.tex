@@ -168,6 +168,7 @@ Lappeenranta, October 19th, 2014
 \textbf{FN} & False Negative\\
 \textbf{FPR} & False Positive Rate\\
 \textbf{FNR} & False Negative Rate\\
+\textbf{CLAHE} & Contrast Limited Adaptive Histogram Equalization\\
 \end{tabular}
 
 
@@ -224,7 +225,7 @@ might invoke.
 Korkeemmalta tasolta, mikä työssä on tehtävä (myös herkkyysanalyysi). 
 Kirjallisuuskatsaus.
 
-\subsection{Eye fundus features}
+\subsection{Structure of the eye fundus}
 
 Tarpeellista käydä läpi?
 
@@ -278,11 +279,11 @@ The purpose of blood vessel detection in this thesis is to create a mask, and to
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates.
 
-The mask is formed by first using contrast limited adaptive histogram equalization~\cite{Reza:2004} to enhance contrast in the green channel of
-the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This contrast enhanced image
-is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground and background by minimizing
-the intra-class variance. This results in all the vessels and other darker areas showing as black (or background),
-and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
+The mask is formed by first using contrast limited adaptive histogram equalization (CLAHE) ~\cite{Reza:2004} to enhance
+contrast in the green channel of the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This
+contrast enhanced image is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground
+and background by minimizing the intra-class variance. This results in all the vessels and other darker areas showing as
+black (or background), and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
 To create a binary mask of the darker areas, we use the complement of this thresholded image. Final version of the
 mask is shown in Figure~\ref{fig:vesselmask_complement}.
 
@@ -290,6 +291,26 @@ This method is inadequate for blood vessel detection as it also includes other d
 such as the fovea. As a mask however, it clearly reduces the amount of false positives in exudate segmentation results.
 It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
 
+\begin{figure}[ht]
+{\par\centering
+  \subfloat[]{
+     \label{fig:vesselmask_adaptive}
+     \includegraphics[width=0.45\textwidth]{vesselmask_adaptive}}
+  \subfloat[]{
+     \label{fig:vesselmask_threshold}
+     \includegraphics[width=0.45\textwidth]{vesselmask_threshold}}
+     
+     
+  \subfloat[]{
+     \label{fig:vesselmask_complement}
+     \includegraphics[width=0.45\textwidth]{vesselmask_complement}}
+
+  \caption[moving]{Phases in creating the blood vessel mask:
+  \subref{fig:vesselmask_adaptive} CLAHE
+  \subref{fig:vesselmask_threshold} Thresholding using Otsu's method
+  \subref{fig:vesselmask_complement} Final mask, complement of thresholded image}
+  \label{fig:vesselmask}
+}\end{figure}
 
 \subsection{Color transform}
 
@@ -303,8 +324,27 @@ To be able to effectively use color features in teaching a classifier, the varia
 This is achieved by estimating the illuminant by applying the gray-world assumption ~\cite{Buchsbaum:1980}:
 \textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
 then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
-of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in \textbf{KUVA}
+of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in Figure~\ref{fig:colortransform}.
 
+\begin{figure}[ht]
+{
+  \subfloat[]{
+     \label{fig:original_010}
+     \includegraphics[width=0.45\textwidth]{original_010}}     
+  \subfloat[]{
+     \label{fig:color_010}
+     \includegraphics[width=0.45\textwidth]{color_010}}
+     
+  \subfloat[]{
+     \label{fig:original_011}
+     \includegraphics[width=0.45\textwidth]{original_011}}     
+  \subfloat[]{
+     \label{fig:color_011}
+     \includegraphics[width=0.45\textwidth]{color_011}}
+
+  \caption[moving]{Color space transform: Original images on the left, adjusted images on the right.}  
+  \label{fig:colortransform}
+}\end{figure}
 
 
 \subsection{Unsupervised methods}
@@ -326,42 +366,16 @@ Jaafar (kmeans?) ravishankar sauvola
 
 \subsection{Supervised methods}
 
+K-Nearest Neighbor /Naive-Bayes / Gaussian Mixture Model Bayes
+
 Before a supervised method (or its classifier) can be used in classification, it needs to be trained. A specific training set
 of labeled images is used to teach the classifier. The method then extracts features from the training images, and generally forms a model
 for each used label. For example, to describe a fruit you might use its color and shape. You ''teach'' the method what each
 fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
-Yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
+yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
-K-Nearest Neighbor
 
-Naive-Bayes
 
-GMM-Bayes
-
-Gaussian Mixture Model Bayes
-
-naive-bayes / gmmbayes
-
-\begin{figure}[ht]
-{\par\centering
-  \subfloat[]{
-     \label{fig:vesselmask_adaptive}
-     \includegraphics[width=0.45\textwidth]{vesselmask_adaptive}}
-  \subfloat[]{
-     \label{fig:vesselmask_threshold}
-     \includegraphics[width=0.45\textwidth]{vesselmask_threshold}}
-     
-     
-  \subfloat[]{
-     \label{fig:vesselmask_complement}
-     \includegraphics[width=0.45\textwidth]{vesselmask_complement}}
-
-  \caption[moving]{Phases in creating the blood vessel mask:
-  \subref{fig:vesselmask_adaptive} Adaptive histogram equalization
-  \subref{fig:vesselmask_threshold} Thresholding using Otsu's method
-  \subref{fig:vesselmask_complement} Final mask, complement of thresholded image}
-  \label{fig:vesselmask}
-}\end{figure}
 
 
 \section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
@@ -373,25 +387,25 @@ In evaluation, correctly classified samples can be split into true positives and
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
-false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
-a error matrix shown in Table ~\ref{tab:truepositive}.
+false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. %These terms are illustrated with
+%a error matrix shown in Table ~\ref{tab:truepositive}.
 
-\begin{table}[hpt]
-\begin{center}
-\caption{General error matrix\label{tab:truepositive}}
-
-\begin{tabular}{cc|c|c|c|c|l}
-\cline{3-4}
-& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
-& & Positive & Negative  \\ \cline{1-4}
-\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
-\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
-\multicolumn{1}{ |c  }{}  &
-\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
-
-\end{tabular}
-\end{center}
-\end{table}
+% \begin{table}[hpt]
+% \begin{center}
+% \caption{General error matrix\label{tab:truepositive}}
+% 
+% \begin{tabular}{cc|c|c|c|c|l}
+% \cline{3-4}
+% & & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+% & & Positive & Negative  \\ \cline{1-4}
+% \multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+% \multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+% \multicolumn{1}{ |c  }{}  &
+% \multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+% 
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
@@ -435,14 +449,16 @@ range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreemen
 
 
 
-\subsection{Parameter selection for unsupervised methods}
+\subsection{Effects of inaccurate ground truth}
 
 When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
 it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
 First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
 the ground truth. Parameters with the highest Dice (see Eq.~\ref{eq:dice}) coefficient are then selected to be used in experiments.
 
-
+The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
+will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
+variation of feature distributions and an increase of false positives.
 
 \section{EXPERIMENTS AND RESULTS}
 \label{sec:experiments}
@@ -450,19 +466,35 @@ the ground truth. Parameters with the highest Dice (see Eq.~\ref{eq:dice}) coeff
 
 \subsection{The Ground Truth}
 
-Miten tehtiin: periaate, mitä kuvia käytettiin, softa.
-
 The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
 more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
-made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was also present in the inaccurate ground truth.
-Markings were done in a way that estimated the way doctors marked their findings when given the freedom to make
-inaccurate markings. Essentially this means that clusters of exudates are grouped together, and single exudates were
-more loosely circled. This is illustrated in image \textbf{KUVA}.
+made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was
+also present in the inaccurate ground truth. Markings were done in a way that estimated the way doctors marked their findings 
+when given the freedom to make inaccurate markings. Essentially this means that clusters of exudates are grouped together,
+and single exudates were more loosely circled. This is illustrated in Figure~\ref{fig:groundtruth}.
+
+To create a basis for more comprehensive testing, different stages of inaccurate ground truths were created by dilating the accurate
+ground truth. Three different stages were created; one, three and five iterations of dilation by a disk-shaped structuring element, with a radius of 1 pixel.
+The dilation was restricted to stay inside the inaccurate ground truth.
+
+\begin{figure}[ht]
+{\par\centering
+  \subfloat[]{
+     \label{fig:bristol_gt}
+     \includegraphics[width=0.45\textwidth]{bristol_groundtruth}}
+  \subfloat[]{
+     \label{fig:inaccurate_gt}
+     \includegraphics[width=0.45\textwidth]{inaccurate_groundtruth}}
+     
+
+  \caption[moving]{Original accurate ground truth on the left, inaccurate ground truth on the right}
+  \label{fig:groundtruth}
+}\end{figure}
 
 \subsection{Experiment 1}
 
 First experiment was done with minimal preprocessing; only the green timestamp was removed.
-In unsupervised methods, the mask described in ~\ref{subsec:vesselmask}. was used to reduce the amount of false positives.
+In unsupervised methods, the mask described in Section~\ref{subsec:vesselmask} was used to reduce the amount of false positives.
 In supervised methods, features describing color values and the presence of edges were used.
 The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
 For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
