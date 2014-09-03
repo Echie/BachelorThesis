@@ -1,0 +1,18 @@
+@book{Kauppi:2010,
+  title={Eye fundus image analysis for automatic detection of diabetic retinopathy},
+  author={Kauppi, Tomi and others},
+  year={2010},
+  publisher={Lappeenranta University of Technology}
+}
+
+@article{Sopharak:2008,
+  title={Automatic detection of diabetic retinopathy exudates from non-dilated retinal images using mathematical morphology methods},
+  author={Sopharak, Akara and Uyyanonvara, Bunyarit and Barman, Sarah and Williamson, Thomas H},
+  journal={Computerized Medical Imaging and Graphics},
+  volume={32},
+  number={8},
+  pages={720--727},
+  year={2008},
+  publisher={Elsevier}
+}
+

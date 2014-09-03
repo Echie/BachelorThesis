@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  21 AUG 2014 15:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  3 SEP 2014 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -504,193 +504,162 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--158
-
- []
-
-[5
+ [5
 
 ] [6
 
 ] [7
 
-] [8] <resources/OP_gradient.png, id=183, 542.025pt x 538.01pt>
+] [8]
+<resources/healthyeyefundus.png, id=143, 1606.0pt x 1220.56pt>
+File: resources/healthyeyefundus.png Graphic file (type png)
+
+<use resources/healthyeyefundus.png>
+Package pdftex.def Info: resources/healthyeyefundus.png used on input line 244.
+
+(pdftex.def)             Requested size: 298.75264pt x 227.04788pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 246.
+ [9
+
+ <./resources/healthyeyefundus.png>]
+<resources/OP_gradient.png, id=158, 542.025pt x 538.01pt>
 File: resources/OP_gradient.png Graphic file (type png)
 
 <use resources/OP_gradient.png>
-Package pdftex.def Info: resources/OP_gradient.png used on input line 257.
+Package pdftex.def Info: resources/OP_gradient.png used on input line 276.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_ROI.png, id=184, 542.025pt x 538.01pt>
+<resources/OP_ROI.png, id=159, 542.025pt x 538.01pt>
 File: resources/OP_ROI.png Graphic file (type png)
 
 <use resources/OP_ROI.png>
-Package pdftex.def Info: resources/OP_ROI.png used on input line 260.
+Package pdftex.def Info: resources/OP_ROI.png used on input line 279.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_masked.png, id=185, 542.025pt x 538.01pt>
+<resources/OP_masked.png, id=160, 542.025pt x 538.01pt>
 File: resources/OP_masked.png Graphic file (type png)
 
 <use resources/OP_masked.png>
-Package pdftex.def Info: resources/OP_masked.png used on input line 265.
+Package pdftex.def Info: resources/OP_masked.png used on input line 284.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 270.
- [9
 
-]
-Overfull \hbox (10.71214pt too wide) in paragraph at lines 282--289
+Overfull \hbox (26.98409pt too wide) in paragraph at lines 301--308
 []\T1/ptm/m/n/12 The mask is formed by first us-ing con-trast lim-ited adap-tiv
-e his-togram equal-iza-tion (CLAHE)
+e his-togram equal-iza-tion (CLAHE) [[]]
  []
 
-[10 <./resources/OP_gradient.png (PNG copy)> <./resources/OP_ROI.png (PNG copy)
-> <./resources/OP_masked.png (PNG copy)>]
-<resources/vesselmask_adaptive.png, id=214, 542.025pt x 538.01pt>
+[10] <resources/vesselmask_adaptive.png, id=186, 542.025pt x 538.01pt>
 File: resources/vesselmask_adaptive.png Graphic file (type png)
 
 <use resources/vesselmask_adaptive.png>
-Package pdftex.def Info: resources/vesselmask_adaptive.png used on input line 2
-98.
+Package pdftex.def Info: resources/vesselmask_adaptive.png used on input line 3
+18.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_threshold.png, id=215, 542.025pt x 538.01pt>
+<resources/vesselmask_threshold.png, id=187, 542.025pt x 538.01pt>
 File: resources/vesselmask_threshold.png Graphic file (type png)
 
 <use resources/vesselmask_threshold.png>
 Package pdftex.def Info: resources/vesselmask_threshold.png used on input line 
-301.
+321.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_complement.png, id=216, 542.025pt x 538.01pt>
+<resources/vesselmask_complement.png, id=188, 542.025pt x 538.01pt>
 File: resources/vesselmask_complement.png Graphic file (type png)
 
 <use resources/vesselmask_complement.png>
 Package pdftex.def Info: resources/vesselmask_complement.png used on input line
- 306.
+ 326.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
- [11 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselmask_t
-hreshold.png (PNG copy)> <./resources/vesselmask_complement.png (PNG copy)>]
-<resources/original_010.png, id=232, 542.025pt x 538.01pt>
+ [11 <./resources/OP_gradient.png (PNG copy)> <./resources/OP_ROI.png (PNG copy
+)> <./resources/OP_masked.png (PNG copy)>] <resources/original_010.png, id=202,
+ 542.025pt x 538.01pt>
 File: resources/original_010.png Graphic file (type png)
 
 <use resources/original_010.png>
-Package pdftex.def Info: resources/original_010.png used on input line 333.
+Package pdftex.def Info: resources/original_010.png used on input line 354.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/color_010.png, id=233, 542.025pt x 538.01pt>
+<resources/color_010.png, id=203, 542.025pt x 538.01pt>
 File: resources/color_010.png Graphic file (type png)
 
 <use resources/color_010.png>
-Package pdftex.def Info: resources/color_010.png used on input line 336.
+Package pdftex.def Info: resources/color_010.png used on input line 357.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/original_011.png, id=234, 542.025pt x 538.01pt>
+<resources/original_011.png, id=204, 542.025pt x 538.01pt>
 File: resources/original_011.png Graphic file (type png)
 
 <use resources/original_011.png>
-Package pdftex.def Info: resources/original_011.png used on input line 340.
+Package pdftex.def Info: resources/original_011.png used on input line 361.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/color_011.png, id=235, 542.025pt x 538.01pt>
+<resources/color_011.png, id=205, 542.025pt x 538.01pt>
 File: resources/color_011.png Graphic file (type png)
 
 <use resources/color_011.png>
-Package pdftex.def Info: resources/color_011.png used on input line 343.
+Package pdftex.def Info: resources/color_011.png used on input line 364.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
- [12] [13 <./resources/original_010.png (PNG copy)> <./resources/color_010.png 
-(PNG copy)> <./resources/original_011.png (PNG copy)> <./resources/color_011.pn
-g (PNG copy)>] [14] [15
+ [12 <./resources/vesselmask_adaptive.png (PNG copy)> <./resources/vesselmask_t
+hreshold.png (PNG copy)> <./resources/vesselmask_complement.png (PNG copy)>] [1
+3 <./resources/original_010.png (PNG copy)> <./resources/color_010.png (PNG cop
+y)> <./resources/original_011.png (PNG copy)> <./resources/color_011.png (PNG c
+opy)>] [14] [15
 
 ] [16]
-<resources/bristol_groundtruth.png, id=275, 542.025pt x 538.01pt>
+<resources/bristol_groundtruth.png, id=247, 542.025pt x 538.01pt>
 File: resources/bristol_groundtruth.png Graphic file (type png)
 
 <use resources/bristol_groundtruth.png>
-Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 4
-84.
+Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 5
+07.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/inaccurate_groundtruth.png, id=276, 542.025pt x 538.01pt>
+<resources/inaccurate_groundtruth.png, id=248, 542.025pt x 538.01pt>
 File: resources/inaccurate_groundtruth.png Graphic file (type png)
 
 <use resources/inaccurate_groundtruth.png>
 Package pdftex.def Info: resources/inaccurate_groundtruth.png used on input lin
-e 487.
+e 510.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [17
 
  <./resources/bristol_groundtruth.png (PNG copy)> <./resources/inaccurate_groun
-dtruth.png (PNG copy)>] [18]
+dtruth.png (PNG copy)>]
+(./thesis.bbl [18]) 
+AED: lastpage setting LastPage
 [19
 
-] [20
-
-] (./thesis.bbl) [21
-
-
 ]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 547.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [22
-
-
-]
-<resources/exporesp.pdf, id=310, 496.85625pt x 391.4625pt>
-File: resources/exporesp.pdf Graphic file (type pdf)
-
-<use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 563.
-(pdftex.def)             Requested size: 405.45047pt x 319.44827pt.
-File: resources/exporesp.pdf Graphic file (type pdf)
- <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 573.
-(pdftex.def)             Requested size: 234.73654pt x 184.9431pt.
- [23
-
- <./resources/exporesp.pdf>] [24]
-File: resources/exporesp.pdf Graphic file (type pdf)
- <use resources/exporesp.pdf>
-Package pdftex.def Info: resources/exporesp.pdf used on input line 596.
-(pdftex.def)             Requested size: 149.37958pt x 117.69052pt.
- [25
-
-] [26]
-
-AED: lastpage setting LastPage
-[27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 647.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 647.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 624.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 647.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 647.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 95C27400D37D6EF370A2728C96ED03DA;1634.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 624.
+(rerunfilecheck)             Checksum: F0F58C990916244D2A8AFD77E7631DDF;1208.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 647.
  ) 
 Here is how much of TeX's memory you used:
- 8579 strings out of 494465
- 127732 string characters out of 6166361
- 224235 words of memory out of 5000000
- 11582 multiletter control sequences out of 15000+600000
- 33949 words of font info for 47 fonts, out of 8000000 for 9000
+ 8513 strings out of 494465
+ 126938 string characters out of 6166361
+ 223984 words of memory out of 5000000
+ 11541 multiletter control sequences out of 15000+600000
+ 33328 words of font info for 45 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 41i,15n,47p,296b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,47p,296b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (27 pages, 1918812 bytes).
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (19 pages, 4466782 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
- 335 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 309 PDF objects out of 1000 (max. 8388607)
+ 258 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,3 +1,10 @@
+@book{Kauppi2010,
+  title={Eye fundus image analysis for automatic detection of diabetic retinopathy},
+  author={Kauppi, Tomi and others},
+  year={2010},
+  publisher={Lappeenranta University of Technology}
+}
+
 @book{Ada:1999,
     author =	{R.A. Adams},
     OReditor =	{},

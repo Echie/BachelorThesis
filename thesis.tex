@@ -98,8 +98,8 @@
 \Year{2014}
 
 % Thesis statistics: figure, table and appendix counts, for abstracts
-\addtostats{, 64 figures, 1 table, and 2 appendices}
-\addtostatsfin{, 64 kuvaa, 1 taulukko ja 2 liitettä}
+\addtostats{, 13 figures, 1 table, and 2 appendices}
+\addtostatsfin{, 13 kuvaa, 1 taulukko ja 2 liitettä}
 
 \begin{document}
 \selectlanguage{english}
@@ -108,37 +108,38 @@
 \newpage
 
 \begin{abstract}
-Notice that the page, figure, table and appendix counts are for the
-whole work, including title page, appendices, figures in appendices, etc.
-You have to count the numbers yourself, except for pages.
-%
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% Notice that the page, figure, table and appendix counts are for the
+% whole work, including title page, appendices, figures in appendices, etc.
+% You have to count the numbers yourself, except for pages.
+% %
+% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \end{abstract}
 
 
 \begin{tiivis}
-Tähän kirjoitetaan ytimekäs tiivistelmä: tausta, tavoite, tulokset ja johtopäätökset.
-Tiivistelmässä kannattaa käyttää lyhyen nasevia lauseita. Itse tekstissä voi käyttää
-monimutkaisempia lauseita. Tiivistelmä-sivu on yksi sivu ja tiivistelmäteksti on yksi
-kappale, ei useita kappaleita. On hyvä kertoa työn tavoitteet. Mikäli työ sisältää oleellisia
-aiheen rajauksia, ne kannattaa mainita jo tiivistelmässä. Työn tulokset ja johtopäätökset
-luetellaan lukijan mielenkiinnon lisäämiseksi. Opinnäytetyö kirjoitetaan passiivissa tyyliin
-``tässä työssä tutkitaan..'' aktiivin sijaan ``minä tutkin...'' ja marginaalit tasataan aina sekä
-vasemmalle että oikealle. Työn numerointi aloitetaan kansilehdeltä, mutta tätä roomalaista
-numeroa ei merkitä näkyviin. 
+% Tähän kirjoitetaan ytimekäs tiivistelmä: tausta, tavoite, tulokset ja johtopäätökset.
+% Tiivistelmässä kannattaa käyttää lyhyen nasevia lauseita. Itse tekstissä voi käyttää
+% monimutkaisempia lauseita. Tiivistelmä-sivu on yksi sivu ja tiivistelmäteksti on yksi
+% kappale, ei useita kappaleita. On hyvä kertoa työn tavoitteet. Mikäli työ sisältää oleellisia
+% aiheen rajauksia, ne kannattaa mainita jo tiivistelmässä. Työn tulokset ja johtopäätökset
+% luetellaan lukijan mielenkiinnon lisäämiseksi. Opinnäytetyö kirjoitetaan passiivissa tyyliin
+% ``tässä työssä tutkitaan..'' aktiivin sijaan ``minä tutkin...'' ja marginaalit tasataan aina sekä
+% vasemmalle että oikealle. Työn numerointi aloitetaan kansilehdeltä, mutta tätä roomalaista
+% numeroa ei merkitä näkyviin. 
 \end{tiivis}
 
 
 \begin{preface}
 
-Tässä voidaan mainita työn tekopaikka, kiittää työtä tukeneita henkilöitä ja muita tahoja,
-jne. tyyliin ``Työ on tehty Lappeenrannan teknillisen yliopiston ... Kiitän työkavereita ja
-rakasta vaimoani tuesta ...''
+This thesis was done as a part of my computer science degree in Lappeenranta University of Technology,
+and as a report for my summer internship at the Laboratory of Machine Vision and Pattern Recognition.
+I would like to thank my supervisor Lasse Lensu for giving me this opportunity and for his extensive support
+and guidance.
 
 \
 
@@ -182,8 +183,8 @@ Lappeenranta, October 19th, 2014
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
 The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
-motivate the research for an effective mass screening method for early detection of diabetes. Diabetic retinopathy
-is a complication of diabetes that causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
+motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
+complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
 is a promising mass screening method. Images where ophthalmologists have marked these abnormalities, such as
 exudates, are used as ground truths in eye fundus image segmentation research.
 
@@ -195,7 +196,7 @@ exudates are circled, rather than each small finding specified separately.
 \subsection{Objectives and Restrictions}
 
 The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
-and segmentation methods.
+and segmentation methods. Structure of the eye fundus is briefly explored for context.
 
 Ground truth accuracy is explored only from the perspective of exudate detection, and Bristol database is used as it has
 accurate ground truths of exudates. Blood vessel detection is explored only to create a mask for them. A rough method
@@ -215,27 +216,44 @@ Section~\ref{sec:sensitivity} details how sensitivity analysis is
 done in this thesis, and also explains the used evaluation methods.
 Section~\ref{sec:experiments} describes the experiments in detail,
 and presents the results for each experiment.
-Section~\ref{sec:discussion} sums up and interprets the results, and
-discusses the impact of this thesis and possible future work this thesis
-might invoke.
+% Section~\ref{sec:discussion} sums up and interprets the results, and
+% discusses the impact of this thesis and possible future work this thesis
+% might invoke.
 
-\section{SEGMENTATION OF RETINAL IMAGES}
+\section{RETINAL IMAGES AND THEIR SEGMENTATION}
 \label{sec:segmentation}
 
-Korkeemmalta tasolta, mikä työssä on tehtävä (myös herkkyysanalyysi). 
-Kirjallisuuskatsaus.
-
 \subsection{Structure of the eye fundus}
+The function of the human eye on an abstract level can be compared to a camera. Light reflected from an object passes through the cornea,
+pupil and lens and is focused on the retina (the inner part of the eye). It is then processed by light sensitive
+cells and then transmitted to the brain via the optic nerve. Rather than covering the eye as a whole, this chapter will focus on
+the structure of the eye fundus.
 
-Tarpeellista käydä läpi?
+The eye fundus is the area located in the retina, the interior wall of the ''backside'' of the eye. Its
+most noticeable parts are the optic disk, the macula (and fovea), and the arteries. Macula is a highly light sensitive area
+in the central region of the retina. Fovea is a round area located in the macula, where almost all the cells sensitive to
+color and fine detail (called cones) are found.
+
+Optic disc is where the optic nerve and main arteries connect with the eye. There are no light sensitive cells inside the
+optic disc, which creates a blind spot in the retina. Arteries inside the eye together with the choroid (vascular layer
+surrounding the retina) provide nutritional support to the eye~\cite{Kauppi:2010}. These parts of the eye fundus
+are illustrated in Figure~\ref{fig:healthyeyefundus}.
+
+\begin{figure}[ht]
+\centering 
+{ \includegraphics[width=0.7\textwidth]{healthyeyefundus} }    
+  \caption[moving]{Structure of the eye fundus
+  \label{fig:healthyeyefundus}}
+\end{figure}
+
 
 \subsection{Optic disc detection}
 
 Optic disc is very similar to exudates in terms of color and intensity, so detection
 and masking of the optic disk is an important preprocessing step in exudate detection.
-There are papers dedicated to the localisation of the optic disk ~\cite{Sekhar:2008},
+There are papers dedicated to the localisation of the optic disk~\cite{Sekhar:2008},
 and it is also covered in papers concerning the detection of other parts of the eye
-fundus, such as exudates ~\cite{Walter:2002}.
+fundus, such as exudates~\cite{Walter:2002}.
 
 This method is based on the brightness of the optic disk, and the vertical blood vessels inside it.
 The horizontal image gradient is calculated using Sobel gradient operator, the result is shown in 
@@ -251,7 +269,8 @@ to be inside the optic disk. This pixel is then used as a center of a circle tha
 Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
 \begin{figure}[ht]
-{\par\centering
+\centering
+{
   \subfloat[]{
      \label{fig:opticdisk_gradient}
      \includegraphics[width=0.45\textwidth]{OP_gradient}}
@@ -279,7 +298,7 @@ The purpose of blood vessel detection in this thesis is to create a mask, and to
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates.
 
-The mask is formed by first using contrast limited adaptive histogram equalization (CLAHE) ~\cite{Reza:2004} to enhance
+The mask is formed by first using contrast limited adaptive histogram equalization (CLAHE)~\cite{Reza:2004} to enhance
 contrast in the green channel of the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This
 contrast enhanced image is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground
 and background by minimizing the intra-class variance. This results in all the vessels and other darker areas showing as
@@ -292,7 +311,8 @@ such as the fovea. As a mask however, it clearly reduces the amount of false pos
 It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
 
 \begin{figure}[ht]
-{\par\centering
+\centering
+{
   \subfloat[]{
      \label{fig:vesselmask_adaptive}
      \includegraphics[width=0.45\textwidth]{vesselmask_adaptive}}
@@ -321,12 +341,13 @@ sets where there's high variation in color properties.
 
 The illumination and general color properties of the eye fundus images in Bristol database vary quite heavily.
 To be able to effectively use color features in teaching a classifier, the variance between image needs to be minimized.
-This is achieved by estimating the illuminant by applying the gray-world assumption ~\cite{Buchsbaum:1980}:
+This is achieved by estimating the illuminant by applying the gray-world assumption~\cite{Buchsbaum:1980}:
 \textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
 then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
 of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in Figure~\ref{fig:colortransform}.
 
 \begin{figure}[ht]
+\centering
 {
   \subfloat[]{
      \label{fig:original_010}
@@ -354,19 +375,20 @@ It perform the same operations on each image with the object of clustering the d
 
 Most edge detection methods are unsupervised algorithms. Edge is defined as a sharp change in image and color intensity, 
 and the purpose of an edge detection algorithm is to emphasize and detect those sharp changes in an image. In an eye fundus image,
-this would include the exudates, but also the borders of the blood vessels and optic disc. Edge detection as such isn't
-sufficient for exudate detection. These unwanted regions need to be subtracted from the initial result.
+this would include the exudates, but also the borders of the blood vessels and optic disc. As such, edge detection isn't
+sufficient for exudate detection since these unwanted regions need to be subtracted from the initial result. During this study,
+this is accomplished with the mask acquired in Section~\ref{subsec:vesselmask}.
 
-Edge: Kirsch Tophat Mehdi
+% Edge: Kirsch Tophat Mehdi
 
-Jaafar (kmeans?) ravishankar sauvola
+% Jaafar (kmeans?) ravishankar sauvola
 
 
 
 
 \subsection{Supervised methods}
 
-K-Nearest Neighbor /Naive-Bayes / Gaussian Mixture Model Bayes
+% K-Nearest Neighbor /Naive-Bayes / Gaussian Mixture Model Bayes
 
 Before a supervised method (or its classifier) can be used in classification, it needs to be trained. A specific training set
 of labeled images is used to teach the classifier. The method then extracts features from the training images, and generally forms a model
@@ -388,8 +410,8 @@ into false positives and false negatives. In this thesis, true positives are fin
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
 false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. %These terms are illustrated with
-%a error matrix shown in Table ~\ref{tab:truepositive}.
-
+% a error matrix shown in Table ~\ref{tab:truepositive}.
+% 
 % \begin{table}[hpt]
 % \begin{center}
 % \caption{General error matrix\label{tab:truepositive}}
@@ -410,7 +432,7 @@ false positives are classified as positive in results, when they are in fact bac
 
 There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
 describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
-such as sensitivity, specificity and precision (defined in ~\cite{Fawcett:2006}) were considered, but these were ignored as they
+such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
 tended to only describe one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
 would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
 and F-score were considered. These coefficients are defined as follows:
@@ -462,7 +484,7 @@ variation of feature distributions and an increase of false positives.
 
 \section{EXPERIMENTS AND RESULTS}
 \label{sec:experiments}
-\subsection{Retinal Image Databases}
+% \subsection{Retinal Image Databases}
 
 \subsection{The Ground Truth}
 
@@ -478,7 +500,8 @@ ground truth. Three different stages were created; one, three and five iteration
 The dilation was restricted to stay inside the inaccurate ground truth.
 
 \begin{figure}[ht]
-{\par\centering
+\centering
+{
   \subfloat[]{
      \label{fig:bristol_gt}
      \includegraphics[width=0.45\textwidth]{bristol_groundtruth}}
@@ -500,35 +523,35 @@ The original value of red channel and the contrast enhanced values of green and 
 For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
 
 
-\subsection{Experiment 2}
+% \subsection{Experiment 2}
 
-\section{DISCUSSION}
-\label{sec:discussion}
+% \section{DISCUSSION}
+% \label{sec:discussion}
 
-We have to discuss what we learned.
+% We have to discuss what we learned.
 
-Notice the automatic page breaks. 
+% Notice the automatic page breaks. 
 
-\subsection{Segmentation Results}
+% \subsection{Segmentation Results}
 
-\subsection{Sensitivity of Image Features}
+% \subsection{Sensitivity of Image Features}
 
-\subsection{Future Work}
+% \subsection{Future Work}
 
-Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
-todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
-It is always nice to give some ideas for the future.
+% Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
+% todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
+% It is always nice to give some ideas for the future.
 
-\section{CONCLUSIONS}
-\label{sec:conclusion}
+% \section{CONCLUSIONS}
+% \label{sec:conclusion}
 
-Finally the conclusions. This is more compact that the Discussion, a sort
-of summary about how things went on a general level.
+% Finally the conclusions. This is more compact that the Discussion, a sort
+% of summary about how things went on a general level.
 
-Now you can delete all this crap content and write your own. Have fun!
+% Now you can delete all this crap content and write your own. Have fun!
 
 
-\clearpage
+% \clearpage
 
 % Bibliography
 %
@@ -539,86 +562,86 @@ Now you can delete all this crap content and write your own. Have fun!
 
 
 %% ----------------------- APPENDICES ------------------------------
-\appendix
+% \appendix
 
 
-\section{Appendix Guidelines}
+% \section{Appendix Guidelines}
 
-The appendices part starts with the command \verb:\appendix:. Then, each
-appendix must be started with \verb:\section{Appendix Name}: and ended
-with \verb:\sectionend: to have the continues/continued markings right.
-For example, see the multi-page appendices after this one.
+% The appendices part starts with the command \verb:\appendix:. Then, each
+% appendix must be started with \verb:\section{Appendix Name}: and ended
+% with \verb:\sectionend: to have the continues/continued markings right.
+% For example, see the multi-page appendices after this one.
 
-\sectionend
-
-
-\section{Frame Schematics}
-\label{app:frame}
-
-This is an appendix. If you need more appendices, just make a new section
-here (the \texttt{section} command).
-
-\begin{figure}[htp]
-  {\par\centering
-  \includegraphics[width=0.95\textwidth]{exporesp}
-  \par}
-  \caption{Overall design, only one half drawn.}
-  \label{afig:frame1}
-\end{figure}
-
-huhu
-
-\begin{figure}[htp]
-  {\par\centering
-  \includegraphics[width=0.55\textwidth]{exporesp}
-  \par}
-  \caption{Another picture.}
-  \label{afig:frame2}
-\end{figure}
-
-Reference testing: Figures~\ref{afig:frame1}, \ref{afig:frame2}, and
-\ref{afig:frame3}. Table~\ref{atab:test}.
-
-\sectionend
+% \sectionend
 
 
-\section{The Second}
+% \section{Frame Schematics}
+% \label{app:frame}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-\begin{figure}[htp]
-  {\par\centering
-  \includegraphics[width=0.35\textwidth]{exporesp}
-  \par}
-  \caption{The same picture once more.}
-  \label{afig:frame3}
-\end{figure}
-
-\begin{table}[hpt]
-\begin{center}
-\caption{Appendix test table.\label{atab:test}}
-\begin{tabular}{|l|r|l|}
-\hline
-minimum distance & 10 & px \\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\newpage
-
-Aaand two more pages, to test the continues/continued marks.
+% This is an appendix. If you need more appendices, just make a new section
+% here (the \texttt{section} command).
+% 
+% \begin{figure}[htp]
+%   {\par\centering
+%   \includegraphics[width=0.95\textwidth]{exporesp}
+%   \par}
+%   \caption{Overall design, only one half drawn.}
+%   \label{afig:frame1}
+% \end{figure}
+% 
+% huhu
+% 
+% \begin{figure}[htp]
+%   {\par\centering
+%   \includegraphics[width=0.55\textwidth]{exporesp}
+%   \par}
+%   \caption{Another picture.}
+%   \label{afig:frame2}
+% \end{figure}
+% 
+% Reference testing: Figures~\ref{afig:frame1}, \ref{afig:frame2}, and
+% \ref{afig:frame3}. Table~\ref{atab:test}.
+% 
+% \sectionend
 
 
-\newpage
-
-Aaand one more page, to test the continues/continued marks.
-
-\sectionend
+% \section{The Second}
+% 
+% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+% 
+% \begin{figure}[htp]
+%   {\par\centering
+%   \includegraphics[width=0.35\textwidth]{exporesp}
+%   \par}
+%   \caption{The same picture once more.}
+%   \label{afig:frame3}
+% \end{figure}
+% 
+% \begin{table}[hpt]
+% \begin{center}
+% \caption{Appendix test table.\label{atab:test}}
+% \begin{tabular}{|l|r|l|}
+% \hline
+% minimum distance & 10 & px \\
+% \hline
+% \end{tabular}
+% \end{center}
+% \end{table}
+% 
+% \newpage
+% 
+% Aaand two more pages, to test the continues/continued marks.
+% 
+% 
+% \newpage
+% 
+% Aaand one more page, to test the continues/continued marks.
+% 
+% \sectionend
 
 \end{document}

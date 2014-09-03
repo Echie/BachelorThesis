@@ -1,0 +1,241 @@
+% $Name:  $
+% $Id: thesis.tex,v 1.18 2010/10/08 13:39:40 paalanen Exp $
+
+
+% The history of this template:
+% - unknown, original version
+% - Jarmo "trewas" Ilonen, masters thesis, 2003
+% - Pekka "PQ" Paalanen, information processing project, 2004,
+%     hints about graphicx and making PDF from Pasi Valminen
+% - Pekka "PQ" Paalanen, Master's thesis, 2006
+% - upgraded to pdflatex and 1.8.2010 thesis guidelines, 2010
+
+% useful links:
+% http://www.ctan.org/tex-archive/help/Catalogue/entries/grfguide.html
+% http://www.tug.org/applications/hyperref/
+
+
+\documentclass{lutmscthesis}[2010/09/22]
+%\documentclass[draft]{lutmscthesis}   % leave figures blank, faster
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,finnish]{babel}
+
+\usepackage{times}
+
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage[intlimits]{amsmath}
+
+% Ensure figure captions are below and table captions are above the content.
+\usepackage{float}
+\floatstyle{plain}\restylefloat{figure}
+\floatstyle{plaintop}\restylefloat{table}
+
+\usepackage[pdfborder={0 0 0}]{hyperref}
+%\usepackage[chapter]{algorithm}
+
+%           Hyperref rationale - or just pain in the butt
+%
+% Load 'float' package first, because that will fix problems with 'algorithm'
+% package interacting with hyperref.
+%
+% Hyperref must be the last package loaded, except...
+% Load 'algorithm' AFTER hyperref, otherwise \theHalgorithm is
+% undefined control sequence error appears.
+%
+% The TeXLive 2008 version of 'algorithmic' is buggy with hyperref.
+% Use this bundled, special, hand-fixed version of algorithmic.sty
+% instead. It is identified by version 2006/12/15.
+
+
+\graphicspath{{resources/}}                % Graphics search path
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\matr}[1]{\boldsymbol{#1}}
+\newcommand{\diag}[1]{\mathrm{diag}(#1)}
+\newcommand{\iprod}[1]{\left\langle #1 \right\rangle}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\md}{\mathrm{d}}
+\newcommand{\sse}{{}} %\mathrm{SSE}}
+\newcommand{\trace}{\mathrm{Tr}\:}
+\newcommand{\frp}[2]{{}^\mathrm{#1}\vect{#2}}
+\newcommand{\frs}[3]{{}^\mathrm{#1}#2_\mathrm{#3}}
+\newcommand{\frv}[3]{{}^\mathrm{#1}\vect{#2}_\mathrm{#3}}
+\newcommand{\frm}[3]{{}^\mathrm{#1}\matr{#2}_\mathrm{#3}}
+\newcommand{\colvec}[2]{\genfrac{[}{]}{0pt}{1}{#1}{#2}}
+\newcommand{\relphantom}[1]{\mathrel{\phantom{#1}}}
+
+% Thesis information
+\title{Sensitivity of retinal image segmentation on ground truth accuracy}
+\titlefin{Silmänpohjakuvien segmentoinnin herkkyys pohjamerkintöjen tarkkuudelle}
+\author{Teemu Huovinen}
+
+\Major{Degree Program in Computer Science}
+\Majorfin{Tietotekniikan koulutusohjelma}
+
+\Keywords{eye fundus, image segmentation, sensitivity analysis, ground truth}
+
+\Keywordsfin{silmänpohja, segmentointi, herkkyysanalyysi, pohjamerkintä}
+
+% For a single supervisor, \Supervisor{N.N.}
+% For multiple supervisors, \Supervisors{N.N.\\ K.K.}, that is,
+% use \\ to separate names.
+% the same with \Examiner{} or \Examiners{}
+\Supervisor{Lasse Lensu D.Sc. (Tech.)}
+\Examiners{Lasse Lensu D.Sc. (Tech.)}
+
+% The examiners for the Finnish abstract only.
+\Tarkastajat{TkT Lasse Lensu}
+
+% date of topic accepted in the council
+\AcceptDate{January 1\textsuperscript{st}, 2014}
+% date of signature
+\SignDate{July 3\textsuperscript{rd}}
+% Year in abstract pages
+\Year{2014}
+
+% Thesis statistics: figure, table and appendix counts, for abstracts
+\addtostats{, 13 figures, 1 table, and 2 appendices}
+\addtostatsfin{, 13 kuvaa, 1 taulukko ja 2 liitettä}
+
+\begin{document}
+\selectlanguage{english}
+
+\maketitle
+\newpage
+
+% These name-definitions must be after Babel langugage change
+% commands, as they redefine these.
+\renewcommand\refname{REFERENCES}
+\renewcommand\contentsname{CONTENTS}
+
+\pagestyle{masters}
+\newpage
+
+\tableofcontents
+
+% space between paragraphs
+\setlength{\parskip}{3ex}
+
+
+\section{INTRODUCTION}
+
+\subsection{Background}
+
+%Diabetes has established itself as a seemingly permanent, worldwide global problem. 
+The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
+motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
+complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
+is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, handmade annotations of the objects
+in the image are used as a ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
+ground truths are usually done by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
+
+Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
+done by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
+amount of time and patience, it is often necessary to have to settle for rough markings of the present abnormalities. Clusters of
+exudates are circled, rather than each small finding specified separately.
+
+\subsection{Objectives and Restrictions}
+
+This thesis will address two main questions in its research:
+\vspace{-5mm}
+\begin{itemize} \itemsep1pt \parskip0pt
+\parsep0pt
+  \item How will inaccurate ground truth affect features and segmentation methods?
+  \item How will other features than colour perform?
+\end{itemize}
+\vspace{-5mm}
+
+% The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
+% and segmentation methods. 
+
+This thesis focuses on exudate detection in terms of segmentation performance, and Bristol database is used as it is 
+readily available and has accurate ground truths of exudates. To enable comparison between features, colour, edge and
+texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
+disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored for context.
+
+Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used to label
+observations as either exudate or background. In unsupervised methods, ground truth is used to evaluate segmentation
+results. Best parameters for each method are chosen based on their performance.
+
+\subsection{Structure of the Thesis}
+
+Section 2 takes a look at the different features
+of the eye fundus, and how they are relevant in this thesis.
+It also explains the theory behind the applied pre-processing
+and segmentation methods.
+Section 3 details how sensitivity analysis is 
+done in this thesis, and also explains the used evaluation methods.
+Section 4 describes the experiments in detail,
+and presents the results for each experiment.
+Section 5 sums up and interprets the results, and
+discusses the impact of this thesis and possible future work this thesis
+might invoke.
+
+
+\section{LITERATURE REVIEW}
+
+During this thesis, the following books will be used:
+
+\vspace{-5mm}
+\begin{itemize} \itemsep1pt \parskip0pt
+\parsep0pt
+  \item Kauppi: Eye Fundus Image Analysis For Automatic Detection of Diabetic Retinopathy (doctoral thesis)
+  \item Jain: Fundamentals of Digital Image Processing
+\end{itemize}
+\vspace{-5mm}
+
+Scientific articles will be sought out from databases dedicated to publishing them, such as:
+
+\vspace{-5mm}
+\begin{itemize} \itemsep1pt \parskip0pt
+ \parsep0pt
+  \item IEEE Xplore
+  \item Science Direct
+  \item Springer
+\end{itemize}
+\vspace{-5mm}
+
+Most literature used in this thesis will be scientific articles concerning methods of eye fundus segmentation,
+focusing on exudate detection. A medical publication describing the structure of the eye will also be sought out.
+
+
+\section{METHODS OF STUDY}
+
+Reserach was done by first evaluating possible segmentation methods, both supervised and unsupervised. From these,
+the methods best suited for our purpose were chosen for implementation. Sensitivity analysis of segmentation methods was done by evaluating the 
+performance of these methods using ground truths of varying accuracy. This also indirectly sheds some light on sensitivity of specific features.
+
+The tests and computations needed for this thesis were conducted during the summer for the Laboratory of 
+Machine Vision and Pattern Recognition. During the summer, an image segmentation pipeline was constructed
+for evaluation of segmentation methods using varying image and ground truth data. This thesis will be written 
+based on the results and observations gathered from these tests.
+
+\section{SCHEDULE}
+
+During the summer, the segmentation pipeline was constructed and initial results were obtained with the following schedule:
+
+\vspace{-5mm}
+\begin{itemize} \itemsep1pt \parskip0pt
+ \parsep0pt
+  \item In June, literature review and the assessment of possible segmentation methods were conducted.
+  \item In July, the construction of the image segmentation pipeline was focused on.
+  \item In August, the pipeline was used to conduct sensitivity analysis on segmentation methods and specific features.
+\end{itemize}
+\vspace{-5mm}
+
+Parts of the thesis were also written during the summer.
+In the following semester of September to December, the missing parts of the thesis will be completed.
+
+% \clearpage
+
+% Bibliography
+%
+%% This must be here, not in preamble, if you want it to work
+\addcontentsline{toc}{section}{REFERENCES}
+\bibliography{resources/thesis}
+
+\end{document}
