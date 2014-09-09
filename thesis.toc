@@ -10,13 +10,14 @@
 \contentsline {subsection}{\numberline {2.1}Structure of the eye fundus}{9}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Optic disc detection}{10}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Blood vessel detection}{10}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Color transform}{11}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Unsupervised methods}{13}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.4}Color transform}{12}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Unsupervised methods}{14}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Supervised methods}{14}{subsection.2.6}
-\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{15}{section.3}
-\contentsline {subsection}{\numberline {3.1}Evaluation methods}{15}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Effects of inaccurate ground truth}{16}{subsection.3.2}
-\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{17}{section.4}
-\contentsline {subsection}{\numberline {4.1}The Ground Truth}{17}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Experiment 1}{18}{subsection.4.2}
-\contentsline {section}{REFERENCES}{18}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {2.6.1}Bayesian classification using Gaussian Mixture Models}{14}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Naive Bayes}{14}{subsubsection.2.6.2}
+\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{16}{section.3}
+\contentsline {subsection}{\numberline {3.1}Evaluation methods}{16}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Effects of inaccurate ground truth}{17}{subsection.3.2}
+\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{18}{section.4}
+\contentsline {subsection}{\numberline {4.1}The Ground Truth}{18}{subsection.4.1}
+\contentsline {section}{REFERENCES}{18}{figure.5}

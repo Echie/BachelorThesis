@@ -1,10 +1,20 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Kauppi:2010}
 Tomi Kauppi et~al.
 \newblock {\em Eye fundus image analysis for automatic detection of diabetic
   retinopathy}.
 \newblock Lappeenranta University of Technology, 2010.
+
+\bibitem{Wandell:1995}
+Brian~A Wandell.
+\newblock {\em Foundations of vision.}
+\newblock Sinauer Associates, 1995.
+
+\bibitem{Kolb}
+Helga Kolb.
+\newblock {\em Simple Anatomy of the Retina url:
+  http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the-retina/}.
 
 \bibitem{Sekhar:2008}
 Sribalamurugan Sekhar, Waleed Al-Nuaimy, and Asoke~K Nandi.
@@ -18,6 +28,26 @@ Thomas Walter, J-C Klein, Pascale Massin, and Ali Erginay.
   retinopathy-detection of exudates in color fundus images of the human retina.
 \newblock {\em Medical Imaging, IEEE Transactions on}, 21(10):1236--1243, 2002.
 
+\bibitem{Zana:1999}
+Fr{\'e}d{\'e}ric Zana and Jean-Claude Klein.
+\newblock A multimodal registration algorithm of eye fundus images using
+  vessels detection and hough transform.
+\newblock {\em Medical Imaging, IEEE Transactions on}, 18(5):419--428, 1999.
+
+\bibitem{Staal:2004}
+Joes Staal, Michael~D Abr{\`a}moff, Meindert Niemeijer, Max~A Viergever, and
+  Bram van Ginneken.
+\newblock Ridge-based vessel segmentation in color images of the retina.
+\newblock {\em Medical Imaging, IEEE Transactions on}, 23(4):501--509, 2004.
+
+\bibitem{Niemeijer:2004}
+Meindert Niemeijer, Joes Staal, Bram van Ginneken, Marco Loog, and Michael~D
+  Abramoff.
+\newblock Comparative study of retinal vessel segmentation methods on a new
+  publicly available database.
+\newblock In {\em Medical Imaging 2004}, pages 648--656. International Society
+  for Optics and Photonics, 2004.
+
 \bibitem{Reza:2004}
 Ali~M Reza.
 \newblock Realization of the contrast limited adaptive histogram equalization
@@ -30,14 +60,29 @@ Nobuyuki Otsu.
 \newblock A threshold selection method from gray-level histograms.
 \newblock {\em Automatica}, 11(285-296):23--27, 1975.
 
+\bibitem{Foster:2011}
+David~H Foster.
+\newblock Color constancy.
+\newblock {\em Vision research}, 51(7):674--700, 2011.
+
 \bibitem{Buchsbaum:1980}
 Gershon Buchsbaum.
 \newblock A spatial processor model for object colour perception.
 \newblock {\em journal of the Franklin institute}, 310(1):1--26, 1980.
 
+\bibitem{Murphy:2006}
+Kevin~P Murphy.
+\newblock Naive bayes classifiers.
+\newblock {\em University of British Columbia}, 2006.
+
 \bibitem{Fawcett:2006}
 Tom Fawcett.
 \newblock An introduction to roc analysis.
 \newblock {\em Pattern recognition letters}, 27(8):861--874, 2006.
+
+\bibitem{Dice:1945}
+Lee~R Dice.
+\newblock Measures of the amount of ecologic association between species.
+\newblock {\em Ecology}, 26(3):297--302, 1945.
 
 \end{thebibliography}

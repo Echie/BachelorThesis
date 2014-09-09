@@ -136,10 +136,12 @@
 
 \begin{preface}
 
-This thesis was done as a part of my computer science degree in Lappeenranta University of Technology,
-and as a report for my summer internship at the Laboratory of Machine Vision and Pattern Recognition.
-I would like to thank my supervisor Lasse Lensu for giving me this opportunity and for his extensive support
-and guidance.
+I would like to thank the Laboratory of Machine Vision and Pattern Recognition of Lappeenranta University of Technology
+for giving me this opportunity to carry out my research. I would like to give special thanks to D.Sc. Lasse Lensu for 
+the endless guidance and support during my summers as an intern.
+
+I would like to thank University of Bristol for their retinal image database and its accurate ground truth data,
+which was extensively used in this thesis.
 
 \
 
@@ -183,24 +185,35 @@ Lappeenranta, October 19th, 2014
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
 The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
-motivate the research for an effective mass screening method for monitoring and early detection of diabetes. Diabetic retinopathy
-is a complication of diabetes that causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
-is a promising mass screening method. Images where ophthalmologists have marked these abnormalities, such as
-exudates, are used as ground truths in eye fundus image segmentation research.
+motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
+complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
+is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, handmade annotations of the objects
+in the image are used as a ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
+ground truths are usually done by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
 
 Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
-done by a human hand, such accuracy is unrealistic. Because the marking of an accurate ground truth takes a good
-amount of time and patience, we often have to settle for rough markings of the present abnormalities. Clusters of
+done by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
+amount of time and patience, it is often necessary to have to settle for rough markings of the present abnormalities. Clusters of
 exudates are circled, rather than each small finding specified separately.
 
 \subsection{Objectives and Restrictions}
 
-The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
-and segmentation methods. Structure of the eye fundus is briefly explored for context.
+This thesis will address two main questions in its research:
+\vspace{-5mm}
+\begin{itemize} \itemsep1pt \parskip0pt
+\parsep0pt
+  \item How will inaccurate ground truth affect features and segmentation methods?
+  \item How will other features than colour perform?
+\end{itemize}
+\vspace{-5mm}
 
-Ground truth accuracy is explored only from the perspective of exudate detection, and Bristol database is used as it has
-accurate ground truths of exudates. Blood vessel detection is explored only to create a mask for them. A rough method
-for optic disk detection is also implemented as a preprocessing step for masking reasons.
+% The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
+% and segmentation methods. 
+
+This thesis focuses on exudate detection in terms of segmentation performance, and Bristol database is used as it is 
+readily available and has accurate ground truths of exudates. To enable comparison between features, colour, edge and
+texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
+disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored for context.
 
 Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used to label
 observations as either exudate or background. In unsupervised methods, ground truth is used to evaluate segmentation
@@ -225,26 +238,45 @@ and presents the results for each experiment.
 
 \subsection{Structure of the eye fundus}
 The function of the human eye on an abstract level can be compared to a camera. Light reflected from an object passes through the cornea,
-pupil and lens and is focused on the retina (the inner part of the eye). It is then processed by light sensitive
-cells and then transmitted to the brain via the optic nerve. Rather than covering the eye as a whole, this chapter will focus on
-the structure of the eye fundus.
+pupil and lens and is focused on the retina (the inner part of the eye). It is then processed by photoreceptors and then transmitted to 
+the brain via the optic nerve.~\cite{Wandell:1995} Rather than covering the eye as a whole, this chapter will focus on the structure of the eye fundus.
 
-The eye fundus is the area located in the retina, the interior wall of the ''backside'' of the eye. Its
-most noticeable parts are the optic disk, the macula (and fovea), and the arteries. Macula is a highly light sensitive area
-in the central region of the retina. Fovea is a round area located in the macula, where almost all the cells sensitive to
-color and fine detail (called cones) are found.
+The eye fundus is the area located in the retina, at the very back of the eye. The location of the eye fundus is illustrated in
+Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the arteries. Macula is a
+highly light sensitive area in the central region of the retina. Fovea is a round area located in the macula, which is densely
+populated by cones (cells sensitive to color).~\cite{Kolb}
 
 Optic disc is where the optic nerve and main arteries connect with the eye. There are no light sensitive cells inside the
 optic disc, which creates a blind spot in the retina. Arteries inside the eye together with the choroid (vascular layer
-surrounding the retina) provide nutritional support to the eye~\cite{Kauppi:2010}. These parts of the eye fundus
+surrounding the retina) provide nutritional support to the eye.~\cite{Kauppi:2010} These parts of the eye fundus
 are illustrated in Figure~\ref{fig:healthyeyefundus}.
 
+% \begin{figure}[ht]
+% \centering 
+% { \includegraphics[width=0.7\textwidth]{healthyeyefundus} }    
+%   \caption[moving]{Structure of the eye fundus
+%   \label{fig:healthyeyefundus}}
+% \end{figure}
+
+
 \begin{figure}[ht]
-\centering 
-{ \includegraphics[width=0.7\textwidth]{healthyeyefundus} }    
-  \caption[moving]{Structure of the eye fundus
-  \label{fig:healthyeyefundus}}
-\end{figure}
+\centering
+{
+  \subfloat[]{
+    \label{fig:cross_section_eye}
+    \includegraphics[width=0.5\textwidth]{cross_section_eye}}
+    \subfloat[]{
+    \label{fig:healthyeyefundus}
+    \includegraphics[width=0.5\textwidth]{healthyeyefundus}}
+     
+  \caption[moving]{Structure of the human eye
+  \subref{fig:cross_section_eye} Cross section of the eye (modified from~\cite{Kolb})
+  \subref{fig:healthyeyefundus} Structure of the fundus
+  
+  
+  \label{fig:eyestructure}}
+}\end{figure}
+
 
 
 \subsection{Optic disc detection}
@@ -256,7 +288,7 @@ and it is also covered in papers concerning the detection of other parts of the 
 fundus, such as exudates~\cite{Walter:2002}.
 
 This method is based on the brightness of the optic disk, and the vertical blood vessels inside it.
-The horizontal image gradient is calculated using Sobel gradient operator, the result is shown in 
+The horizontal image gradient is calculated using Sobel operator, the result is shown in 
 Figure~\ref{fig:opticdisk_gradient}. Image is then divided into slightly overlapping square 
 areas with a side of 140 pixels (size is adjusted when operating close to image borders). The area
 with the highest sum of gradients is considered as region of interest, i.e. to hold the optic disk.
@@ -294,11 +326,13 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 \subsection{Blood vessel detection}
 \label{subsec:vesselmask}
 
-The purpose of blood vessel detection in this thesis is to create a mask, and to use that mask to remove false
+The issue of blood vessel detection in fundus images has been a popular topic of research~\cite{Zana:1999}~\cite{Staal:2004}~\cite{Niemeijer:2004}. 
+In the context of this thesis, however, the purpose of blood vessel detection is to create a mask, and to use that mask to remove false
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
-borders of vessels as well as exudates.
+borders of vessels as well as exudates. For this purpose, accurate vessel detection itself is not important and
+including other dark areas of the image is even beneficial.
 
-The mask is formed by first using contrast limited adaptive histogram equalization (CLAHE)~\cite{Reza:2004} to enhance
+The mask is formed by first using CLAHE (contrast limited adaptive histogram equalization)~\cite{Reza:2004} to enhance
 contrast in the green channel of the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This
 contrast enhanced image is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground
 and background by minimizing the intra-class variance. This results in all the vessels and other darker areas showing as
@@ -325,7 +359,7 @@ It also doesn't remove true positives, as only the darker areas of the image are
      \label{fig:vesselmask_complement}
      \includegraphics[width=0.45\textwidth]{vesselmask_complement}}
 
-  \caption[moving]{Phases in creating the blood vessel mask:
+  \caption[moving]{Creating the blood vessel mask:
   \subref{fig:vesselmask_adaptive} CLAHE
   \subref{fig:vesselmask_threshold} Thresholding using Otsu's method
   \subref{fig:vesselmask_complement} Final mask, complement of thresholded image}
@@ -334,7 +368,7 @@ It also doesn't remove true positives, as only the darker areas of the image are
 
 \subsection{Color transform}
 
-The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color. This is why
+The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color~\cite{Foster:2011}. This is why
 a red chair will look (more or less) red in the sun and in the moonlight. In contrast, an image of an object taken under different
 light sources is perceived differently in terms of color by a computer. This is why color features need to be normalized in image
 sets where there's high variation in color properties.
@@ -381,7 +415,7 @@ this is accomplished with the mask acquired in Section~\ref{subsec:vesselmask}.
 
 % Edge: Kirsch Tophat Mehdi
 
-% Jaafar (kmeans?) ravishankar sauvola
+% Jaafar ravishankar sauvola
 
 
 
@@ -396,9 +430,27 @@ for each used label. For example, to describe a fruit you might use its color an
 fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
 yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
+\subsubsection{Bayesian classification using Gaussian Mixture Models}
 
+\subsubsection{Naive Bayes}
 
+Naive Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
+contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naive Bayes classifier
+uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
 
+The Naive Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
+classifies the sample to the class with the highest posterior probability.
+In the case of binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
+is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
+
+\begin{equation}\label{eq:naivebayes}
+\begin{split}
+p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\overline{x}|C_2)}
+\end{split}
+\end{equation}
+
+where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
+denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
 \section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
 \label{sec:sensitivity}
@@ -409,7 +461,7 @@ In evaluation, correctly classified samples can be split into true positives and
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
-false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. %These terms are illustrated with
+false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}.% These terms are illustrated with
 % a error matrix shown in Table ~\ref{tab:truepositive}.
 % 
 % \begin{table}[hpt]
@@ -433,8 +485,8 @@ false positives are classified as positive in results, when they are in fact bac
 There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
 describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
 such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
-tended to only describe one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
+only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
 and F-score were considered. These coefficients are defined as follows:
 
 \begin{equation}\label{eq:dice}
@@ -442,13 +494,13 @@ and F-score were considered. These coefficients are defined as follows:
 Dice = \frac{2|A\cap B|}{|A| + |B|}
 \end{split}
 \end{equation}
-
+\vspace{-2mm}
 \begin{equation}\label{eq:jaccard}
 \begin{split}
 Jaccard = \frac{|A\cap B|}{|A\cup B|}
 \end{split}
 \end{equation}
-
+\vspace{-2mm}
 \begin{equation}\label{eq:fscore}
 \begin{split}
 F-score = \frac{2PR}{P + R}
@@ -509,18 +561,21 @@ The dilation was restricted to stay inside the inaccurate ground truth.
      \label{fig:inaccurate_gt}
      \includegraphics[width=0.45\textwidth]{inaccurate_groundtruth}}
      
-
-  \caption[moving]{Original accurate ground truth on the left, inaccurate ground truth on the right}
+  \caption[moving]{Ground truths:
+  \subref{fig:bristol_gt} Original accurate ground truth
+  \subref{fig:inaccurate_gt} Inaccurate ground truth }
   \label{fig:groundtruth}
+
 }\end{figure}
 
-\subsection{Experiment 1}
 
-First experiment was done with minimal preprocessing; only the green timestamp was removed.
-In unsupervised methods, the mask described in Section~\ref{subsec:vesselmask} was used to reduce the amount of false positives.
-In supervised methods, features describing color values and the presence of edges were used.
-The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
-For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
+% \subsection{Experiment 1}
+% 
+% First experiment was done with minimal preprocessing; only the green timestamp was removed.
+% In unsupervised methods, the mask described in Section~\ref{subsec:vesselmask} was used to reduce the amount of false positives.
+% In supervised methods, features describing color values and the presence of edges were used.
+% The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
+% For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
 
 
 % \subsection{Experiment 2}
