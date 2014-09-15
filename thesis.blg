@@ -5,45 +5,45 @@ The style file: unsrt.bst
 Database file #1: resources/thesis.bib
 Warning--empty publisher in Kolb
 Warning--empty year in Kolb
-You've used 15 entries,
+You've used 18 entries,
             1791 wiz_defined-function locations,
-            559 strings with 6021 characters,
-and the built_in function-call counts, 3509 in all, are:
-= -- 337
-> -- 111
-< -- 2
-+ -- 45
-- -- 30
-* -- 234
-:= -- 536
-add.period$ -- 46
-call.type$ -- 15
-change.case$ -- 12
+            579 strings with 6557 characters,
+and the built_in function-call counts, 4280 in all, are:
+= -- 414
+> -- 134
+< -- 3
++ -- 54
+- -- 36
+* -- 277
+:= -- 645
+add.period$ -- 56
+call.type$ -- 18
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 163
-empty$ -- 362
-format.name$ -- 30
-if$ -- 787
+cite$ -- 20
+duplicate$ -- 203
+empty$ -- 443
+format.name$ -- 36
+if$ -- 971
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 18
-newline$ -- 77
-num.names$ -- 15
-pop$ -- 47
+int.to.str$ -- 18
+missing$ -- 22
+newline$ -- 92
+num.names$ -- 18
+pop$ -- 61
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 68
+skip$ -- 88
 stack$ -- 0
-substring$ -- 282
-swap$ -- 37
-text.length$ -- 2
+substring$ -- 339
+swap$ -- 50
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 39
-width$ -- 17
-write$ -- 162
+while$ -- 47
+width$ -- 20
+write$ -- 195
 (There were 2 warnings)

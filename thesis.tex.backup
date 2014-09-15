@@ -172,6 +172,7 @@ Lappeenranta, October 19th, 2014
 \textbf{FPR} & False Positive Rate\\
 \textbf{FNR} & False Negative Rate\\
 \textbf{CLAHE} & Contrast Limited Adaptive Histogram Equalization\\
+\textbf{GMM} & Gaussian Mixture Model\\
 \end{tabular}
 
 
@@ -280,7 +281,7 @@ are illustrated in Figure~\ref{fig:healthyeyefundus}.
 
 
 \subsection{Optic disc detection}
-
+\label{subsec:opticdisc}
 Optic disc is very similar to exudates in terms of color and intensity, so detection
 and masking of the optic disk is an important preprocessing step in exudate detection.
 There are papers dedicated to the localisation of the optic disk~\cite{Sekhar:2008},
@@ -368,10 +369,9 @@ It also doesn't remove true positives, as only the darker areas of the image are
 
 \subsection{Color transform}
 
-The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color~\cite{Foster:2011}. This is why
-a red chair will look (more or less) red in the sun and in the moonlight. In contrast, an image of an object taken under different
-light sources is perceived differently in terms of color by a computer. This is why color features need to be normalized in image
-sets where there's high variation in color properties.
+The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color~\cite{Foster:2011}.
+In contrast, an image of an object taken under different light sources is perceived differently in terms of color by a computer.
+This is why color features need to be normalized in image sets where there's high variation in color properties.
 
 The illumination and general color properties of the eye fundus images in Bristol database vary quite heavily.
 To be able to effectively use color features in teaching a classifier, the variance between image needs to be minimized.
@@ -404,33 +404,94 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 
 \subsection{Unsupervised methods}
 
-An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
-It perform the same operations on each image with the object of clustering the data into meaningful sets.
+% An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
+% It perform the same operations on each image with the object of clustering the data into meaningful sets.
+% 
+% Most edge detection methods are unsupervised algorithms. Edge is defined as a sharp change in image and color intensity, 
+% and the purpose of an edge detection algorithm is to emphasize and detect those sharp changes in an image. In an eye fundus image,
+% this would include the exudates, but also the borders of the blood vessels and optic disc. As such, edge detection isn't
+% sufficient for exudate detection since these unwanted regions need to be subtracted from the initial result. During this study,
+% this is accomplished with the mask acquired in Section~\ref{subsec:vesselmask}.
 
-Most edge detection methods are unsupervised algorithms. Edge is defined as a sharp change in image and color intensity, 
-and the purpose of an edge detection algorithm is to emphasize and detect those sharp changes in an image. In an eye fundus image,
-this would include the exudates, but also the borders of the blood vessels and optic disc. As such, edge detection isn't
-sufficient for exudate detection since these unwanted regions need to be subtracted from the initial result. During this study,
-this is accomplished with the mask acquired in Section~\ref{subsec:vesselmask}.
+\subsubsection{Kirsch operator}
 
-% Edge: Kirsch Tophat Mehdi
+Edge detection operators that only detect gradients in specified directions are called compass operators.
+Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.
+~\cite{Jain:1989} It is defined as:
 
-% Jaafar ravishankar sauvola
+\[
+K_1...K_8, K_1 = \begin{bmatrix}
+  5 & 5 & 5 \\
+ -3 & 0 &-3 \\
+ -3 &-3 &-3 
+\end{bmatrix}
+K_2 = \begin{bmatrix}
+  5 & 5 &-3 \\
+  5 & 0 &-3 \\
+ -3 &-3 &-3 
+\end{bmatrix}
+K_3 = \begin{bmatrix}
+  5 &-3 &-3 \\
+  5 & 0 &-3 \\
+  5 &-3 &-3 
+\end{bmatrix}
+
+\]      
+and so on
+     
+     
+     
+\subsubsection{Morphological operations}
+
+Mathematical morphology operations use a structuring element to perform an operation on an input image.
+Most morphology operations are based the two basic morphological operations, dilation and erosion.
+Top-hat transform is an operation that highlights bright areas in an image, where as bottom-hat
+(also known as black top-hat) operation highlights the dim areas of an image.~\cite{Bai:2012}
+These transforms are defined as follows:
+\vspace{-2mm}
+\begin{equation}\label{eq:tophat}
+\begin{split}
+TopHat(f) = f - (f \circ B)
+\end{split}
+\end{equation}
+\vspace{-25mm}
+
+\begin{equation}\label{eq:bottomhat}
+\begin{split}
+BottomHat(f) = (f \bullet B) - f
+\end{split}
+\end{equation}
+\vspace{-12mm}
 
 
+where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
+denotes the closing operation. Opening and closing are operations based on dilation and erosion, and they are defined in~\cite{Bai:2012}.
 
+The exudate detection method proposed in~\cite{Eadgahi:2012} was also implemented, except for the optic disc detection, for which 
+the method described in~\ref{subsec:opticdisc} was used. The method is designed to use top-hat operation to highlight the exudates, 
+and bottom-hat operation to highlight and ultimately remove dim areas, e.g vessels from the results. The method is defined as follows:
+
+\vspace{-12mm}
+\begin{equation}\label{eq:mehdi}
+\begin{split}
+F(f) = TopHat(f) - BottomHat(f)
+\end{split}
+\end{equation}
+\vspace{-10mm}
+
+where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
+During the computations performed for this thesis, thresholding is applied after these operations even though
+it is not mentioned in~\cite{Eadgahi:2012}.
 
 \subsection{Supervised methods}
 
-% K-Nearest Neighbor /Naive-Bayes / Gaussian Mixture Model Bayes
+% Before a supervised method (or its classifier) can be used in classification, it needs to be trained. A specific training set
+% of labeled images is used to teach the classifier. The method then extracts features from the training images, and generally forms a model
+% for each used label. For example, to describe a fruit you might use its color and shape. You ''teach'' the method what each
+% fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
+% yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
-Before a supervised method (or its classifier) can be used in classification, it needs to be trained. A specific training set
-of labeled images is used to teach the classifier. The method then extracts features from the training images, and generally forms a model
-for each used label. For example, to describe a fruit you might use its color and shape. You ''teach'' the method what each
-fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
-yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
-
-\subsubsection{Bayesian classification using Gaussian Mixture Models}
+\subsubsection{Gaussian Mixture Models}
 
 \subsubsection{Naive Bayes}
 

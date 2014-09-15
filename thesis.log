@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  5 SEP 2014 14:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  15 SEP 2014 13:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -509,90 +509,90 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 ] [6
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 205.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 206.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 205.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 206.
  [7
 
 ] [8]
-<resources/cross_section_eye.png, id=155, 299.1978pt x 243.7908pt>
+<resources/cross_section_eye.png, id=166, 299.1978pt x 243.7908pt>
 File: resources/cross_section_eye.png Graphic file (type png)
 
 <use resources/cross_section_eye.png>
-Package pdftex.def Info: resources/cross_section_eye.png used on input line 267
+Package pdftex.def Info: resources/cross_section_eye.png used on input line 268
 .
 (pdftex.def)             Requested size: 213.39568pt x 173.8813pt.
 
-<resources/healthyeyefundus.png, id=157, 1606.0pt x 1220.56pt>
+<resources/healthyeyefundus.png, id=168, 1606.0pt x 1220.56pt>
 File: resources/healthyeyefundus.png Graphic file (type png)
 
 <use resources/healthyeyefundus.png>
-Package pdftex.def Info: resources/healthyeyefundus.png used on input line 270.
+Package pdftex.def Info: resources/healthyeyefundus.png used on input line 271.
 
 (pdftex.def)             Requested size: 213.39568pt x 162.17972pt.
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 267--271
+Overfull \hbox (9.0pt too wide) in paragraph at lines 268--272
  [][][][] 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 277.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 278.
 [9
 
  <./resources/cross_section_eye.png> <./resources/healthyeyefundus.png>]
-<resources/OP_gradient.png, id=181, 542.025pt x 538.01pt>
+<resources/OP_gradient.png, id=191, 542.025pt x 538.01pt>
 File: resources/OP_gradient.png Graphic file (type png)
 
 <use resources/OP_gradient.png>
-Package pdftex.def Info: resources/OP_gradient.png used on input line 308.
+Package pdftex.def Info: resources/OP_gradient.png used on input line 309.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_ROI.png, id=182, 542.025pt x 538.01pt>
+<resources/OP_ROI.png, id=192, 542.025pt x 538.01pt>
 File: resources/OP_ROI.png Graphic file (type png)
 
 <use resources/OP_ROI.png>
-Package pdftex.def Info: resources/OP_ROI.png used on input line 311.
+Package pdftex.def Info: resources/OP_ROI.png used on input line 312.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/OP_masked.png, id=183, 542.025pt x 538.01pt>
+<resources/OP_masked.png, id=193, 542.025pt x 538.01pt>
 File: resources/OP_masked.png Graphic file (type png)
 
 <use resources/OP_masked.png>
-Package pdftex.def Info: resources/OP_masked.png used on input line 316.
+Package pdftex.def Info: resources/OP_masked.png used on input line 317.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [10]
-<resources/vesselmask_adaptive.png, id=214, 542.025pt x 538.01pt>
+<resources/vesselmask_adaptive.png, id=224, 542.025pt x 538.01pt>
 File: resources/vesselmask_adaptive.png Graphic file (type png)
 
 <use resources/vesselmask_adaptive.png>
 Package pdftex.def Info: resources/vesselmask_adaptive.png used on input line 3
-52.
+53.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_threshold.png, id=215, 542.025pt x 538.01pt>
+<resources/vesselmask_threshold.png, id=225, 542.025pt x 538.01pt>
 File: resources/vesselmask_threshold.png Graphic file (type png)
 
 <use resources/vesselmask_threshold.png>
 Package pdftex.def Info: resources/vesselmask_threshold.png used on input line 
-355.
+356.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/vesselmask_complement.png, id=216, 542.025pt x 538.01pt>
+<resources/vesselmask_complement.png, id=226, 542.025pt x 538.01pt>
 File: resources/vesselmask_complement.png Graphic file (type png)
 
 <use resources/vesselmask_complement.png>
 Package pdftex.def Info: resources/vesselmask_complement.png used on input line
- 360.
+ 361.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [11 <./resources/OP_gradient.png (PNG copy)> <./resources/OP_ROI.png (PNG copy
 )> <./resources/OP_masked.png (PNG copy)>] [12 <./resources/vesselmask_adaptive
 .png (PNG copy)> <./resources/vesselmask_threshold.png (PNG copy)> <./resources
-/vesselmask_complement.png (PNG copy)>] <resources/original_010.png, id=238, 54
+/vesselmask_complement.png (PNG copy)>] <resources/original_010.png, id=248, 54
 2.025pt x 538.01pt>
 File: resources/original_010.png Graphic file (type png)
 
@@ -600,21 +600,21 @@ File: resources/original_010.png Graphic file (type png)
 Package pdftex.def Info: resources/original_010.png used on input line 388.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/color_010.png, id=239, 542.025pt x 538.01pt>
+<resources/color_010.png, id=249, 542.025pt x 538.01pt>
 File: resources/color_010.png Graphic file (type png)
 
 <use resources/color_010.png>
 Package pdftex.def Info: resources/color_010.png used on input line 391.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/original_011.png, id=240, 542.025pt x 538.01pt>
+<resources/original_011.png, id=250, 542.025pt x 538.01pt>
 File: resources/original_011.png Graphic file (type png)
 
 <use resources/original_011.png>
 Package pdftex.def Info: resources/original_011.png used on input line 395.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/color_011.png, id=241, 542.025pt x 538.01pt>
+<resources/color_011.png, id=251, 542.025pt x 538.01pt>
 File: resources/color_011.png Graphic file (type png)
 
 <use resources/color_011.png>
@@ -622,23 +622,72 @@ Package pdftex.def Info: resources/color_011.png used on input line 398.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [13 <./resources/original_010.png (PNG copy)> <./resources/color_010.png (PNG 
 copy)> <./resources/original_011.png (PNG copy)> <./resources/color_011.png (PN
-G copy)>] [14] [15] [16
+G copy)>]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.438 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Display math should end with $$.
+<to be read again> 
+                   \par 
+l.438 
+      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.439 \]
+        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.439 \]
+        
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.439 \]
+        
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+[14] [15] [16
 
 ] [17]
-<resources/bristol_groundtruth.png, id=287, 542.025pt x 538.01pt>
+<resources/bristol_groundtruth.png, id=313, 542.025pt x 538.01pt>
 File: resources/bristol_groundtruth.png Graphic file (type png)
 
 <use resources/bristol_groundtruth.png>
-Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 5
-59.
+Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 6
+18.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/inaccurate_groundtruth.png, id=288, 542.025pt x 538.01pt>
+<resources/inaccurate_groundtruth.png, id=314, 542.025pt x 538.01pt>
 File: resources/inaccurate_groundtruth.png Graphic file (type png)
 
 <use resources/inaccurate_groundtruth.png>
 Package pdftex.def Info: resources/inaccurate_groundtruth.png used on input lin
-e 562.
+e 621.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  (./thesis.bbl [18
 
@@ -660,35 +709,41 @@ atomy-of-the-
 ]) 
 AED: lastpage setting LastPage
 [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 702.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 702.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 761.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 761.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 702.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 702.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 761.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 761.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0EC45D6318BEAD4E0DEB3DAD0DC4575E;1324.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 702.
+(rerunfilecheck)             Checksum: DBA9A75D52BBC4C8444207C8BF7B901D;1453.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 761.
  ) 
 Here is how much of TeX's memory you used:
- 8564 strings out of 494465
- 127841 string characters out of 6166361
- 224448 words of memory out of 5000000
- 11575 multiletter control sequences out of 15000+600000
+ 8581 strings out of 494465
+ 128089 string characters out of 6166361
+ 225750 words of memory out of 5000000
+ 11584 multiletter control sequences out of 15000+600000
  33328 words of font info for 45 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  41i,16n,47p,296b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (20 pages, 4770481 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (20 pages, 4790857 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
