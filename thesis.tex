@@ -173,6 +173,7 @@ Lappeenranta, October 19th, 2014
 \textbf{FNR} & False Negative Rate\\
 \textbf{CLAHE} & Contrast Limited Adaptive Histogram Equalization\\
 \textbf{GMM} & Gaussian Mixture Model\\
+\textbf{pdf} & Probability Density Function\\
 \end{tabular}
 
 
@@ -419,25 +420,25 @@ Edge detection operators that only detect gradients in specified directions are 
 Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
 It is defined as:
 
-\[
-K_1 = \begin{bmatrix}
-  5 & 5 & 5 \\
- -3 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}
-K_2 = \begin{bmatrix}
-  5 & 5 &-3 \\
-  5 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix} 
-... K_8 = \begin{bmatrix}
- -3 & 5 & 5 \\
- -3 & 0 & 5 \\
- -3 &-3 &-3 
-\end{bmatrix}
-
-\]      
-\vspace{-20mm}
+% \[
+% K_1 = \begin{bmatrix}
+%   5 & 5 & 5 \\
+%  -3 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% K_2 = \begin{bmatrix}
+%   5 & 5 &-3 \\
+%   5 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix} 
+% ... K_8 = \begin{bmatrix}
+%  -3 & 5 & 5 \\
+%  -3 & 0 & 5 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% 
+% \]      
+% \vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -491,15 +492,25 @@ it is not mentioned in~\cite{Eadgahi:2012}.
 
 \subsubsection{Gaussian Mixture Models}
 
+A Gaussian Mixture Model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
+When using a GMM to model image classes (more specifically, class conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
+model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
+
+Application, parameter estimation and performance of a classifier using GMMs and Bayesian classification is discussed in~\cite{paalanen2006feature}.
+GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of said methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
+and greedy EM algorithms are implemented in the Toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
+these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
+In this thesis, only Figuero-Jain is used.
+
 \subsubsection{Naive Bayes}
 
 Naive Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
 contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naive Bayes classifier
 uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
-
+-
 The Naive Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
-classifies the sample to the class with the highest posterior probability.
-In the case of binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
+classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
+binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
 is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
 
 \begin{equation}\label{eq:naivebayes}

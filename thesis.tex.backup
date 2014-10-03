@@ -173,6 +173,7 @@ Lappeenranta, October 19th, 2014
 \textbf{FNR} & False Negative Rate\\
 \textbf{CLAHE} & Contrast Limited Adaptive Histogram Equalization\\
 \textbf{GMM} & Gaussian Mixture Model\\
+\textbf{pdf} & Probability Density Function\\
 \end{tabular}
 
 
@@ -416,31 +417,29 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 \subsubsection{Kirsch operator}
 
 Edge detection operators that only detect gradients in specified directions are called compass operators.
-Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.
-~\cite{Jain:1989} It is defined as:
+Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
+It is defined as:
 
-\[
-K_1...K_8, K_1 = \begin{bmatrix}
-  5 & 5 & 5 \\
- -3 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}
-K_2 = \begin{bmatrix}
-  5 & 5 &-3 \\
-  5 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}
-K_3 = \begin{bmatrix}
-  5 &-3 &-3 \\
-  5 & 0 &-3 \\
-  5 &-3 &-3 
-\end{bmatrix}
+% \[
+% K_1 = \begin{bmatrix}
+%   5 & 5 & 5 \\
+%  -3 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% K_2 = \begin{bmatrix}
+%   5 & 5 &-3 \\
+%   5 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix} 
+% ... K_8 = \begin{bmatrix}
+%  -3 & 5 & 5 \\
+%  -3 & 0 & 5 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% 
+% \]      
+% \vspace{-20mm}
 
-\]      
-and so on
-     
-     
-     
 \subsubsection{Morphological operations}
 
 Mathematical morphology operations use a structuring element to perform an operation on an input image.
@@ -493,6 +492,12 @@ it is not mentioned in~\cite{Eadgahi:2012}.
 
 \subsubsection{Gaussian Mixture Models}
 
+A Gaussian Mixture Model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
+When using a GMM to model image classes (more specifically, class conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
+model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
+
+An implementation of using GMMs with Bayesian classification~\cite{Paalanen:2004} ~\cite{paalanen2006feature}
+
 \subsubsection{Naive Bayes}
 
 Naive Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
@@ -500,8 +505,8 @@ contributes to the classification regardless of the absence or presence of other
 uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
 
 The Naive Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
-classifies the sample to the class with the highest posterior probability.
-In the case of binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
+classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
+binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
 is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
 
 \begin{equation}\label{eq:naivebayes}

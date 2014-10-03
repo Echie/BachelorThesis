@@ -17,9 +17,9 @@
 \contentsline {subsection}{\numberline {2.6}Supervised methods}{15}{subsection.2.6}
 \contentsline {subsubsection}{\numberline {2.6.1}Gaussian Mixture Models}{15}{subsubsection.2.6.1}
 \contentsline {subsubsection}{\numberline {2.6.2}Naive Bayes}{15}{subsubsection.2.6.2}
-\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{16}{section.3}
-\contentsline {subsection}{\numberline {3.1}Evaluation methods}{16}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Effects of inaccurate ground truth}{17}{subsection.3.2}
-\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{18}{section.4}
-\contentsline {subsection}{\numberline {4.1}The Ground Truth}{18}{subsection.4.1}
-\contentsline {section}{REFERENCES}{18}{figure.5}
+\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{17}{section.3}
+\contentsline {subsection}{\numberline {3.1}Evaluation methods}{17}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Effects of inaccurate ground truth}{18}{subsection.3.2}
+\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}The Ground Truth}{19}{subsection.4.1}
+\contentsline {section}{REFERENCES}{19}{figure.5}
