@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  17 NOV 2014 12:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.27)  17 NOV 2014 12:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -634,25 +634,25 @@ Overfull \hbox (1.46016pt too wide) in paragraph at lines 499--504
 -tion Max-i-miza-tion (EM), Figuero-
  []
 
-[15] [16] [17
+[15] [16] [17] [18
 
 ]
-<resources/bristol_groundtruth.png, id=328, 542.025pt x 538.01pt>
+<resources/bristol_groundtruth.png, id=333, 542.025pt x 538.01pt>
 File: resources/bristol_groundtruth.png Graphic file (type png)
 
 <use resources/bristol_groundtruth.png>
 Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 6
-32.
+46.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
-<resources/inaccurate_groundtruth.png, id=329, 542.025pt x 538.01pt>
+<resources/inaccurate_groundtruth.png, id=334, 542.025pt x 538.01pt>
 File: resources/inaccurate_groundtruth.png Graphic file (type png)
 
 <use resources/inaccurate_groundtruth.png>
 Package pdftex.def Info: resources/inaccurate_groundtruth.png used on input lin
-e 635.
+e 649.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
- (./thesis.bbl [18
+ (./thesis.bbl [19
 
  <./resources/bristol_groundtruth.png (PNG copy)> <./resources/inaccurate_groun
 dtruth.png (PNG copy)>]
@@ -667,7 +667,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--18
 atomy-of-the-
  []
 
-[19
+[20
 
 ]
 
@@ -698,21 +698,21 @@ or \DeclareInputMath before using this key.
 
 ) 
 AED: lastpage setting LastPage
-[20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 775.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 775.
+[21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 789.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 789.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 775.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 775.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 789.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 789.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 42880532E76AD9E6FD718A4D6AFA5C1A;1537.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 775.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 789.
  ) 
 Here is how much of TeX's memory you used:
- 8589 strings out of 494465
- 128230 string characters out of 6166361
- 224866 words of memory out of 5000000
- 11588 multiletter control sequences out of 15000+600000
+ 8595 strings out of 494465
+ 128312 string characters out of 6166361
+ 226005 words of memory out of 5000000
+ 11591 multiletter control sequences out of 15000+600000
  33328 words of font info for 45 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
  41i,16n,47p,296b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -725,10 +725,10 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (20 pages, 4784202 bytes).
+Output written on thesis.pdf (21 pages, 4785977 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 500000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 98 named destinations out of 1000 (max. 500000)
  247 words of extra memory for PDF output out of 10000 (max. 10000000)
 

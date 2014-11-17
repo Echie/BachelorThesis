@@ -523,6 +523,7 @@ where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probab
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
 \subsection{Evaluation methods}
+\label{subsec:evaluation}
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
@@ -548,7 +549,9 @@ false positives are classified as positive in results, when they are in fact bac
 % \end{center}
 % \end{table}
 
-The
+The Dice coefficient~\cite{Dice:1945}, Jaccard index and F-score all measure set agreement, representing the success of segmentation in a single number.
+All of these coefficients can have values from the range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement. The coefficients
+are defined as follows:
 \begin{equation}\label{eq:dice}
 \begin{split}
 Dice = \frac{2|A\cap B|}{|A| + |B|}
@@ -581,18 +584,17 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 \section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
 \label{sec:sensitivity}
 
-\subsection{Selection of evaluation methods}
+\subsection{Evaluation of unsupervised methods}
 
-There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
-describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
+In the purpose of finding best parameters for unsupervised methods, it was desired to have a single number describing 
+the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
 such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
 only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
-and F-score were considered (defined in ~\ref{eq:dice}). All of these coefficients can have values from the range [0,1], where 0 indicates
-no similarities, and 1 indicates perfect agreement.
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
+and F-score were considered (defined in Sec.~\ref{subsec:evaluation}).
 
-Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal, and Jaccard index behaves 
-similary to the two, though being considerably more strict. The use of Jaccard was discarded because of its strictness, and the
+Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal. Jaccard index behaves 
+similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
 choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
 
 
