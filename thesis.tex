@@ -70,7 +70,7 @@
 
 % Thesis information
 \title{Sensitivity of retinal image segmentation on ground truth accuracy}
-\titlefin{Silmänpohjakuvien segmentoinnin herkkyys pohjamerkintöjen tarkkuudelle}
+\titlefin{Silmänpohjakuvien segmentoinnin herkkyys asiantuntijatiedon tarkkuudelle}
 \author{Teemu Huovinen}
 
 \Major{Degree Program in Computer Science}
@@ -201,13 +201,13 @@ exudates are circled, rather than each small finding specified separately.
 \subsection{Objectives and Restrictions}
 
 This thesis will address two main questions in its research:
-\vspace{-5mm}
+%\vspace{-5mm}
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
   \item How will inaccurate ground truth affect features and segmentation methods?
   \item How will other features than colour perform?
 \end{itemize}
-\vspace{-5mm}
+%\vspace{-5mm}
 
 % The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
 % and segmentation methods. 
@@ -420,25 +420,25 @@ Edge detection operators that only detect gradients in specified directions are 
 Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
 It is defined as:
 
-\[
-K_1 = \begin{bmatrix}
-  5 & 5 & 5 \\
- -3 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}
-K_2 = \begin{bmatrix}
-  5 & 5 &-3 \\
-  5 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix} 
-... K_8 = \begin{bmatrix}
- -3 & 5 & 5 \\
- -3 & 0 & 5 \\
- -3 &-3 &-3 
-\end{bmatrix}
-
-\]      
-\vspace{-20mm}
+% \[
+% K_1 = \begin{bmatrix}
+%   5 & 5 & 5 \\
+%  -3 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% K_2 = \begin{bmatrix}
+%   5 & 5 &-3 \\
+%   5 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix} 
+% ... K_8 = \begin{bmatrix}
+%  -3 & 5 & 5 \\
+%  -3 & 0 & 5 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}
+% 
+% \]      
+%\vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -447,20 +447,20 @@ Most morphology operations are based the two basic morphological operations, dil
 Top-hat transform is an operation that highlights bright areas in an image, where as bottom-hat
 (also known as black top-hat) operation highlights the dim areas of an image.~\cite{Bai:2012}
 These transforms are defined as follows:
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:tophat}
 \begin{split}
 TopHat(f) = f - (f \circ B)
 \end{split}
 \end{equation}
-\vspace{-25mm}
+%\vspace{-25mm}
 
 \begin{equation}\label{eq:bottomhat}
 \begin{split}
 BottomHat(f) = (f \bullet B) - f
 \end{split}
 \end{equation}
-\vspace{-12mm}
+%\vspace{-12mm}
 
 
 where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
@@ -470,13 +470,13 @@ The exudate detection method proposed in~\cite{Eadgahi:2012} was also implemente
 the method described in~\ref{subsec:opticdisc} was used. The method is designed to use top-hat operation to highlight the exudates, 
 and bottom-hat operation to highlight and ultimately remove dim areas, e.g vessels from the results. The method is defined as follows:
 
-\vspace{-12mm}
+%\vspace{-12mm}
 \begin{equation}\label{eq:mehdi}
 \begin{split}
 F(f) = TopHat(f) - BottomHat(f)
 \end{split}
 \end{equation}
-\vspace{-10mm}
+%\vspace{-10mm}
 
 where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
 During the computations performed for this thesis, thresholding is applied after these operations even though
@@ -532,24 +532,24 @@ into false positives and false negatives. In this thesis, true positives are fin
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
 false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
-a error matrix shown in Table ~\ref{tab:truepositive}.
-
-\begin{table}[hpt]
-\begin{center}
-\caption{General error matrix\label{tab:truepositive}}
-
-\begin{tabular}{cc|c|c|c|c|l}
-\cline{3-4}
-& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
-& & Positive & Negative  \\ \cline{1-4}
-\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
-\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
-\multicolumn{1}{ |c  }{}  &
-\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
-
-\end{tabular}
-\end{center}
-\end{table}
+% a error matrix shown in Table ~\ref{tab:truepositive}.
+% 
+% \begin{table}[hpt]
+% \begin{center}
+% \caption{General error matrix\label{tab:truepositive}}
+% 
+% \begin{tabular}{cc|c|c|c|c|l}
+% \cline{3-4}
+% & & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+% & & Positive & Negative  \\ \cline{1-4}
+% \multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+% \multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+% \multicolumn{1}{ |c  }{}  &
+% \multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+% 
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
@@ -564,13 +564,13 @@ and F-score were considered. These coefficients are defined as follows:
 Dice = \frac{2|A\cap B|}{|A| + |B|}
 \end{split}
 \end{equation}
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:jaccard}
 \begin{split}
 Jaccard = \frac{|A\cap B|}{|A\cup B|}
 \end{split}
 \end{equation}
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:fscore}
 \begin{split}
 F-score = \frac{2PR}{P + R}
