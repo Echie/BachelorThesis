@@ -70,7 +70,7 @@
 
 % Thesis information
 \title{Sensitivity of retinal image segmentation on ground truth accuracy}
-\titlefin{Silmänpohjakuvien segmentoinnin herkkyys pohjamerkintöjen tarkkuudelle}
+\titlefin{Silmänpohjakuvien segmentoinnin herkkyys asiantuntijatiedon tarkkuudelle}
 \author{Teemu Huovinen}
 
 \Major{Degree Program in Computer Science}
@@ -201,13 +201,13 @@ exudates are circled, rather than each small finding specified separately.
 \subsection{Objectives and Restrictions}
 
 This thesis will address two main questions in its research:
-\vspace{-5mm}
+%\vspace{-5mm}
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
   \item How will inaccurate ground truth affect features and segmentation methods?
   \item How will other features than colour perform?
 \end{itemize}
-\vspace{-5mm}
+%\vspace{-5mm}
 
 % The objective of this thesis is to evaluate how big of an impact inaccurate ground truth has on various image features
 % and segmentation methods. 
@@ -438,7 +438,7 @@ It is defined as:
 % \end{bmatrix}
 % 
 % \]      
-% \vspace{-20mm}
+%\vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -447,20 +447,20 @@ Most morphology operations are based the two basic morphological operations, dil
 Top-hat transform is an operation that highlights bright areas in an image, where as bottom-hat
 (also known as black top-hat) operation highlights the dim areas of an image.~\cite{Bai:2012}
 These transforms are defined as follows:
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:tophat}
 \begin{split}
 TopHat(f) = f - (f \circ B)
 \end{split}
 \end{equation}
-\vspace{-25mm}
+%\vspace{-25mm}
 
 \begin{equation}\label{eq:bottomhat}
 \begin{split}
 BottomHat(f) = (f \bullet B) - f
 \end{split}
 \end{equation}
-\vspace{-12mm}
+%\vspace{-12mm}
 
 
 where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
@@ -470,13 +470,13 @@ The exudate detection method proposed in~\cite{Eadgahi:2012} was also implemente
 the method described in~\ref{subsec:opticdisc} was used. The method is designed to use top-hat operation to highlight the exudates, 
 and bottom-hat operation to highlight and ultimately remove dim areas, e.g vessels from the results. The method is defined as follows:
 
-\vspace{-12mm}
+%\vspace{-12mm}
 \begin{equation}\label{eq:mehdi}
 \begin{split}
 F(f) = TopHat(f) - BottomHat(f)
 \end{split}
 \end{equation}
-\vspace{-10mm}
+%\vspace{-10mm}
 
 where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
 During the computations performed for this thesis, thresholding is applied after these operations even though
@@ -496,14 +496,18 @@ A Gaussian Mixture Model (GMM) is a single probability density function (pdf) th
 When using a GMM to model image classes (more specifically, class conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
 model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
 
-An implementation of using GMMs with Bayesian classification~\cite{Paalanen:2004} ~\cite{paalanen2006feature}
+Application, parameter estimation and performance of a classifier using GMMs and Bayesian classification is discussed in~\cite{paalanen2006feature}.
+GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of said methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
+and greedy EM algorithms are implemented in the Toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
+these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
+In this thesis, only Figuero-Jain is used.
 
 \subsubsection{Naive Bayes}
 
 Naive Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
 contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naive Bayes classifier
 uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
-
+-
 The Naive Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
 classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
 binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
@@ -518,16 +522,13 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
-\section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
-\label{sec:sensitivity}
-
 \subsection{Evaluation methods}
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
-false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}.% These terms are illustrated with
+false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
 % a error matrix shown in Table ~\ref{tab:truepositive}.
 % 
 % \begin{table}[hpt]
@@ -547,32 +548,24 @@ false positives are classified as positive in results, when they are in fact bac
 % \end{center}
 % \end{table}
 
-
-There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
-describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
-such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
-only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
-and F-score were considered. These coefficients are defined as follows:
-
+The
 \begin{equation}\label{eq:dice}
 \begin{split}
 Dice = \frac{2|A\cap B|}{|A| + |B|}
 \end{split}
 \end{equation}
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:jaccard}
 \begin{split}
 Jaccard = \frac{|A\cap B|}{|A\cup B|}
 \end{split}
 \end{equation}
-\vspace{-2mm}
+%\vspace{-2mm}
 \begin{equation}\label{eq:fscore}
 \begin{split}
 F-score = \frac{2PR}{P + R}
 \end{split}
 \end{equation}
-
 
 where A is the segmented set, and B is the ground truth, P stands for precision and R stands for recall (sensitivity).
 %Dice coefficient can also be described using true positives, true negatives, false positives and false negatives:
@@ -583,10 +576,24 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 %\end{split}
 %\end{equation}
 
-Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal, and Jaccard index behaves 
-similary to the two. Dice coefficient was chosen as it is very simple to implement and understand. It can have values from the
-range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement.
 
+
+\section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
+\label{sec:sensitivity}
+
+\subsection{Selection of evaluation methods}
+
+There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
+describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
+such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
+only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
+and F-score were considered (defined in ~\ref{eq:dice}). All of these coefficients can have values from the range [0,1], where 0 indicates
+no similarities, and 1 indicates perfect agreement.
+
+Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal, and Jaccard index behaves 
+similary to the two, though being considerably more strict. The use of Jaccard was discarded because of its strictness, and the
+choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
 
 
 \subsection{Effects of inaccurate ground truth}

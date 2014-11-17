@@ -522,9 +522,6 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
-\section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
-\label{sec:sensitivity}
-
 \subsection{Evaluation methods}
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
@@ -551,14 +548,8 @@ false positives are classified as positive in results, when they are in fact bac
 % \end{center}
 % \end{table}
 
-
-There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
-describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
-such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
-only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
-and F-score were considered. These coefficients are defined as follows:
-
+The evaluation metrics considered in this thesis measure set agreement, representing the success of segmentation in a single number.
+All of these coefficients can have values from the range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement.
 \begin{equation}\label{eq:dice}
 \begin{split}
 Dice = \frac{2|A\cap B|}{|A| + |B|}
@@ -577,7 +568,6 @@ F-score = \frac{2PR}{P + R}
 \end{split}
 \end{equation}
 
-
 where A is the segmented set, and B is the ground truth, P stands for precision and R stands for recall (sensitivity).
 %Dice coefficient can also be described using true positives, true negatives, false positives and false negatives:
 
@@ -587,10 +577,23 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 %\end{split}
 %\end{equation}
 
-Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal, and Jaccard index behaves 
-similary to the two. Dice coefficient was chosen as it is very simple to implement and understand. It can have values from the
-range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement.
 
+
+\section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
+\label{sec:sensitivity}
+
+\subsection{Selection of evaluation methods}
+
+There exists a multitude of ways to evaluate segmentation results. In this thesis, it was desired to have a single number
+describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
+such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
+only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient~\cite{Dice:1945}, Jaccard index    
+and F-score were considered (defined in Eq.~\ref{eq:dice},~\ref{eq:jaccard},~\ref{eq:fscore}).
+
+Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal. Jaccard index behaves 
+similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
+choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
 
 
 \subsection{Effects of inaccurate ground truth}
