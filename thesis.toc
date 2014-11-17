@@ -18,9 +18,8 @@
 \contentsline {subsubsection}{\numberline {2.6.1}Gaussian Mixture Models}{15}{subsubsection.2.6.1}
 \contentsline {subsubsection}{\numberline {2.6.2}Naive Bayes}{15}{subsubsection.2.6.2}
 \contentsline {subsection}{\numberline {2.7}Evaluation methods}{16}{subsection.2.7}
-\contentsline {section}{\numberline {3}SENSITIVITY ANALYSIS OF IMAGE FEATURES}{18}{section.3}
-\contentsline {subsection}{\numberline {3.1}Evaluation of unsupervised methods}{18}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Effects of inaccurate ground truth}{18}{subsection.3.2}
-\contentsline {section}{\numberline {4}EXPERIMENTS AND RESULTS}{19}{section.4}
-\contentsline {subsection}{\numberline {4.1}The Ground Truth}{19}{subsection.4.1}
-\contentsline {section}{REFERENCES}{19}{figure.5}
+\contentsline {section}{\numberline {3}EXPERIMENTS AND RESULTS}{18}{section.3}
+\contentsline {subsection}{\numberline {3.1}The ground truth}{18}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Evaluation of unsupervised methods}{18}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Test parameters}{19}{subsection.3.3}
+\contentsline {section}{REFERENCES}{19}{subsection.3.3}

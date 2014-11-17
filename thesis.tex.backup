@@ -549,6 +549,18 @@ false positives are classified as positive in results, when they are in fact bac
 % \end{center}
 % \end{table}
 
+
+Sensitivity represents the amount of samples correctly classified as positive, and specificity in turn represents the amount correctly classified as negative.
+They are defined as~\cite{Fawcett:2006}:
+% \vspace{-1mm}
+\begin{equation}\label{eq:sensitivity}
+Sensitivity = \frac{TP}{TP+FN}
+\end{equation}
+\vspace{-2mm}
+\begin{equation} \label{eq:specificity}
+ Specificity = \frac{TN}{TN+FP}
+\end{equation}
+
 The Dice coefficient~\cite{Dice:1945}, Jaccard index and F-score all measure set agreement, representing the success of segmentation in a single number.
 All of these coefficients can have values from the range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement. The coefficients
 are defined as follows:
@@ -588,7 +600,7 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 
 In the purpose of finding best parameters for unsupervised methods, it was desired to have a single number describing 
 the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
-such as sensitivity, specificity and precision (defined in~\cite{Fawcett:2006}) were considered, but these were ignored as they
+such as sensitivity, specificity and precision (defined in Sec.~\ref{subsec:evaluation}) were considered, but these were ignored as they
 only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
 would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
 and F-score were considered (defined in Sec.~\ref{subsec:evaluation}).
@@ -604,10 +616,6 @@ When researching feature sensitivity to ground truth accuracy, standard segmenta
 it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
 First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
 the ground truth. Parameters with the highest Dice (see Eq.~\ref{eq:dice}) coefficient are then selected to be used in experiments.
-
-The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
-will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
-variation of feature distributions and an increase of false positives.
 
 \section{EXPERIMENTS AND RESULTS}
 \label{sec:experiments}
@@ -625,6 +633,11 @@ and single exudates were more loosely circled. This is illustrated in Figure~\re
 To create a basis for more comprehensive testing, different stages of inaccurate ground truths were created by dilating the accurate
 ground truth. Three different stages were created; one, three and five iterations of dilation by a disk-shaped structuring element, with a radius of 1 pixel.
 The dilation was restricted to stay inside the inaccurate ground truth.
+
+The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
+will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
+variation of feature distributions and an increase of false positives.
+
 
 \begin{figure}[ht]
 \centering
