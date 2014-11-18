@@ -264,10 +264,10 @@ are illustrated in Figure~\ref{fig:healthyeyefundus}.
 {
   \subfloat[]{
     \label{fig:cross_section_eye}
-    \includegraphics[width=0.5\textwidth]{cross_section_eye}}
+    \includegraphics[width=0.45\textwidth]{cross_section_eye}}
     \subfloat[]{
     \label{fig:healthyeyefundus}
-    \includegraphics[width=0.5\textwidth]{healthyeyefundus}}
+    \includegraphics[width=0.45\textwidth]{healthyeyefundus}}
      
   \caption[moving]{Structure of the human eye
   \subref{fig:cross_section_eye} Cross section of the eye (modified from~\cite{Kolb})
@@ -635,7 +635,9 @@ variation of feature distributions and an increase of false positives.
 
 }\end{figure}
 
-\subsection{Test parameters}
+\subsection{Supervised methods}
+
+\subsubsection{Tests}
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
 As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
@@ -650,22 +652,46 @@ Classifiers were trained with colour, edge and texture features, or a combinatio
 methods are described in Sec.~\ref{subsubsec:features}. No contrast enhancement was used, so raw colour info
 from the image was used for the colour feature.
 
+\subsubsection{Results}
+
+Comparing the sensitivity and specificity of Naive-Bayes and GMM-Bayes classifiers, a slighty higher overall performance
+of GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier is an exception, clearly outperforming any other
+single-feature trained classifier or even the classifier with all features included.
+
 \begin{figure}[ht]
 {
   \subfloat[]{
-     \label{fig:sens}
-     \includegraphics[width=1\textwidth]{hist_bayes_sens_imgset1}}
+     \label{fig:bayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset1}}
   
   \subfloat[]{
-     \label{fig:spec}
-     \includegraphics[width=1\textwidth]{hist_bayes_spec_imgset1}}
+     \label{fig:bayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset1}}
      
   \caption[moving]{Performance of Naive-Bayes classifiers:
-  \subref{fig:sens} Sensitivity
-  \subref{fig:spec} Specificity }
+  \subref{fig:bayes_sens} Sensitivity
+  \subref{fig:bayes_spec} Specificity }
   \label{fig:bayes}
 
 }\end{figure}
+
+\begin{figure}[ht]
+{
+  \subfloat[]{
+     \label{fig:gmmbayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset1}}
+  
+  \subfloat[]{
+     \label{fig:gmmbayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset1}}
+     
+  \caption[moving]{Performance of Naive-Bayes classifiers:
+  \subref{fig:gmmbayes_sens} Sensitivity
+  \subref{fig:gmmbayes_spec} Specificity }
+  \label{fig:gmmbayes}
+
+}\end{figure}
+
 
 
 \subsection{Unsupervised methods}
@@ -693,11 +719,11 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 {
   \subfloat[]{
      \label{fig:unsupsens}
-     \includegraphics[width=1\textwidth]{hist_unsup_sens_imgset1}}
+     \includegraphics[width=0.95\textwidth]{hist_unsup_sens_imgset1}}
 
   \subfloat[]{
      \label{fig:unsupspec}
-     \includegraphics[width=1\textwidth]{hist_unsup_spec_imgset1}}
+     \includegraphics[width=0.95\textwidth]{hist_unsup_spec_imgset1}}
      
   \caption[moving]{Performance of unsupervised methods:
   \subref{fig:unsupsens} Sensitivity
