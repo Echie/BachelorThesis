@@ -13,8 +13,10 @@ Brian~A Wandell.
 
 \bibitem{Kolb}
 Helga Kolb.
-\newblock {\em Simple Anatomy of the Retina url:
-  http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the-retina/}.
+\newblock {Simple Anatomy of the Retina}.
+\newblock
+  \url{http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the-retina/}.
+\newblock Accessed: 2014-09-30.
 
 \bibitem{Sekhar:2008}
 Sribalamurugan Sekhar, Waleed Al-Nuaimy, and Asoke~K Nandi.
@@ -110,6 +112,17 @@ Pekka Paalanen, Joni-Kristian Kamarainen, and Heikki K{\"a}lvi{\"a}inen.
 Kevin~P Murphy.
 \newblock Naive bayes classifiers.
 \newblock {\em University of British Columbia}, 2006.
+
+\bibitem{rangefilt}
+{MATLAB rangefilt-function}.
+\newblock \url{http://se.mathworks.com/help/images/ref/rangefilt.html}.
+\newblock Accessed: 2014-11-18.
+
+\bibitem{Ojala:2000}
+Timo Ojala, Matti Pietik{\"a}inen, and Topi M{\"a}enp{\"a}{\"a}.
+\newblock Gray scale and rotation invariant texture classification with local
+  binary patterns.
+\newblock In {\em Computer Vision-ECCV 2000}, pages 404--420. Springer, 2000.
 
 \bibitem{Fawcett:2006}
 Tom Fawcett.

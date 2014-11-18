@@ -3,48 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: resources/thesis.bib
-Warning--empty publisher in Kolb
-Warning--empty year in Kolb
 Warning--empty journal in Paalanen:2004
-You've used 21 entries,
+You've used 23 entries,
             1791 wiz_defined-function locations,
-            596 strings with 7132 characters,
-and the built_in function-call counts, 5036 in all, are:
-= -- 486
-> -- 163
-< -- 4
-+ -- 65
-- -- 44
-* -- 325
-:= -- 759
-add.period$ -- 65
-call.type$ -- 21
-change.case$ -- 17
+            609 strings with 7478 characters,
+and the built_in function-call counts, 5522 in all, are:
+= -- 540
+> -- 175
+< -- 5
++ -- 70
+- -- 47
+* -- 338
+:= -- 821
+add.period$ -- 74
+call.type$ -- 23
+change.case$ -- 20
 chr.to.int$ -- 0
 cite$ -- 24
-duplicate$ -- 238
-empty$ -- 512
-format.name$ -- 44
-if$ -- 1141
+duplicate$ -- 260
+empty$ -- 567
+format.name$ -- 47
+if$ -- 1267
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 25
-newline$ -- 107
-num.names$ -- 21
-pop$ -- 70
+int.to.str$ -- 23
+missing$ -- 24
+newline$ -- 119
+num.names$ -- 22
+pop$ -- 82
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 109
+skip$ -- 126
 stack$ -- 0
-substring$ -- 402
-swap$ -- 61
-text.length$ -- 4
+substring$ -- 434
+swap$ -- 72
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 55
-width$ -- 23
-write$ -- 226
-(There were 3 warnings)
+warning$ -- 1
+while$ -- 59
+width$ -- 25
+write$ -- 251
+(There was 1 warning)

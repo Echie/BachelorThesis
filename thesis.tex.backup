@@ -520,6 +520,13 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
+\subsubsection{Features}
+\label{subsubsec:features}
+Color, edge and texture features were used to teach the classifiers of the supervised methods.
+Color was extracted from the image as-is. Edge was represented with the differential of the
+maximum and minimum value in a 3-by-3 neighborhood (implemented with \textit{rangefilt}-function in MATLAB ~\cite{rangefilt}).
+Location invariant local binary patterns (LBP)~\cite{Ojala:2000} were used for texture.
+
 \subsection{Evaluation metrics}
 \label{subsec:evaluation}
 
@@ -665,8 +672,7 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 
 \subsection{Test parameters}
 
-MASKATAANKO OPETUKSESSA OPTIC DISK?
-TARKISTA SAMPLING (käytetäänkö koko opetussettiä)
+TEORIAAN RANGE JA LBP (SUPERVISED -> FEATURES)
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
 As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
@@ -677,13 +683,16 @@ The amount of background pixels in the images is considerably higher than the am
 This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
 All exudate pixels were used, and background pixels were selected randomly.
 
+Classifiers were trained with colour, edge and texture features, or a combination of the three.
+No contrast enhancement was used, so raw colour info from the image was used for the colour feature.
+Range was used to represent edge, and LBP was used for texture.
+
+
 Naive-bayes \& GMMBayes
 
 preprocessing, remove timestamp, generate mask for image outline and optic disk (no vesselmask)
 
-sampling = equal amounts of samples and background
 
-color (no contrast enhancement), edge (range), texture (LBP) combinations
  
 
 % \subsection{Experiment 1}
