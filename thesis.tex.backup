@@ -227,8 +227,6 @@ Section~\ref{sec:segmentation} takes a look at the different features
 of eye fundus images, and how they are relevant in this thesis.
 It also explains the theory behind the applied pre-processing
 and segmentation methods.
-Section~\ref{sec:sensitivity} details how sensitivity analysis is 
-done in this thesis, and also explains the used evaluation methods.
 Section~\ref{sec:experiments} describes the experiments in detail,
 and presents the results for each experiment.
 % Section~\ref{sec:discussion} sums up and interprets the results, and
@@ -522,7 +520,7 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
-\subsection{Evaluation methods}
+\subsection{Evaluation metrics}
 \label{subsec:evaluation}
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
@@ -592,36 +590,11 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 %\end{equation}
 
 
-
-\section{SENSITIVITY ANALYSIS OF IMAGE FEATURES}
-\label{sec:sensitivity}
-
-\subsection{Evaluation of unsupervised methods}
-
-In the purpose of finding best parameters for unsupervised methods, it was desired to have a single number describing 
-the ''goodness'' of segmentation results to enable easier comparison and ranking of results. Different values,
-such as sensitivity, specificity and precision (defined in Sec.~\ref{subsec:evaluation}) were considered, but these were ignored as they
-only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index    
-and F-score were considered (defined in Sec.~\ref{subsec:evaluation}).
-
-Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal. Jaccard index behaves 
-similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
-choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
-
-
-\subsection{Effects of inaccurate ground truth}
-
-When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
-it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
-First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
-the ground truth. Parameters with the highest Dice (see Eq.~\ref{eq:dice}) coefficient are then selected to be used in experiments.
-
 \section{EXPERIMENTS AND RESULTS}
 \label{sec:experiments}
 % \subsection{Retinal Image Databases}
 
-\subsection{The Ground Truth}
+\subsection{The ground truth}
 
 The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
 more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
@@ -637,7 +610,6 @@ The dilation was restricted to stay inside the inaccurate ground truth.
 The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
 will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
 variation of feature distributions and an increase of false positives.
-
 
 \begin{figure}[ht]
 \centering
@@ -656,6 +628,63 @@ variation of feature distributions and an increase of false positives.
 
 }\end{figure}
 
+\subsection{Evaluation of unsupervised methods}
+
+When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
+it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
+First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
+the ground truth.
+
+For this purpose, it was desired to have a single value describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results.
+Different values, such as sensitivity, specificity and precision (defined in Sec.~\ref{subsec:evaluation}) were considered, but these were discarded as they
+only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
+would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index
+and F-score were considered (defined in Sec.~\ref{subsec:evaluation}).
+
+Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal. Jaccard index behaves 
+similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
+choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
+
+\begin{figure}[ht]
+{
+  \subfloat[]{
+     \label{fig:sens}
+     \includegraphics[width=\textwidth]{hist_bayes_dice_imgset1}}
+  
+  \subfloat[]{
+     \label{fig:spec}
+     \includegraphics[width=1\textwidth]{hist_gmmbayes_dice_imgset1}}
+     
+  \caption[moving]{Ground truths:
+  \subref{fig:sens} Original accurate ground truth
+  \subref{fig:spec} Inaccurate ground truth }
+  \label{fig:bayes}
+
+}\end{figure}
+
+
+\subsection{Test parameters}
+
+MASKATAANKO OPETUKSESSA OPTIC DISK?
+TARKISTA SAMPLING (käytetäänkö koko opetussettiä)
+
+Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
+As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
+Sec.~\ref{subsec:opticdisc}. The eye outline was also included in the mask, as it was included in the results
+by edge detection methods. Vessels were not included in the mask.
+
+The amount of background pixels in the images is considerably higher than the amount of exudate pixels.
+This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
+All exudate pixels were used, and background pixels were selected randomly.
+
+Naive-bayes \& GMMBayes
+
+preprocessing, remove timestamp, generate mask for image outline and optic disk (no vesselmask)
+
+sampling = equal amounts of samples and background
+
+color (no contrast enhancement), edge (range), texture (LBP) combinations
+ 
 
 % \subsection{Experiment 1}
 % 
@@ -665,7 +694,6 @@ variation of feature distributions and an increase of false positives.
 % The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
 % For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
 
-
 % \subsection{Experiment 2}
 
 % \section{DISCUSSION}
@@ -674,12 +702,6 @@ variation of feature distributions and an increase of false positives.
 % We have to discuss what we learned.
 
 % Notice the automatic page breaks. 
-
-% \subsection{Segmentation Results}
-
-% \subsection{Sensitivity of Image Features}
-
-% \subsection{Future Work}
 
 % Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
 % todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.

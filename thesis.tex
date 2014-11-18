@@ -520,7 +520,7 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
-\subsection{Evaluation methods}
+\subsection{Evaluation metrics}
 \label{subsec:evaluation}
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
@@ -665,11 +665,27 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 
 \subsection{Test parameters}
 
+MASKATAANKO OPETUKSESSA OPTIC DISK?
+TARKISTA SAMPLING (käytetäänkö koko opetussettiä)
+TEORIAAN RANGE JA LBP (SUPERVISED -> FEATURES)
+
+Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
+As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
+Sec.~\ref{subsec:opticdisc}. The eye outline was also included in the mask, as it was included in the results
+by edge detection methods. Vessels were not included in the mask.
+
+The amount of background pixels in the images is considerably higher than the amount of exudate pixels.
+This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
+All exudate pixels were used, and background pixels were selected randomly.
+
+Classifiers were trained with colour, edge and texture features, or a combination of the three.
+No contrast enhancement was used, so raw colour info from the image was used for the colour feature.
+Range was used to represent edge, and LBP was used for texture.
+
+
 Naive-bayes \& GMMBayes
 
 preprocessing, remove timestamp, generate mask for image outline and optic disk (no vesselmask)
-
-sampling = equal amounts of samples and background
 
 color (no contrast enhancement), edge (range), texture (LBP) combinations
  
@@ -690,12 +706,6 @@ color (no contrast enhancement), edge (range), texture (LBP) combinations
 % We have to discuss what we learned.
 
 % Notice the automatic page breaks. 
-
-% \subsection{Segmentation Results}
-
-% \subsection{Sensitivity of Image Features}
-
-% \subsection{Future Work}
 
 % Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
 % todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
