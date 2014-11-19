@@ -667,15 +667,9 @@ With this setup, each calculation used a specific ground truth accuracy, image s
 
 \subsubsection{Results}
 
-\textbf{KUVAKOHTAISET TULOKSET SUPERVISED METHODS, LISÄÄ APPENDIX VIITE}
-
-\textbf{GRAY WORLD TULOKSISTA VIELÄ KUVAAJIA, tarkista gray world kappale}
-
-\textbf{TARKISTA ETTÄ UNSUPERVISED TULOSTEN ARVIOINTI KÄYTTÄÄ TARKKAA GT}
-
 Using inaccurate ground truth is expected to result in more false positives in segmentation results.
 This can be seen in the results as an increase in sensitivity and a decrease in specificity with all features and classifiers 
-when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in \textbf{APPENDIX VIITE}.
+when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in Appendix~\ref{app:bayes} and~\ref{app:gmmbayes}.
 All methods and classifiers behave similarly in this regard, having gradually more and more false positives in their segmentation results
 as ground truth is made more inaccurate.
 
@@ -687,8 +681,15 @@ explain this, as the texture-based classifier behaves similarly to a random clas
 variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
 as they have no other effect than decreasing the average performance.
 
-Color normalization didn't have a big impact on the results. The expected improvement on the performance of color-based
-classifiers is minimal, and the performance of edge-based classifiers was slightly worse.
+Color normalization's impact on the results was negligible. It was expected to improve the performance of classifier using the color feature by 
+reducing the color variance of the exudates and background. However, results with Naive-Bayes are almost identical between the image sets,
+and no clear improvement can be seen from the results of GMM-Bayes.
+
+In the Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes}, selection of training data is represented via the dotted or filled line.
+Generally, the selection of training data had a minor impact on the results. Performance of both methods' classifiers using edge feature, however,
+changed drastically when using the most inaccurate ground truth. This can be seen as a drop in specificity. Selection of training data also had a
+noticeable effect on the performance of GMM-Bayes classifier using all features. For others, the selection of training data didn't appear to have a
+meaningful effect.
 
 \begin{figure}[ht]
 {
@@ -705,7 +706,7 @@ classifiers is minimal, and the performance of edge-based classifiers was slight
   \subref{fig:bayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right.}
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:bayes}
 
 }\end{figure}
@@ -725,7 +726,7 @@ classifiers is minimal, and the performance of edge-based classifiers was slight
   \subref{fig:gmmbayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right. }
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:gmmbayes}
 
 }\end{figure}
@@ -819,54 +820,157 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 %% ----------------------- APPENDICES ------------------------------
 \appendix
 
-\section{Image-wise results}
-
+\section{Example results of unsupervised methods}
+\label{app:unsupervised}
 \begin{figure}[ht]
 {
     \label{fig:eye34_kirsch}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_kirsch_34}     
-    \caption[moving]{Imagewise results of Kirsch}
+    \caption[moving]{Example results of Kirsch}
 
 }\end{figure}
-
-\newpage
 
 \begin{figure}[ht]
 {
     \label{fig:eye34_tophat}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_tophat_34}     
-    \caption[moving]{Imagewise results of Tophat}
+    \caption[moving]{Example results of Tophat}
+
+}\end{figure}
+
+\sectionend
+
+
+\section{Example results of Naive-Bayes}
+\label{app:bayes}
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_color}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using color}
 
 }\end{figure}
 
 
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_edge}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_edge_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using edge}
 
-% \begin{figure}[ht]
-% {
-%   \subfloat[]{
-%      \label{fig:eye34_kirsch}
-%      \includegraphics[width=1.6\textwidth,angle=90]{eye_kirsch_34}}
-%      
-%   \caption[moving]{Imagewise results of Kirsch}
-% 
-% }\end{figure}
+}\end{figure}
 
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_texture}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_texture_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using texture}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_all}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_all_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using all features}
+
+}\end{figure}
+
+\sectionend
+
+
+\section{Example results of GMM-Bayes}
+\label{app:gmmbayes}
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_color}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using color}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_edge}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using edge}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_texture}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using texture}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_all}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using all features}
+
+}\end{figure}
+
+\sectionend
+
+\section{Supervised methods' performance using gray world pictures}
+\label{app:grayworld}
+
+\begin{figure}[ht]
+{
+  \subfloat[]{
+     \label{fig:grayworld_bayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+  
+  \subfloat[]{
+     \label{fig:grayworld_bayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}}
+     
+  \caption[moving]{Performance of Naive-Bayes classifiers using gray world images:
+  \subref{fig:grayworld_bayes_sens} Sensitivity
+  \subref{fig:grayworld_bayes_spec} Specificity. }
+  \label{fig:grayworld_bayes}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+  \subfloat[]{
+     \label{fig:grayworld_gmmbayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
+  
+  \subfloat[]{
+     \label{fig:grayworld_gmmbayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset2}}
+     
+  \subref{fig:grayworld_gmmbayes_sens} Sensitivity
+  \caption[moving]{Performance of GMM-Bayes classifiers using gray world images:
+  \subref{fig:grayworld_gmmbayes_spec} Specificity. }
+  \label{fig:grayworld_gmmbayes}
+
+}\end{figure}
+
+\sectionend
+
+\end{document}
 
 
 
 % \section{Appendix Guidelines}
-
+% 
 % The appendices part starts with the command \verb:\appendix:. Then, each
 % appendix must be started with \verb:\section{Appendix Name}: and ended
 % with \verb:\sectionend: to have the continues/continued markings right.
 % For example, see the multi-page appendices after this one.
-
+% 
 % \sectionend
-
-
+% 
+% 
 % \section{Frame Schematics}
 % \label{app:frame}
-
+% 
 % This is an appendix. If you need more appendices, just make a new section
 % here (the \texttt{section} command).
 % 
@@ -892,8 +996,8 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 % \ref{afig:frame3}. Table~\ref{atab:test}.
 % 
 % \sectionend
-
-
+% 
+% 
 % \section{The Second}
 % 
 % Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -932,5 +1036,5 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 % Aaand one more page, to test the continues/continued marks.
 % 
 % \sectionend
-
-\end{document}
+% 
+% \end{document}

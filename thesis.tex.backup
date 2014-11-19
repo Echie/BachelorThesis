@@ -667,20 +667,23 @@ With this setup, each calculation used a specific ground truth accuracy, image s
 
 \subsubsection{Results}
 
-\textbf{KUVAKOHTAISET TULOKSET SUPERVISED METHODS, LISÄÄ APPENDIX VIITE}
-
 \textbf{GRAY WORLD TULOKSISTA VIELÄ KUVAAJIA, tarkista gray world kappale}
+
+\textbf{k:n vaikutus}
 
 Using inaccurate ground truth is expected to result in more false positives in segmentation results.
 This can be seen in the results as an increase in sensitivity and a decrease in specificity with all features and classifiers 
-when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in \textbf{APPENDIX VIITE}.
+when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in Appendix~\ref{app:bayes} and~\ref{app:gmmbayes}.
+All methods and classifiers behave similarly in this regard, having gradually more and more false positives in their segmentation results
+as ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naive-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher overall performance of GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier is an exception,
-clearly outperforming any other single-feature trained classifier or even the classifier with all features included.
+a considerably higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier on the other hand,
+is clearly outperforming any other single-feature trained classifier or even the classifier with all features included.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
 explain this, as the texture-based classifier behaves similarly to a random classifier. This could be because of the feature's
-variation in the training set, but this was not confirmed.
+variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
+as they have no other effect than decreasing the average performance.
 
 Color normalization didn't have a big impact on the results. The expected improvement on the performance of color-based
 classifiers is minimal, and the performance of edge-based classifiers was slightly worse.
@@ -715,7 +718,7 @@ classifiers is minimal, and the performance of edge-based classifiers was slight
      \label{fig:gmmbayes_spec}
      \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset1}}
      
-  \caption[moving]{Performance of Naive-Bayes classifiers:
+  \caption[moving]{Performance of GMM-Bayes classifiers:
   \subref{fig:gmmbayes_sens} Sensitivity
   \subref{fig:gmmbayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
@@ -746,7 +749,12 @@ Dice coefficient and F-score values are interchangeable in practice as their val
 similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
 choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
 
-% \subsubsection{Results}
+\subsubsection{Results}
+
+The sensitivity of unsupervised methods behaves similarly with the supervised methods. More exudates are found
+as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
+ground truth, maintaining a high value throughout the different levels of inaccurate ground truth.
+
 
 \begin{figure}[ht]
 {
@@ -809,54 +817,156 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 %% ----------------------- APPENDICES ------------------------------
 \appendix
 
-\section{Image-wise results}
-
+\section{Example results of unsupervised methods}
+\label{app:unsupervised}
 \begin{figure}[ht]
 {
     \label{fig:eye34_kirsch}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_kirsch_34}     
-    \caption[moving]{Imagewise results of Kirsch}
+    \caption[moving]{Example results of Kirsch}
 
 }\end{figure}
-
-\newpage
 
 \begin{figure}[ht]
 {
     \label{fig:eye34_tophat}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_tophat_34}     
-    \caption[moving]{Imagewise results of Tophat}
+    \caption[moving]{Example results of Tophat}
+
+}\end{figure}
+
+\sectionend
+
+
+\section{Example results of Naive-Bayes}
+\label{app:bayes}
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_color}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using color}
 
 }\end{figure}
 
 
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_edge}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_edge_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using edge}
 
-% \begin{figure}[ht]
-% {
-%   \subfloat[]{
-%      \label{fig:eye34_kirsch}
-%      \includegraphics[width=1.6\textwidth,angle=90]{eye_kirsch_34}}
-%      
-%   \caption[moving]{Imagewise results of Kirsch}
-% 
-% }\end{figure}
+}\end{figure}
 
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_texture}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_texture_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using texture}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_bayes_all}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_all_28}     
+    \caption[moving]{Example results of Naive-Bayes classifier using all features}
+
+}\end{figure}
+
+\sectionend
+
+
+\section{Example results of GMM-Bayes}
+\label{app:gmmbayes}
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_color}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using color}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_edge}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using edge}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_texture}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using texture}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_all}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using all features}
+
+}\end{figure}
+
+\sectionend
+
+\end{document}
+
+\section{Supervised methods' performance using gray world pictures}
+\label{app:gmmbayes}
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_color}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using color}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_edge}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using edge}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_texture}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using texture}
+
+}\end{figure}
+
+\begin{figure}[ht]
+{
+    \label{fig:eye28_gmmbayes_all}
+    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
+    \caption[moving]{Example results of GMM-Bayes classifier using all features}
+
+}\end{figure}
+
+\sectionend
+
+\end{document}
 
 
 
 % \section{Appendix Guidelines}
-
+% 
 % The appendices part starts with the command \verb:\appendix:. Then, each
 % appendix must be started with \verb:\section{Appendix Name}: and ended
 % with \verb:\sectionend: to have the continues/continued markings right.
 % For example, see the multi-page appendices after this one.
-
+% 
 % \sectionend
-
-
+% 
+% 
 % \section{Frame Schematics}
 % \label{app:frame}
-
+% 
 % This is an appendix. If you need more appendices, just make a new section
 % here (the \texttt{section} command).
 % 
@@ -882,8 +992,8 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 % \ref{afig:frame3}. Table~\ref{atab:test}.
 % 
 % \sectionend
-
-
+% 
+% 
 % \section{The Second}
 % 
 % Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -922,5 +1032,5 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 % Aaand one more page, to test the continues/continued marks.
 % 
 % \sectionend
-
-\end{document}
+% 
+% \end{document}
