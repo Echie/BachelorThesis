@@ -93,13 +93,13 @@
 % date of topic accepted in the council
 \AcceptDate{January 1\textsuperscript{st}, 2014}
 % date of signature
-\SignDate{July 3\textsuperscript{rd}}
+\SignDate{November 21\textsuperscript{rd}}
 % Year in abstract pages
 \Year{2014}
 
 % Thesis statistics: figure, table and appendix counts, for abstracts
-\addtostats{, 13 figures, 1 table, and 2 appendices}
-\addtostatsfin{, 13 kuvaa, 1 taulukko ja 2 liitettä}
+\addtostats{, 20 figures, 1 table, and 4 appendices}
+\addtostatsfin{, 20 kuvaa, 1 taulukko ja 4 liitettä}
 
 \begin{document}
 \selectlanguage{english}
@@ -107,21 +107,21 @@
 \maketitle
 \newpage
 
-\begin{abstract}
 % Notice that the page, figure, table and appendix counts are for the
 % whole work, including title page, appendices, figures in appendices, etc.
 % You have to count the numbers yourself, except for pages.
-% %
-% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{abstract}
+Diabetes is a growing problem in developed countries, which motivates the research
+for an automated method of detecting and monitoring the disease. One promising method
+is detecting diabetic retinopathy in retinal images.
+The object of this thesis is to study the effects of inaccurate ground truth
+in exudate segmentation in retinal images, and to compare the performance of
+different features and methods. This is done by studying the performance of Naive-Bayes, GMM-Bayes
+and unsupervised edge-detection methods with varying levels of ground truth accuracy.
+Results confirm the negative effect inaccurate ground truth has on segmentation accuracy.
+Also method- and feature-specific performance is explored.
 \end{abstract}
 
-
-\begin{tiivis}
 % Tähän kirjoitetaan ytimekäs tiivistelmä: tausta, tavoite, tulokset ja johtopäätökset.
 % Tiivistelmässä kannattaa käyttää lyhyen nasevia lauseita. Itse tekstissä voi käyttää
 % monimutkaisempia lauseita. Tiivistelmä-sivu on yksi sivu ja tiivistelmäteksti on yksi
@@ -131,6 +131,14 @@
 % ``tässä työssä tutkitaan..'' aktiivin sijaan ``minä tutkin...'' ja marginaalit tasataan aina sekä
 % vasemmalle että oikealle. Työn numerointi aloitetaan kansilehdeltä, mutta tätä roomalaista
 % numeroa ei merkitä näkyviin. 
+\begin{tiivis}
+Diabetes on kasvava ongelma kehittyneissä maissa, joka motivoi automatisoidun taudin tunnistus- ja
+seurausmenetelmän tutkimista. Yksi lupaava menetelmä on tunnistaa diabeettinen retinopatia silmänpohjakuvista.
+Tämän tutkielman tavoite on tutkia epätarkan asiantuntijatiedon vaikutuksia exudaattien segmentointiin
+silmänpohjakuvissa, sekä vertailla eri piirteiden ja metodien suorituskykyä. Tämä toteutetaan
+vertailemalla Naive-Bayes, GMM-Bayes ja ohjaamattomien reunantunnistusmenetelmien suorituskykyä
+erilaisilla asiantuntijatiedon tarkkuuksilla. Tulokset varmistavat epätarkan asiantuntijatiedon vaikutukset
+segmentoinnin tarkkuuteen, Myös menetelmä- ja piirrekohtaista suorituskykyä tutkitaan.
 \end{tiivis}
 
 
@@ -402,7 +410,7 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 
 
 \subsection{Unsupervised methods}
-
+\label{subsec:unsupervised}
 % An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
 % It perform the same operations on each image with the object of clustering the data into meaningful sets.
 % 
@@ -418,25 +426,25 @@ Edge detection operators that only detect gradients in specified directions are 
 Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
 It is defined as:
 
-% \[
-% K_1 = \begin{bmatrix}
-%   5 & 5 & 5 \\
-%  -3 & 0 &-3 \\
-%  -3 &-3 &-3 
-% \end{bmatrix}
-% K_2 = \begin{bmatrix}
-%   5 & 5 &-3 \\
-%   5 & 0 &-3 \\
-%  -3 &-3 &-3 
-% \end{bmatrix} 
-% ... K_8 = \begin{bmatrix}
-%  -3 & 5 & 5 \\
-%  -3 & 0 & 5 \\
-%  -3 &-3 &-3 
-% \end{bmatrix}
-% 
-% \]      
-%\vspace{-20mm}
+\[
+K_1 = \begin{bmatrix}
+  5 & 5 & 5 \\
+ -3 & 0 &-3 \\
+ -3 &-3 &-3 
+\end{bmatrix}
+K_2 = \begin{bmatrix}
+  5 & 5 &-3 \\
+  5 & 0 &-3 \\
+ -3 &-3 &-3 
+\end{bmatrix} 
+... K_8 = \begin{bmatrix}
+ -3 & 5 & 5 \\
+ -3 & 0 & 5 \\
+ -3 &-3 &-3 
+\end{bmatrix}
+
+\]      
+\vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -451,14 +459,14 @@ These transforms are defined as follows:
 TopHat(f) = f - (f \circ B)
 \end{split}
 \end{equation}
-%\vspace{-25mm}
+\vspace{-25mm}
 
 \begin{equation}\label{eq:bottomhat}
 \begin{split}
 BottomHat(f) = (f \bullet B) - f
 \end{split}
 \end{equation}
-%\vspace{-12mm}
+\vspace{-5mm}
 
 
 where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
@@ -535,24 +543,24 @@ into false positives and false negatives. In this thesis, true positives are fin
 in the segmentation results, and true negatives are consequently findings correctly classified as background. False
 negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
 false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
-% a error matrix shown in Table ~\ref{tab:truepositive}.
-% 
-% \begin{table}[hpt]
-% \begin{center}
-% \caption{General error matrix\label{tab:truepositive}}
-% 
-% \begin{tabular}{cc|c|c|c|c|l}
-% \cline{3-4}
-% & & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
-% & & Positive & Negative  \\ \cline{1-4}
-% \multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
-% \multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
-% \multicolumn{1}{ |c  }{}  &
-% \multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
-% 
-% \end{tabular}
-% \end{center}
-% \end{table}
+a error matrix shown in Table ~\ref{tab:truepositive}.
+
+\begin{table}[hpt]
+\begin{center}
+\caption{General error matrix\label{tab:truepositive}}
+
+\begin{tabular}{cc|c|c|c|c|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+& & Positive & Negative  \\ \cline{1-4}
+\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}  &
+\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+
+\end{tabular}
+\end{center}
+\end{table}
 
 
 % Sensitivity represents the amount of samples correctly classified as positive. and specificity in turn represents
@@ -636,14 +644,14 @@ variation of feature distributions and an increase of false positives.
      
   \caption[moving]{Ground truths:
   \subref{fig:bristol_gt} Original accurate ground truth
-  \subref{fig:inaccurate_gt} Inaccurate ground truth }
+  \subref{fig:inaccurate_gt} The most inaccurate ground truth }
   \label{fig:groundtruth}
 
 }\end{figure}
 
 \subsection{Supervised methods}
 
-\subsubsection{Tests}
+\subsubsection{Test settings}
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
 As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
@@ -674,8 +682,9 @@ All methods and classifiers behave similarly in this regard, having gradually mo
 as ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naive-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a considerably higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier on the other hand,
-is clearly outperforming any other single-feature trained classifier or even the classifier with all features included.
+a slighty higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier on the other hand,
+is outperforming other single-feature trained classifier and even the classifier with all features included. It is worth noting the 
+linear progression of Naive-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
 explain this, as the texture-based classifier behaves similarly to a random classifier. This could be because of the feature's
 variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
@@ -754,10 +763,17 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 
 \subsubsection{Results}
 
-The sensitivity of unsupervised methods behaves similarly with the supervised methods. More exudates are found
-as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
-ground truth, maintaining a high value throughout the different levels of inaccurate ground truth.
+Kirsch and Tophat (described in Sec.~\ref{subsec:unsupervised}) and the method described in~\cite{Eadgahi:2012}, were evaluated. Eadgahi's
+methods performance is not present in this thesis as it was noticed to be very close to the performance of Tophat.
 
+The sensitivity of unsupervised methods behaves similarly with the supervised methods, as can be seen in Figure~\ref{fig:unsupsens}.
+More exudates are found as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
+ground truth, maintaining a high value throughout the different levels of inaccurate ground truth. This can be seen in Figure~\ref{fig:unsupspec}.
+
+The used mask has a major impact on these results. It was expected that the edge-detection methods highlight the 
+blood vessels in the image, so the method described in Sec.~\ref{subsec:vesselmask} was used to create
+a mask of the main arteries in the image. Without this mask, the amount of false positives in segmentation
+results would drastically increase with the inaccurate ground truths.
 
 \begin{figure}[ht]
 {
@@ -771,46 +787,51 @@ ground truth, maintaining a high value throughout the different levels of inaccu
      
   \caption[moving]{Performance of unsupervised methods:
   \subref{fig:unsupsens} Sensitivity
-  \subref{fig:unsupspec} Specificity}
+  \subref{fig:unsupspec} Specificity. Note that these graphs represent
+  the methods' performance over images that have exudates present. Original
+  Bristol ground truth is on the left on the x-axis, and the most inaccurate
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line.}
   \label{fig:unsup}
 
 }\end{figure}
 
-
-% \subsection{Experiment 1}
-% 
-% First experiment was done with minimal preprocessing; only the green timestamp was removed.
-% In unsupervised methods, the mask described in Section~\ref{subsec:vesselmask} was used to reduce the amount of false positives.
-% In supervised methods, features describing color values and the presence of edges were used.
-% The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
-% For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
-
-% \subsection{Experiment 2}
-
-% \section{DISCUSSION}
-% \label{sec:discussion}
-
-% We have to discuss what we learned.
-
-% Notice the automatic page breaks. 
-
+\section{DISCUSSION}
+\label{sec:discussion}
 % Tehtiin laitokselle osana projektia, tulevaisuudessa saatu ground truth on
 % todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
 % It is always nice to give some ideas for the future.
 
+The main goal of this thesis was to study if and how much the accuracy of used ground truth affects
+the segmentation of retinal images using different image features and segmentation methods. Two supervised methods
+were compared, Naive-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
+The performance of unsupervised edge-detection methods was also evaluated.
+
+The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
+impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed colour- and texture-
+based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
+even partially find exudates from the images.
+
+GMM-Bayes was expected to outperform the simpler Naive-Bayes, but there was no clear difference in overall performance of these methods.
+However, Naive-Bayes' performance with higher levels of inaccuracy in ground truth was much more predictable, as the segmentation 
+accuracy declined almost linearly as ground truth became more inaccurate. The performance of GMM-Bayes classifiers, mainly the ones
+using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
+of Naive- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
+
+The second goal of the thesis was to evaluate the performance of features other than colour. Based on the performance of 
+the unsupervised methods and edge-based classifiers of supervised methods, using edge in exudate segmentation proves to be a 
+valid method. Future work is required in studying the usefulness of texture in this matter.
+
+
 % \section{CONCLUSIONS}
 % \label{sec:conclusion}
 
+% Tarviiko?
 % Finally the conclusions. This is more compact that the Discussion, a sort
 % of summary about how things went on a general level.
-
-% Now you can delete all this crap content and write your own. Have fun!
-
 
 % \clearpage
 
 % Bibliography
-%
 %% This must be here, not in preamble, if you want it to work
 \addcontentsline{toc}{section}{REFERENCES}
 \bibliography{resources/thesis}
@@ -955,86 +976,3 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 \sectionend
 
 \end{document}
-
-
-
-% \section{Appendix Guidelines}
-% 
-% The appendices part starts with the command \verb:\appendix:. Then, each
-% appendix must be started with \verb:\section{Appendix Name}: and ended
-% with \verb:\sectionend: to have the continues/continued markings right.
-% For example, see the multi-page appendices after this one.
-% 
-% \sectionend
-% 
-% 
-% \section{Frame Schematics}
-% \label{app:frame}
-% 
-% This is an appendix. If you need more appendices, just make a new section
-% here (the \texttt{section} command).
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.95\textwidth]{exporesp}
-%   \par}
-%   \caption{Overall design, only one half drawn.}
-%   \label{afig:frame1}
-% \end{figure}
-% 
-% huhu
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.55\textwidth]{exporesp}
-%   \par}
-%   \caption{Another picture.}
-%   \label{afig:frame2}
-% \end{figure}
-% 
-% Reference testing: Figures~\ref{afig:frame1}, \ref{afig:frame2}, and
-% \ref{afig:frame3}. Table~\ref{atab:test}.
-% 
-% \sectionend
-% 
-% 
-% \section{The Second}
-% 
-% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.35\textwidth]{exporesp}
-%   \par}
-%   \caption{The same picture once more.}
-%   \label{afig:frame3}
-% \end{figure}
-% 
-% \begin{table}[hpt]
-% \begin{center}
-% \caption{Appendix test table.\label{atab:test}}
-% \begin{tabular}{|l|r|l|}
-% \hline
-% minimum distance & 10 & px \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-% 
-% \newpage
-% 
-% Aaand two more pages, to test the continues/continued marks.
-% 
-% 
-% \newpage
-% 
-% Aaand one more page, to test the continues/continued marks.
-% 
-% \sectionend
-% 
-% \end{document}

@@ -402,7 +402,7 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 
 
 \subsection{Unsupervised methods}
-
+\label{subsec:unsupervised}
 % An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
 % It perform the same operations on each image with the object of clustering the data into meaningful sets.
 % 
@@ -636,14 +636,14 @@ variation of feature distributions and an increase of false positives.
      
   \caption[moving]{Ground truths:
   \subref{fig:bristol_gt} Original accurate ground truth
-  \subref{fig:inaccurate_gt} Inaccurate ground truth }
+  \subref{fig:inaccurate_gt} The most inaccurate ground truth }
   \label{fig:groundtruth}
 
 }\end{figure}
 
 \subsection{Supervised methods}
 
-\subsubsection{Tests}
+\subsubsection{Test settings}
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
 As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
@@ -667,10 +667,6 @@ With this setup, each calculation used a specific ground truth accuracy, image s
 
 \subsubsection{Results}
 
-\textbf{GRAY WORLD TULOKSISTA VIELÄ KUVAAJIA, tarkista gray world kappale}
-
-\textbf{k:n vaikutus}
-
 Using inaccurate ground truth is expected to result in more false positives in segmentation results.
 This can be seen in the results as an increase in sensitivity and a decrease in specificity with all features and classifiers 
 when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in Appendix~\ref{app:bayes} and~\ref{app:gmmbayes}.
@@ -685,8 +681,15 @@ explain this, as the texture-based classifier behaves similarly to a random clas
 variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
 as they have no other effect than decreasing the average performance.
 
-Color normalization didn't have a big impact on the results. The expected improvement on the performance of color-based
-classifiers is minimal, and the performance of edge-based classifiers was slightly worse.
+Color normalization's impact on the results was negligible. It was expected to improve the performance of classifier using the color feature by 
+reducing the color variance of the exudates and background. However, results with Naive-Bayes are almost identical between the image sets,
+and no clear improvement can be seen from the results of GMM-Bayes.
+
+In the Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes}, selection of training data is represented via the dotted or filled line.
+Generally, the selection of training data had a minor impact on the results. Performance of both methods' classifiers using edge feature, however,
+changed drastically when using the most inaccurate ground truth. This can be seen as a drop in specificity. Selection of training data also had a
+noticeable effect on the performance of GMM-Bayes classifier using all features. For others, the selection of training data didn't appear to have a
+meaningful effect.
 
 \begin{figure}[ht]
 {
@@ -703,7 +706,7 @@ classifiers is minimal, and the performance of edge-based classifiers was slight
   \subref{fig:bayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right.}
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:bayes}
 
 }\end{figure}
@@ -723,7 +726,7 @@ classifiers is minimal, and the performance of edge-based classifiers was slight
   \subref{fig:gmmbayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right. }
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:gmmbayes}
 
 }\end{figure}
@@ -751,10 +754,17 @@ choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it
 
 \subsubsection{Results}
 
-The sensitivity of unsupervised methods behaves similarly with the supervised methods. More exudates are found
-as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
-ground truth, maintaining a high value throughout the different levels of inaccurate ground truth.
+Kirsch and Tophat (described in Sec.~\ref{subsec:unsupervised}) and the method described in~\cite{Eadgahi:2012}, were evaluated. Eadgahi's
+methods performance is not present in this thesis as it was noticed to be very close to the performance of Tophat.
 
+The sensitivity of unsupervised methods behaves similarly with the supervised methods, as can be seen in Figure~\ref{fig:unsupsens}.
+More exudates are found as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
+ground truth, maintaining a high value throughout the different levels of inaccurate ground truth. This can be seen in Figure~\ref{fig:unsupspec}.
+
+The used mask has a major impact on these results. It was expected that the edge-detection methods highlight the 
+blood vessels in the image, so the method described in Sec.~\ref{subsec:vesselmask} was used to create
+a mask of the main arteries in the image. Without this mask, the amount of false positives in segmentation
+results would drastically increase with the inaccurate ground truths.
 
 \begin{figure}[ht]
 {
@@ -768,24 +778,30 @@ ground truth, maintaining a high value throughout the different levels of inaccu
      
   \caption[moving]{Performance of unsupervised methods:
   \subref{fig:unsupsens} Sensitivity
-  \subref{fig:unsupspec} Specificity}
+  \subref{fig:unsupspec} Specificity. Note that these graphs represent
+  the methods' performance over images that have exudates present. Original
+  Bristol ground truth is on the left on the x-axis, and the most inaccurate
+  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line.}
   \label{fig:unsup}
 
 }\end{figure}
 
+\section{DISCUSSION}
+\label{sec:discussion}
 
-% \subsection{Experiment 1}
-% 
-% First experiment was done with minimal preprocessing; only the green timestamp was removed.
-% In unsupervised methods, the mask described in Section~\ref{subsec:vesselmask} was used to reduce the amount of false positives.
-% In supervised methods, features describing color values and the presence of edges were used.
-% The original value of red channel and the contrast enhanced values of green and blue channel were used to describe color.
-% For edge detection, local standard deviation of a 3-by-3 neighborhood of each channel was used.
+The main goal of this thesis was to study if and how much the accuracy of used ground truth affects
+the segmentation of retinal images using different image features and segmentation methods. Two supervised methods
+were compared, Naive-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
+The performance of unsupervised edge-detection methods was also evaluated.
 
-% \subsection{Experiment 2}
+The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
+impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed colour- and texture-
+based classifiers. GMM-Bayes classifiers outperformed Naive-Bayes when using the colour-feature.
+Even though texture seemed promising in initial testing, texture-based classifiers were unable
+to even partially find exudates from the images.
 
-% \section{DISCUSSION}
-% \label{sec:discussion}
+The performance of unsupervised edge-detection methods was significantly better than the performance of Naive- and GMM-Bayes,
+largely due to the mask used to rule out blood vessels.
 
 % We have to discuss what we learned.
 
@@ -801,13 +817,9 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 % Finally the conclusions. This is more compact that the Discussion, a sort
 % of summary about how things went on a general level.
 
-% Now you can delete all this crap content and write your own. Have fun!
-
-
 % \clearpage
 
 % Bibliography
-%
 %% This must be here, not in preamble, if you want it to work
 \addcontentsline{toc}{section}{REFERENCES}
 \bibliography{resources/thesis}
@@ -912,125 +924,43 @@ ground truth, maintaining a high value throughout the different levels of inaccu
 
 \sectionend
 
-\end{document}
-
 \section{Supervised methods' performance using gray world pictures}
-\label{app:gmmbayes}
+\label{app:grayworld}
+
 \begin{figure}[ht]
 {
-    \label{fig:eye28_gmmbayes_color}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using color}
+  \subfloat[]{
+     \label{fig:grayworld_bayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+  
+  \subfloat[]{
+     \label{fig:grayworld_bayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}}
+     
+  \caption[moving]{Performance of Naive-Bayes classifiers using gray world images:
+  \subref{fig:grayworld_bayes_sens} Sensitivity
+  \subref{fig:grayworld_bayes_spec} Specificity. }
+  \label{fig:grayworld_bayes}
 
 }\end{figure}
 
 \begin{figure}[ht]
 {
-    \label{fig:eye28_gmmbayes_edge}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using edge}
-
-}\end{figure}
-
-\begin{figure}[ht]
-{
-    \label{fig:eye28_gmmbayes_texture}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using texture}
-
-}\end{figure}
-
-\begin{figure}[ht]
-{
-    \label{fig:eye28_gmmbayes_all}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using all features}
+  \subfloat[]{
+     \label{fig:grayworld_gmmbayes_sens}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
+  
+  \subfloat[]{
+     \label{fig:grayworld_gmmbayes_spec}
+     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset2}}
+     
+  \subref{fig:grayworld_gmmbayes_sens} Sensitivity
+  \caption[moving]{Performance of GMM-Bayes classifiers using gray world images:
+  \subref{fig:grayworld_gmmbayes_spec} Specificity. }
+  \label{fig:grayworld_gmmbayes}
 
 }\end{figure}
 
 \sectionend
 
 \end{document}
-
-
-
-% \section{Appendix Guidelines}
-% 
-% The appendices part starts with the command \verb:\appendix:. Then, each
-% appendix must be started with \verb:\section{Appendix Name}: and ended
-% with \verb:\sectionend: to have the continues/continued markings right.
-% For example, see the multi-page appendices after this one.
-% 
-% \sectionend
-% 
-% 
-% \section{Frame Schematics}
-% \label{app:frame}
-% 
-% This is an appendix. If you need more appendices, just make a new section
-% here (the \texttt{section} command).
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.95\textwidth]{exporesp}
-%   \par}
-%   \caption{Overall design, only one half drawn.}
-%   \label{afig:frame1}
-% \end{figure}
-% 
-% huhu
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.55\textwidth]{exporesp}
-%   \par}
-%   \caption{Another picture.}
-%   \label{afig:frame2}
-% \end{figure}
-% 
-% Reference testing: Figures~\ref{afig:frame1}, \ref{afig:frame2}, and
-% \ref{afig:frame3}. Table~\ref{atab:test}.
-% 
-% \sectionend
-% 
-% 
-% \section{The Second}
-% 
-% Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-% tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-% quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-% consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-% cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-% proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-% 
-% \begin{figure}[htp]
-%   {\par\centering
-%   \includegraphics[width=0.35\textwidth]{exporesp}
-%   \par}
-%   \caption{The same picture once more.}
-%   \label{afig:frame3}
-% \end{figure}
-% 
-% \begin{table}[hpt]
-% \begin{center}
-% \caption{Appendix test table.\label{atab:test}}
-% \begin{tabular}{|l|r|l|}
-% \hline
-% minimum distance & 10 & px \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-% 
-% \newpage
-% 
-% Aaand two more pages, to test the continues/continued marks.
-% 
-% 
-% \newpage
-% 
-% Aaand one more page, to test the continues/continued marks.
-% 
-% \sectionend
-% 
-% \end{document}
