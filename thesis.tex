@@ -197,17 +197,17 @@ Lappeenranta, October 19th, 2014
 \subsection{Background}
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
-The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
-motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
+The growing number of diabetes patients and the estimated amount of undiagnosed patients 
+motivate the research for an effective mass screening method for early detection and monitoring of diabetes. The most common
 complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
-is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, handmade annotations of the objects
-in the image are used as a ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
-ground truths are usually done by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
+is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, manual segmentation of the objects
+in the image are used as ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
+ground truths are usually produced by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
 
 Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
-done by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
-amount of time and patience, it is often necessary to have to settle for rough markings of the present abnormalities. Clusters of
-exudates are circled, rather than each small finding specified separately.
+produced manually, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
+amount of time and patience, it is often necessary to use inaccurate markings of the abnormalities. Clusters of
+exudates are marked, rather than each small finding specified separately.
 
 \subsection{Objectives and Restrictions}
 
@@ -215,7 +215,7 @@ This thesis will address two main questions in its research:
 %\vspace{-5mm}
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
-  \item How will inaccurate ground truth affect features and segmentation methods?
+  \item How will inaccurate ground truth affect image features and segmentation methods?
   \item How will other features than colour perform?
 \end{itemize}
 %\vspace{-5mm}
@@ -224,13 +224,19 @@ This thesis will address two main questions in its research:
 % and segmentation methods. 
 
 This thesis focuses on exudate detection in terms of segmentation performance, and Bristol database is used as it is 
-readily available and has accurate ground truths of exudates. To enable comparison between features, colour, edge and
+readily available and includes accurate ground truth information. To enable comparison between image features, colour, edge and
 texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
-disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored for context.
+disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored.
 
-Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used to label
-observations as either exudate or background. In unsupervised methods, ground truth is used to evaluate segmentation
-results. Best parameters for each method are chosen based on their performance.
+Both supervised and unsupervised segmentation methods are used. In supervised methods, the ground truth is used to label
+observations as either exudate or background. 
+
+In unsupervised methods, the ground truth is used to evaluate the performance of the methods with varying values of method parameters.
+From these results, the best set of parameters are then selected for each method based on their performance. The method performance is then compared
+to supervised methods only with these selected parameters.
+
+
+
 
 \subsection{Structure of the Thesis}
 
@@ -240,9 +246,8 @@ It also explains the theory behind the applied pre-processing
 and segmentation methods.
 Section~\ref{sec:experiments} describes the experiments in detail,
 and presents the results for each experiment.
-% Section~\ref{sec:discussion} sums up and interprets the results, and
-% discusses the impact of this thesis and possible future work this thesis
-% might invoke.
+Section~\ref{sec:discussion} sums up and interprets the results, and
+discusses the impact of this thesis and possible future research.
 
 \section{RETINAL IMAGES AND THEIR SEGMENTATION}
 \label{sec:segmentation}
@@ -252,13 +257,13 @@ The function of the human eye on an abstract level can be compared to a camera. 
 pupil and lens and is focused on the retina (the inner part of the eye). It is then processed by photoreceptors and then transmitted to 
 the brain via the optic nerve.~\cite{Wandell:1995} Rather than covering the eye as a whole, this chapter will focus on the structure of the eye fundus.
 
-The eye fundus is the area located in the retina, at the very back of the eye. The location of the eye fundus is illustrated in
-Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the arteries. Macula is a
+The eye fundus is the interior lining of the eyeball, located at the very back of the eye. The location of the eye fundus is illustrated in
+Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the veins. Macula is a
 highly light sensitive area in the central region of the retina. Fovea is a round area located in the macula, which is densely
 populated by cones (cells sensitive to color).~\cite{Kolb}
 
 Optic disc is where the optic nerve and main arteries connect with the eye. There are no light sensitive cells inside the
-optic disc, which creates a blind spot in the retina. Arteries inside the eye together with the choroid (vascular layer
+optic disc, which creates a blind spot in the retina. Veins inside the eye together with the choroid (vascular layer
 surrounding the retina) provide nutritional support to the eye.~\cite{Kauppi:2010} These parts of the eye fundus
 are illustrated in Figure~\ref{fig:healthyeyefundus}.
 
@@ -282,7 +287,7 @@ are illustrated in Figure~\ref{fig:healthyeyefundus}.
      
   \caption[moving]{Structure of the human eye
   \subref{fig:cross_section_eye} Cross section of the eye (modified from~\cite{Kolb})
-  \subref{fig:healthyeyefundus} Structure of the fundus
+  \subref{fig:healthyeyefundus} Structure of the fundus.
   
   
   \label{fig:eyestructure}}

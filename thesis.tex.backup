@@ -137,7 +137,7 @@ Diabetes on kasvava ongelma kehittyneissä maissa, mikä motivoi automatisoidun sa
 seurantamenetelmän tutkimista. Yksi lupaava menetelmä on tunnistaa diabeettinen retinopatia silmänpohjakuvista.
 Tämän tutkielman tavoite on tutkia epätarkan asiantuntijatiedon vaikutuksia eksudaattien segmentointiin
 silmänpohjakuvissa, sekä vertailla eri piirteiden ja metodien suorituskykyä. Tämä toteutetaan
-vertailemalla Naïve-Bayes ja Gaussisten sekoitemallien Bayesiläisellä luokittelulla ja ohjaamattomien reunantunnistusmenetelmien suorituskykyä
+vertailemalla Naïve-Bayesin, Gaussisten sekoitemallien Bayesiläisellä luokittelulla, sekä ohjaamattomien reunantunnistusmenetelmien suorituskykyä
 erilaisilla asiantuntijatiedon tarkkuuksilla. Tulokset varmistavat epätarkan asiantuntijatiedon negatiiviset vaikutukset
 segmentoinnin tarkkuuteen, Myös menetelmä- ja piirrekohtaista suorituskykyä tutkitaan.
 \end{tiivis}
@@ -145,8 +145,8 @@ segmentoinnin tarkkuuteen, Myös menetelmä- ja piirrekohtaista suorituskykyä tutk
 
 \begin{preface}
 
-I would like to thank the Laboratory of Machine Vision and Pattern Recognition of Lappeenranta University of Technology
-for giving me this opportunity to carry out my research. I would like to give special thanks to D.Sc. Lasse Lensu for 
+I would like to thank the Machine Vision and Pattern Recognition Laboratory of Lappeenranta University of Technology
+for giving me this opportunity to carry out my research. I would like to give special thanks to Prof. Lasse Lensu for 
 the endless guidance and support during my summers as an intern.
 
 I would like to thank University of Bristol for their retinal image database and its accurate ground truth data,
@@ -170,7 +170,7 @@ Lappeenranta, October 19th, 2014
 
 
 
-\section*{ABBREVIATIONS AND SYMBOLS}
+\section*{ABBREVIATIONS}
 
 \begin{tabular}{l l}
 \textbf{CLAHE} & Contrast Limited Adaptive Histogram Equalization\\
@@ -197,17 +197,17 @@ Lappeenranta, October 19th, 2014
 \subsection{Background}
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
-The growing amount of diabetes patients and (arguably) more importantly the estimated amount of undiagnosed patients 
+The growing number of diabetes patients and the estimated amount of undiagnosed patients 
 motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
 complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
 is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, handmade annotations of the objects
-in the image are used as a ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
-ground truths are usually done by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
+in the image are used as ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
+ground truths are usually produced by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
 
 Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
-done by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
-amount of time and patience, it is often necessary to have to settle for rough markings of the present abnormalities. Clusters of
-exudates are circled, rather than each small finding specified separately.
+produced by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
+amount of time and patience, it is often necessary to use inaccurate markings of the abnormalities. Clusters of
+exudates are marked, rather than each small finding specified separately.
 
 \subsection{Objectives and Restrictions}
 
@@ -215,7 +215,7 @@ This thesis will address two main questions in its research:
 %\vspace{-5mm}
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
-  \item How will inaccurate ground truth affect features and segmentation methods?
+  \item How will inaccurate ground truth affect image features and segmentation methods?
   \item How will other features than colour perform?
 \end{itemize}
 %\vspace{-5mm}
