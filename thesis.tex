@@ -76,19 +76,19 @@
 \Major{Degree Program in Computer Science}
 \Majorfin{Tietotekniikan koulutusohjelma}
 
-\Keywords{eye fundus, image segmentation, sensitivity analysis, ground truth}
+\Keywords{retinal image analysis, image segmentation, sensitivity analysis, ground truth}
 
-\Keywordsfin{silmänpohja, segmentointi, herkkyysanalyysi, pohjamerkintä}
+\Keywordsfin{silmänpohjakuvien analyysi, segmentointi, herkkyysanalyysi, asiantuntijatieto}
 
 % For a single supervisor, \Supervisor{N.N.}
 % For multiple supervisors, \Supervisors{N.N.\\ K.K.}, that is,
 % use \\ to separate names.
 % the same with \Examiner{} or \Examiners{}
-\Supervisor{Lasse Lensu D.Sc. (Tech.)}
-\Examiners{Lasse Lensu D.Sc. (Tech.)}
+\Supervisor{Prof. Lasse Lensu}
+\Examiners{Prof. Lasse Lensu}
 
 % The examiners for the Finnish abstract only.
-\Tarkastajat{TkT Lasse Lensu}
+\Tarkastajat{Prof. Lasse Lensu}
 
 % date of topic accepted in the council
 \AcceptDate{January 1\textsuperscript{st}, 2014}
@@ -112,14 +112,15 @@
 % You have to count the numbers yourself, except for pages.
 \begin{abstract}
 Diabetes is a growing problem in developed countries, which motivates the research
-for an automated method of detecting and monitoring the disease. One promising method
-is detecting diabetic retinopathy in retinal images.
+for an automated method for diagnosing and monitoring the disease. One promising approach
+is detection of diabetic retinopathy in retinal images.
 The object of this thesis is to study the effects of inaccurate ground truth
 in exudate segmentation in retinal images, and to compare the performance of
-different features and methods. This is done by studying the performance of Naive-Bayes, GMM-Bayes
-and unsupervised edge-detection methods with varying levels of ground truth accuracy.
-Results confirm the negative effect inaccurate ground truth has on segmentation accuracy.
-Also method- and feature-specific performance is explored.
+different image features and methods. This is done by studying the performance of Naïve-Bayes
+and Gaussian mixture models (GMM) with Bayesian classification, and also unsupervised edge-detection
+methods with varying degrees of ground truth accuracy.
+The results confirm the negative effect inaccurate ground truth has on segmentation accuracy.
+Also the method- and feature-specific performance is explored.
 \end{abstract}
 
 % Tähän kirjoitetaan ytimekäs tiivistelmä: tausta, tavoite, tulokset ja johtopäätökset.
@@ -132,12 +133,12 @@ Also method- and feature-specific performance is explored.
 % vasemmalle että oikealle. Työn numerointi aloitetaan kansilehdeltä, mutta tätä roomalaista
 % numeroa ei merkitä näkyviin. 
 \begin{tiivis}
-Diabetes on kasvava ongelma kehittyneissä maissa, joka motivoi automatisoidun taudin tunnistus- ja
-seurausmenetelmän tutkimista. Yksi lupaava menetelmä on tunnistaa diabeettinen retinopatia silmänpohjakuvista.
-Tämän tutkielman tavoite on tutkia epätarkan asiantuntijatiedon vaikutuksia exudaattien segmentointiin
+Diabetes on kasvava ongelma kehittyneissä maissa, mikä motivoi automatisoidun sairauden diagnosointi- ja
+seurantamenetelmän tutkimista. Yksi lupaava menetelmä on tunnistaa diabeettinen retinopatia silmänpohjakuvista.
+Tämän tutkielman tavoite on tutkia epätarkan asiantuntijatiedon vaikutuksia eksudaattien segmentointiin
 silmänpohjakuvissa, sekä vertailla eri piirteiden ja metodien suorituskykyä. Tämä toteutetaan
-vertailemalla Naive-Bayes, GMM-Bayes ja ohjaamattomien reunantunnistusmenetelmien suorituskykyä
-erilaisilla asiantuntijatiedon tarkkuuksilla. Tulokset varmistavat epätarkan asiantuntijatiedon vaikutukset
+vertailemalla Naïve-Bayesin, Gaussisten sekoitemallien Bayesiläisellä luokittelulla, sekä ohjaamattomien reunantunnistusmenetelmien suorituskykyä
+erilaisilla asiantuntijatiedon tarkkuuksilla. Tulokset varmistavat epätarkan asiantuntijatiedon negatiiviset vaikutukset
 segmentoinnin tarkkuuteen, Myös menetelmä- ja piirrekohtaista suorituskykyä tutkitaan.
 \end{tiivis}
 
@@ -510,13 +511,13 @@ and greedy EM algorithms are implemented in the Toolbox and described in both~\c
 these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
 In this thesis, only Figuero-Jain is used.
 
-\subsubsection{Naive Bayes}
+\subsubsection{Naïve Bayes}
 
-Naive Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
-contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naive Bayes classifier
+Naïve Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
+contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naïve Bayes classifier
 uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
 -
-The Naive Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
+The Naïve Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
 classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
 binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
 is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
@@ -683,17 +684,17 @@ when the level of inaccuracy in ground truth increases. This is also visible in 
 All methods and classifiers behave similarly in this regard, having gradually more and more false positives in their segmentation results
 as ground truth is made more inaccurate.
 
-Comparing the sensitivity and specificity of Naive-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naive-Bayes edge-classifier on the other hand,
+Comparing the sensitivity and specificity of Naïve-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
+a slighty higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
 is outperforming other single-feature trained classifier and even the classifier with all features included. It is worth noting the 
-linear progression of Naive-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
+linear progression of Naïve-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
 explain this, as the texture-based classifier behaves similarly to a random classifier. This could be because of the feature's
 variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
 as they have no other effect than decreasing the average performance.
 
 Color normalization's impact on the results was negligible. It was expected to improve the performance of classifier using the color feature by 
-reducing the color variance of the exudates and background. However, results with Naive-Bayes are almost identical between the image sets,
+reducing the color variance of the exudates and background. However, results with Naïve-Bayes are almost identical between the image sets,
 and no clear improvement can be seen from the results of GMM-Bayes.
 
 In the Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes}, selection of training data is represented via the dotted or filled line.
@@ -712,7 +713,7 @@ meaningful effect.
      \label{fig:bayes_spec}
      \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset1}}
      
-  \caption[moving]{Performance of Naive-Bayes classifiers:
+  \caption[moving]{Performance of Naïve-Bayes classifiers:
   \subref{fig:bayes_sens} Sensitivity
   \subref{fig:bayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. Original
@@ -805,7 +806,7 @@ results would drastically increase with the inaccurate ground truths.
 
 The main goal of this thesis was to study if and how much the accuracy of used ground truth affects
 the segmentation of retinal images using different image features and segmentation methods. Two supervised methods
-were compared, Naive-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
+were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
 The performance of unsupervised edge-detection methods was also evaluated.
 
 The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
@@ -813,11 +814,11 @@ impact on segmentation performance. As for the features, classifiers using the e
 based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
 even partially find exudates from the images.
 
-GMM-Bayes was expected to outperform the simpler Naive-Bayes, but there was no clear difference in overall performance of these methods.
-However, Naive-Bayes' performance with higher levels of inaccuracy in ground truth was much more predictable, as the segmentation 
+GMM-Bayes was expected to outperform the simpler Naïve-Bayes, but there was no clear difference in overall performance of these methods.
+However, Naïve-Bayes' performance with higher levels of inaccuracy in ground truth was much more predictable, as the segmentation 
 accuracy declined almost linearly as ground truth became more inaccurate. The performance of GMM-Bayes classifiers, mainly the ones
 using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
-of Naive- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
+of Naïve- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
 
 The second goal of the thesis was to evaluate the performance of features other than colour. Based on the performance of 
 the unsupervised methods and edge-based classifiers of supervised methods, using edge in exudate segmentation proves to be a 
@@ -864,13 +865,13 @@ valid method. Future work is required in studying the usefulness of texture in t
 \sectionend
 
 
-\section{Example results of Naive-Bayes}
+\section{Example results of Naïve-Bayes}
 \label{app:bayes}
 \begin{figure}[ht]
 {
     \label{fig:eye28_bayes_color}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
-    \caption[moving]{Example results of Naive-Bayes classifier using color}
+    \caption[moving]{Example results of Naïve-Bayes classifier using color}
 
 }\end{figure}
 
@@ -879,7 +880,7 @@ valid method. Future work is required in studying the usefulness of texture in t
 {
     \label{fig:eye28_bayes_edge}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_edge_28}     
-    \caption[moving]{Example results of Naive-Bayes classifier using edge}
+    \caption[moving]{Example results of Naïve-Bayes classifier using edge}
 
 }\end{figure}
 
@@ -887,7 +888,7 @@ valid method. Future work is required in studying the usefulness of texture in t
 {
     \label{fig:eye28_bayes_texture}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_texture_28}     
-    \caption[moving]{Example results of Naive-Bayes classifier using texture}
+    \caption[moving]{Example results of Naïve-Bayes classifier using texture}
 
 }\end{figure}
 
@@ -895,7 +896,7 @@ valid method. Future work is required in studying the usefulness of texture in t
 {
     \label{fig:eye28_bayes_all}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_all_28}     
-    \caption[moving]{Example results of Naive-Bayes classifier using all features}
+    \caption[moving]{Example results of Naïve-Bayes classifier using all features}
 
 }\end{figure}
 
@@ -951,7 +952,7 @@ valid method. Future work is required in studying the usefulness of texture in t
      \label{fig:grayworld_bayes_spec}
      \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}}
      
-  \caption[moving]{Performance of Naive-Bayes classifiers using gray world images:
+  \caption[moving]{Performance of Naïve-Bayes classifiers using gray world images:
   \subref{fig:grayworld_bayes_sens} Sensitivity
   \subref{fig:grayworld_bayes_spec} Specificity. }
   \label{fig:grayworld_bayes}

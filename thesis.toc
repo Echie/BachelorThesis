@@ -16,7 +16,7 @@
 \contentsline {subsubsection}{\numberline {2.5.2}Morphological operations}{14}{subsubsection.2.5.2}
 \contentsline {subsection}{\numberline {2.6}Supervised methods}{15}{subsection.2.6}
 \contentsline {subsubsection}{\numberline {2.6.1}Gaussian Mixture Models}{15}{subsubsection.2.6.1}
-\contentsline {subsubsection}{\numberline {2.6.2}Naive Bayes}{15}{subsubsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.2}Na\IeC {\"\i }ve Bayes}{15}{subsubsection.2.6.2}
 \contentsline {subsubsection}{\numberline {2.6.3}Features}{16}{subsubsection.2.6.3}
 \contentsline {subsection}{\numberline {2.7}Evaluation metrics}{16}{subsection.2.7}
 \contentsline {section}{\numberline {3}EXPERIMENTS AND RESULTS}{18}{section.3}
@@ -31,6 +31,6 @@
 \contentsline {section}{REFERENCES}{25}{section.4}
 \contentsline {section}{APPENDICES}{}{}
 \hspace *{1.5em}Appendix~\makebox [1.5em][l]{1:} Example results of unsupervised methods\\
-\hspace *{1.5em}Appendix~\makebox [1.5em][l]{2:} Example results of Naive-Bayes\\
+\hspace *{1.5em}Appendix~\makebox [1.5em][l]{2:} Example results of Na\IeC {\"\i }ve-Bayes\\
 \hspace *{1.5em}Appendix~\makebox [1.5em][l]{3:} Example results of GMM-Bayes\\
 \hspace *{1.5em}Appendix~\makebox [1.5em][l]{4:} Supervised methods' performance using gray world pictures\\
