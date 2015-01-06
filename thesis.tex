@@ -496,7 +496,7 @@ F(f) = TopHat(f) - BottomHat(f)
 \end{equation}
 %\vspace{-10mm}
 
-where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
+where $Tophat(f)$ and $BottomHat(f)$ denote Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
 Unlike in~\cite{Eadgahi:2012}, thresholding is applied after these operations to create a binary representation
 of the results.
 
@@ -508,28 +508,16 @@ of the results.
 % fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
 % yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
-\subsubsection{Gaussian Mixture Models}
-
-A Gaussian Mixture Model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
-When using a GMM to model image classes (more specifically, class conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
-model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
-
-Application, parameter estimation and performance of a classifier using GMMs and\linebreak Bayesian classification is discussed in~\cite{paalanen2006feature}.
-GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of said methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
-and greedy EM algorithms are implemented in the Toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
-these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
-In this thesis, only Figuero-Jain is used.
-
 \subsubsection{Naïve Bayes}
 
 Naïve Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
 contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naïve Bayes classifier
-uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
--
+uses the Bayesian theorem as the basis of classification.~\cite{Murphy:2006}
+
 The Naïve Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
 classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
-binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
-is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
+binary pixel classification, the classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
+is considered background. The posterior probability is calculated with the Bayesian theorem as follows:
 
 \begin{equation}\label{eq:naivebayes}
 \begin{split}
@@ -539,6 +527,19 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
+
+
+\subsubsection{Gaussian Mixture Models}
+
+A Gaussian mixture model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
+When using a GMM to model image classes (more specifically, class-conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
+model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
+
+Application, parameter estimation and performance of a classifier using GMMs and\linebreak Bayesian classification is discussed in~\cite{paalanen2006feature}.
+GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of these methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
+and greedy EM algorithms are implemented in the toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
+these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
+In this thesis, only FJ is used.
 
 \subsubsection{Features}
 \label{subsubsec:features}
