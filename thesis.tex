@@ -18,6 +18,8 @@
 \documentclass{lutmscthesis}[2010/09/22]
 %\documentclass[draft]{lutmscthesis}   % leave figures blank, faster
 
+\usepackage{cite}
+
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english,finnish]{babel}
@@ -285,9 +287,9 @@ are illustrated in Figure~\ref{fig:healthyeyefundus}.
     \label{fig:healthyeyefundus}
     \includegraphics[width=0.45\textwidth]{healthyeyefundus}}
      
-  \caption[moving]{Structure of the human eye
-  \subref{fig:cross_section_eye} Cross section of the eye (modified from~\cite{Kolb})
-  \subref{fig:healthyeyefundus} Structure of the fundus.
+  \caption[moving]{Structure of the human eye:
+  \subref{fig:cross_section_eye} cross section of the eye (modified from~\cite{Kolb}),
+  \subref{fig:healthyeyefundus} structure of the fundus.
   
   
   \label{fig:eyestructure}}
@@ -303,18 +305,18 @@ There are papers dedicated to the localisation of the optic disk~\cite{Sekhar:20
 and it is also covered in papers concerning the detection of other parts of the eye
 fundus, such as exudates~\cite{Walter:2002}.
 
-This method is based on the brightness of the optic disk, and the vertical blood vessels inside it.
+The method used in this thesis is based on the brightness of the optic disk, and the vertical blood vessels inside it.
 The horizontal image gradient is calculated using Sobel operator, the result is shown in 
-Figure~\ref{fig:opticdisk_gradient}. Image is then divided into slightly overlapping square 
-areas with a side of 140 pixels (size is adjusted when operating close to image borders). The area
+Figure~\ref{fig:opticdisk_gradient}. The image is then divided into slightly overlapping square 
+areas with a side of 140 pixels. The area
 with the highest sum of gradients is considered as region of interest, i.e. to hold the optic disk.
 This is because the dark blood vessels inside the bright optic disk result in a strong horizontal
-gradient. Images with a ``camera glare``,i.e. a high intensity strip in the corner of the eye fundus
-are problematic, as that area also has a high horizontal gradient. Region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
+gradient. Images with a ``camera glare``, i.e a high intensity strip in the corner of the eye fundus
+are problematic, as that area also has a high horizontal gradient. An example region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
 
-Inside this area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
-to be inside the optic disk. This pixel is then used as a center of a circle that will mask out the optic disk.
-Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
+Inside the area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
+to be inside the optic disk. This pixel is then used as the center of a circle that will mask out the optic disk.
+The final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
 \begin{figure}[ht]
 \centering
@@ -332,9 +334,9 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
      \includegraphics[width=0.45\textwidth]{OP_masked}}
 
   \caption[moving]{Locating and masking the optic disk:
-  \subref{fig:opticdisk_gradient} Horizontal gradient
-  \subref{fig:opticdisk_ROI} Region of interest
-  \subref{fig:opticdisk_masked} Optic disk masked out}
+  \subref{fig:opticdisk_gradient} horizontal gradient,
+  \subref{fig:opticdisk_ROI} region of interest,
+  \subref{fig:opticdisk_masked} optic disk masked out.}
   \label{fig:opticdisk}
 }\end{figure}
 
@@ -342,23 +344,24 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 \subsection{Blood vessel detection}
 \label{subsec:vesselmask}
 
-The issue of blood vessel detection in fundus images has been a popular topic of research~\cite{Zana:1999}~\cite{Staal:2004}~\cite{Niemeijer:2004}. 
+The issue of blood vessel detection in fundus images has been a popular topic of research~\cite{Zana:1999,Staal:2004,Niemeijer:2004}.
+
 In the context of this thesis, however, the purpose of blood vessel detection is to create a mask, and to use that mask to remove false
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates. For this purpose, accurate vessel detection itself is not important and
 including other dark areas of the image is even beneficial.
 
-The mask is formed by first using contrast limited adaptive histogram equalization\linebreak(CLAHE)~\cite{Reza:2004} to enhance
+The mask is formed by first using contrast-limited adaptive histogram equalization\linebreak(CLAHE)~\cite{Reza:2004} to enhance
 contrast in the green channel of the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This
 contrast enhanced image is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground
-and background by minimizing the intra-class variance. This results in all the vessels and other darker areas showing as
-black (or background), and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
-To create a binary mask of the darker areas, we use the complement of this thresholded image. Final version of the
+and background by minimizing the intra-class variance. This results in all the vessels and other darker areas classified as background,
+and all brighter areas classified as foreground. This is shown in Figure~\ref{fig:vesselmask_threshold}.
+To create a binary mask of the darker areas, we use the complement of this thresholded image. The final version of the
 mask is shown in Figure~\ref{fig:vesselmask_complement}.
 
 This method is inadequate for blood vessel detection as it also includes other darker areas of the image, 
-such as the fovea. As a mask however, it clearly reduces the amount of false positives in exudate segmentation results.
-It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
+such as the fovea. As a mask, however, it clearly reduces the amount of false positives in exudate segmentation results.
+It also does not remove true positives, as only the darker areas of the image are included in the mask.
 
 \begin{figure}[ht]
 \centering
@@ -376,9 +379,9 @@ It also doesn't remove true positives, as only the darker areas of the image are
      \includegraphics[width=0.45\textwidth]{vesselmask_complement}}
 
   \caption[moving]{Creating the blood vessel mask:
-  \subref{fig:vesselmask_adaptive} CLAHE
-  \subref{fig:vesselmask_threshold} Thresholding using Otsu's method
-  \subref{fig:vesselmask_complement} Final mask, complement of thresholded image}
+  \subref{fig:vesselmask_adaptive} CLAHE,
+  \subref{fig:vesselmask_threshold} thresholding using Otsu's method,
+  \subref{fig:vesselmask_complement} the final mask, complement of thresholded image.}
   \label{fig:vesselmask}
 }\end{figure}
 
