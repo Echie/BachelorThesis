@@ -218,7 +218,7 @@ This thesis will address two main questions in its research:
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
   \item How will inaccurate ground truth affect image features and segmentation methods?
-  \item How will other features than colour perform?
+  \item How will other features than color perform?
 \end{itemize}
 %\vspace{-5mm}
 
@@ -226,7 +226,7 @@ This thesis will address two main questions in its research:
 % and segmentation methods. 
 
 This thesis focuses on exudate detection in terms of segmentation performance, and Bristol database is used as it is 
-readily available and includes accurate ground truth information. To enable comparison between image features, colour, edge and
+readily available and includes accurate ground truth information. To enable comparison between image features, color, edge and
 texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
 disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored.
 
@@ -387,16 +387,17 @@ It also does not remove true positives, as only the darker areas of the image ar
 
 \subsection{Color transform}
 \label{subsec:colortransform}
-The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color~\cite{Foster:2011}.
+The human eye is capable of correcting the effect of varying light sources (illuminants) while perceiving color~\cite{Foster:2011}.
 In contrast, an image of an object taken under different light sources is perceived differently in terms of color by a computer.
-This is why color features need to be normalized in image sets where there's high variation in color properties.
+This is why color features need to be normalized in image sets where there's high variation in color properties. In this thesis,
+the use of color normalization is motivated by the variation of the color of the pigment epithelium layer in the eye fundus.
 
-The illumination and general color properties of the eye fundus images in Bristol database vary quite heavily.
-To be able to effectively use color features in teaching a classifier, the variance between image needs to be minimized.
+The illumination and general color properties of the eye fundus images vary quite heavily.
+To be able to effectively use color features in teaching a classifier, the variance between images needs to be minimized.
 This is achieved by estimating the illuminant by applying the gray-world assumption~\cite{Buchsbaum:1980}:
 \textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
 then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
-of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in Figure~\ref{fig:colortransform}.
+of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. The results are shown in Figure~\ref{fig:colortransform}.
 
 \begin{figure}[ht]
 \centering
@@ -665,7 +666,7 @@ variation of feature distributions and an increase of false positives.
 \subsubsection{Test settings}
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
-As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
+As the optic disk's color is very close to the exudates, a mask was generated with the method described in
 Sec.~\ref{subsec:opticdisc}. The eye outline was also included in the mask, as it was included in the results
 by edge detection methods. Vessels were not included in the mask.
 
@@ -673,9 +674,9 @@ The amount of background pixels in the images is considerably higher than the am
 This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
 All exudate pixels were used, and background pixels were selected randomly.
 
-Classifiers were trained with colour, edge and texture features, or a combination of the three. Feature extraction
-methods are described in Sec.~\ref{subsubsec:features}. No contrast enhancement was used, so raw colour info
-from the image was used for the colour feature.
+Classifiers were trained with color, edge and texture features, or a combination of the three. Feature extraction
+methods are described in Sec.~\ref{subsubsec:features}. No contrast enhancement was used, so raw color info
+from the image was used for the color feature.
 
 The Bristol image set was split in half, using the other half for training and the other half for evaluation,
 and then vice versa. This was done to study the effect the selection of training data has on the results.
@@ -693,7 +694,7 @@ All methods and classifiers behave similarly in this regard, having gradually mo
 as ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naïve-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
+a slighty higher performance of color-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
 is outperforming other single-feature trained classifier and even the classifier with all features included. It is worth noting the 
 linear progression of Naïve-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
@@ -818,7 +819,7 @@ were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color-, 
 The performance of unsupervised edge-detection methods was also evaluated.
 
 The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
-impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed colour- and texture-
+impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed color- and texture-
 based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
 even partially find exudates from the images.
 
@@ -828,7 +829,7 @@ accuracy declined almost linearly as ground truth became more inaccurate. The pe
 using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
 of Naïve- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
 
-The second goal of the thesis was to evaluate the performance of features other than colour. Based on the performance of 
+The second goal of the thesis was to evaluate the performance of features other than color. Based on the performance of 
 the unsupervised methods and edge-based classifiers of supervised methods, using edge in exudate segmentation proves to be a 
 valid method. Future work is required in studying the usefulness of texture in this matter.
 

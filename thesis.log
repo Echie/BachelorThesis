@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.4)  6 JAN 2015 14:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.4)  6 JAN 2015 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,28 +601,28 @@ Package pdftex.def Info: resources/vesselmask_complement.png used on input line
 File: resources/original_010.png Graphic file (type png)
 
 <use resources/original_010.png>
-Package pdftex.def Info: resources/original_010.png used on input line 406.
+Package pdftex.def Info: resources/original_010.png used on input line 407.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
 <resources/color_010.png, id=276, 542.025pt x 538.01pt>
 File: resources/color_010.png Graphic file (type png)
 
 <use resources/color_010.png>
-Package pdftex.def Info: resources/color_010.png used on input line 409.
+Package pdftex.def Info: resources/color_010.png used on input line 410.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
 <resources/original_011.png, id=277, 542.025pt x 538.01pt>
 File: resources/original_011.png Graphic file (type png)
 
 <use resources/original_011.png>
-Package pdftex.def Info: resources/original_011.png used on input line 413.
+Package pdftex.def Info: resources/original_011.png used on input line 414.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
 <resources/color_011.png, id=278, 542.025pt x 538.01pt>
 File: resources/color_011.png Graphic file (type png)
 
 <use resources/color_011.png>
-Package pdftex.def Info: resources/color_011.png used on input line 416.
+Package pdftex.def Info: resources/color_011.png used on input line 417.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [13 <./resources/original_010.png (PNG copy)> <./resources/color_010.png (PNG 
 copy)> <./resources/original_011.png (PNG copy)> <./resources/color_011.png (PN
@@ -630,7 +630,7 @@ G copy)>]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.456 
+l.457 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -638,7 +638,7 @@ you left one out. Proceed, with fingers crossed.
 ! Display math should end with $$.
 <to be read again> 
                    \par 
-l.456 
+l.457 
       
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -650,7 +650,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.457 \]
+l.458 \]
         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -659,7 +659,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.457 \]
+l.458 \]
         
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -670,7 +670,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.457 \]
+l.458 \]
         
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -679,7 +679,7 @@ So I shall assume that you typed `$$' both times.
 ! Undefined control sequence.
 \@sharp ->\multirow 
                     {}{}{Tests} 
-l.567 ...ticolumn{1}{ |c| }{\multirow{}{}{Tests} }
+l.568 ...ticolumn{1}{ |c| }{\multirow{}{}{Tests} }
                                                    &
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -692,7 +692,7 @@ File: resources/bristol_groundtruth.png Graphic file (type png)
 
 <use resources/bristol_groundtruth.png>
 Package pdftex.def Info: resources/bristol_groundtruth.png used on input line 6
-51.
+52.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
 
 <resources/inaccurate_groundtruth.png, id=356, 542.025pt x 538.01pt>
@@ -700,7 +700,7 @@ File: resources/inaccurate_groundtruth.png Graphic file (type png)
 
 <use resources/inaccurate_groundtruth.png>
 Package pdftex.def Info: resources/inaccurate_groundtruth.png used on input lin
-e 654.
+e 655.
 (pdftex.def)             Requested size: 192.0548pt x 190.62956pt.
  [18
 
@@ -715,7 +715,7 @@ erted-to.pdf>
 (epstopdf)                    size: 11053 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_bayes_sens_
 imgset1-eps-converted-to.pdf resources/hist_bayes_sens_imgset1.eps>
-(epstopdf)             \includegraphics on input line 718.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_bayes_sens_imgset1-eps-converted-to.pdf, id=383, 1540.75626pt x
@@ -724,7 +724,7 @@ File: resources/hist_bayes_sens_imgset1-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_bayes_sens_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_bayes_sens_imgset1-eps-converted-to.pdf
- used on input line 718.
+ used on input line 719.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
 Package epstopdf Info: Source file: <resources/hist_bayes_spec_imgset1.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -735,7 +735,7 @@ erted-to.pdf>
 (epstopdf)                    size: 11182 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_bayes_spec_
 imgset1-eps-converted-to.pdf resources/hist_bayes_spec_imgset1.eps>
-(epstopdf)             \includegraphics on input line 722.
+(epstopdf)             \includegraphics on input line 723.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_bayes_spec_imgset1-eps-converted-to.pdf, id=384, 1540.75626pt x
@@ -744,7 +744,7 @@ File: resources/hist_bayes_spec_imgset1-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_bayes_spec_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_bayes_spec_imgset1-eps-converted-to.pdf
- used on input line 722.
+ used on input line 723.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
 Package epstopdf Info: Source file: <resources/hist_gmmbayes_sens_imgset1.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -755,7 +755,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 11052 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_gmmbayes_se
 ns_imgset1-eps-converted-to.pdf resources/hist_gmmbayes_sens_imgset1.eps>
-(epstopdf)             \includegraphics on input line 738.
+(epstopdf)             \includegraphics on input line 739.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_gmmbayes_sens_imgset1-eps-converted-to.pdf, id=389, 1532.72626p
@@ -765,7 +765,7 @@ ype pdf)
 
 <use resources/hist_gmmbayes_sens_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_gmmbayes_sens_imgset1-eps-converted-to.
-pdf used on input line 738.
+pdf used on input line 739.
 (pdftex.def)             Requested size: 405.45047pt x 212.14862pt.
 Package epstopdf Info: Source file: <resources/hist_gmmbayes_spec_imgset1.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -776,7 +776,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 11081 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_gmmbayes_sp
 ec_imgset1-eps-converted-to.pdf resources/hist_gmmbayes_spec_imgset1.eps>
-(epstopdf)             \includegraphics on input line 742.
+(epstopdf)             \includegraphics on input line 743.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_gmmbayes_spec_imgset1-eps-converted-to.pdf, id=390, 1540.75626p
@@ -785,7 +785,7 @@ File: resources/hist_gmmbayes_spec_imgset1-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use resources/hist_gmmbayes_spec_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_gmmbayes_spec_imgset1-eps-converted-to.
-pdf used on input line 742.
+pdf used on input line 743.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
 
 [20]
@@ -798,7 +798,7 @@ erted-to.pdf>
 (epstopdf)                    size: 9517 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_unsup_sens_
 imgset1-eps-converted-to.pdf resources/hist_unsup_sens_imgset1.eps>
-(epstopdf)             \includegraphics on input line 793.
+(epstopdf)             \includegraphics on input line 794.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_unsup_sens_imgset1-eps-converted-to.pdf, id=410, 1532.72626pt x
@@ -807,7 +807,7 @@ File: resources/hist_unsup_sens_imgset1-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_unsup_sens_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_unsup_sens_imgset1-eps-converted-to.pdf
- used on input line 793.
+ used on input line 794.
 (pdftex.def)             Requested size: 405.45047pt x 212.14862pt.
 Package epstopdf Info: Source file: <resources/hist_unsup_spec_imgset1.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -818,7 +818,7 @@ erted-to.pdf>
 (epstopdf)                    size: 10442 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_unsup_spec_
 imgset1-eps-converted-to.pdf resources/hist_unsup_spec_imgset1.eps>
-(epstopdf)             \includegraphics on input line 797.
+(epstopdf)             \includegraphics on input line 798.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_unsup_spec_imgset1-eps-converted-to.pdf, id=411, 1540.75626pt x
@@ -827,7 +827,7 @@ File: resources/hist_unsup_spec_imgset1-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_unsup_spec_imgset1-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_unsup_spec_imgset1-eps-converted-to.pdf
- used on input line 797.
+ used on input line 798.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
  [21]
 [22 <./resources/hist_bayes_sens_imgset1-eps-converted-to.pdf> <./resources/his
@@ -891,7 +891,7 @@ df>
 (epstopdf)                    size: 128772 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_kirsch_34-ep
 s-converted-to.pdf resources/eye_kirsch_34.eps>
-(epstopdf)             \includegraphics on input line 860.
+(epstopdf)             \includegraphics on input line 861.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_kirsch_34-eps-converted-to.pdf, id=529, 1532.72626pt x 801.99625
@@ -899,7 +899,7 @@ pt>
 File: resources/eye_kirsch_34-eps-converted-to.pdf Graphic file (type pdf)
  <use resources/eye_kirsch_34-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_kirsch_34-eps-converted-to.pdf used on i
-nput line 860.
+nput line 861.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
 Package epstopdf Info: Source file: <resources/eye_tophat_34.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -910,7 +910,7 @@ df>
 (epstopdf)                    size: 144222 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_tophat_34-ep
 s-converted-to.pdf resources/eye_tophat_34.eps>
-(epstopdf)             \includegraphics on input line 868.
+(epstopdf)             \includegraphics on input line 869.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_tophat_34-eps-converted-to.pdf, id=530, 1532.72626pt x 801.99625
@@ -918,7 +918,7 @@ pt>
 File: resources/eye_tophat_34-eps-converted-to.pdf Graphic file (type pdf)
  <use resources/eye_tophat_34-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_tophat_34-eps-converted-to.pdf used on i
-nput line 868.
+nput line 869.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
  [28 <./resources/eye_kirsch_34-eps-converted-to.pdf>] [29 <./resources/eye_top
 hat_34-eps-converted-to.pdf>] [30
@@ -935,7 +935,7 @@ Package epstopdf Info: Source file: <resources/eye_bayes_color_28.eps>
 (epstopdf)                    size: 157962 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_bayes_color_
 28-eps-converted-to.pdf resources/eye_bayes_color_28.eps>
-(epstopdf)             \includegraphics on input line 881.
+(epstopdf)             \includegraphics on input line 882.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_bayes_color_28-eps-converted-to.pdf, id=570, 1532.72626pt x 801.
@@ -944,7 +944,7 @@ File: resources/eye_bayes_color_28-eps-converted-to.pdf Graphic file (type pdf)
 
  <use resources/eye_bayes_color_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_bayes_color_28-eps-converted-to.pdf used
- on input line 881.
+ on input line 882.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
 Package epstopdf Info: Source file: <resources/eye_bayes_edge_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -955,7 +955,7 @@ to.pdf>
 (epstopdf)                    size: 169450 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_bayes_edge_2
 8-eps-converted-to.pdf resources/eye_bayes_edge_28.eps>
-(epstopdf)             \includegraphics on input line 890.
+(epstopdf)             \includegraphics on input line 891.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_bayes_edge_28-eps-converted-to.pdf, id=571, 1532.72626pt x 801.9
@@ -963,7 +963,7 @@ Package epstopdf Info: Output file is already uptodate.
 File: resources/eye_bayes_edge_28-eps-converted-to.pdf Graphic file (type pdf)
  <use resources/eye_bayes_edge_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_bayes_edge_28-eps-converted-to.pdf used 
-on input line 890.
+on input line 891.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
 Package epstopdf Info: Source file: <resources/eye_bayes_texture_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -974,7 +974,7 @@ ed-to.pdf>
 (epstopdf)                    size: 283958 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_bayes_textur
 e_28-eps-converted-to.pdf resources/eye_bayes_texture_28.eps>
-(epstopdf)             \includegraphics on input line 898.
+(epstopdf)             \includegraphics on input line 899.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_bayes_texture_28-eps-converted-to.pdf, id=572, 1532.72626pt x 80
@@ -983,7 +983,7 @@ File: resources/eye_bayes_texture_28-eps-converted-to.pdf Graphic file (type pd
 f)
  <use resources/eye_bayes_texture_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_bayes_texture_28-eps-converted-to.pdf us
-ed on input line 898.
+ed on input line 899.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
 Package epstopdf Info: Source file: <resources/eye_bayes_all_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -994,7 +994,7 @@ o.pdf>
 (epstopdf)                    size: 245876 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_bayes_all_28
 -eps-converted-to.pdf resources/eye_bayes_all_28.eps>
-(epstopdf)             \includegraphics on input line 906.
+(epstopdf)             \includegraphics on input line 907.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_bayes_all_28-eps-converted-to.pdf, id=573, 1532.72626pt x 801.99
@@ -1002,7 +1002,7 @@ Package epstopdf Info: Output file is already uptodate.
 File: resources/eye_bayes_all_28-eps-converted-to.pdf Graphic file (type pdf)
  <use resources/eye_bayes_all_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_bayes_all_28-eps-converted-to.pdf used o
-n input line 906.
+n input line 907.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
  [31 <./resources/eye_bayes_color_28-eps-converted-to.pdf>] [32 <./resources/ey
 e_bayes_edge_28-eps-converted-to.pdf>] [33 <./resources/eye_bayes_texture_28-ep
@@ -1020,7 +1020,7 @@ ted-to.pdf>
 (epstopdf)                    size: 179311 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_gmmbayes_col
 or_28-eps-converted-to.pdf resources/eye_gmmbayes_color_28.eps>
-(epstopdf)             \includegraphics on input line 919.
+(epstopdf)             \includegraphics on input line 920.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_gmmbayes_color_28-eps-converted-to.pdf, id=647, 1532.72626pt x 8
@@ -1029,7 +1029,7 @@ File: resources/eye_gmmbayes_color_28-eps-converted-to.pdf Graphic file (type p
 df)
  <use resources/eye_gmmbayes_color_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_gmmbayes_color_28-eps-converted-to.pdf u
-sed on input line 919.
+sed on input line 920.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
 Package epstopdf Info: Source file: <resources/eye_gmmbayes_edge_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1040,7 +1040,7 @@ ed-to.pdf>
 (epstopdf)                    size: 211327 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_gmmbayes_edg
 e_28-eps-converted-to.pdf resources/eye_gmmbayes_edge_28.eps>
-(epstopdf)             \includegraphics on input line 927.
+(epstopdf)             \includegraphics on input line 928.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_gmmbayes_edge_28-eps-converted-to.pdf, id=648, 1540.75626pt x 80
@@ -1049,7 +1049,7 @@ File: resources/eye_gmmbayes_edge_28-eps-converted-to.pdf Graphic file (type pd
 f)
  <use resources/eye_gmmbayes_edge_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_gmmbayes_edge_28-eps-converted-to.pdf us
-ed on input line 927.
+ed on input line 928.
 (pdftex.def)             Requested size: 640.18703pt x 333.64313pt.
 Package epstopdf Info: Source file: <resources/eye_gmmbayes_texture_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1060,7 +1060,7 @@ erted-to.pdf>
 (epstopdf)                    size: 290396 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_gmmbayes_tex
 ture_28-eps-converted-to.pdf resources/eye_gmmbayes_texture_28.eps>
-(epstopdf)             \includegraphics on input line 935.
+(epstopdf)             \includegraphics on input line 936.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_gmmbayes_texture_28-eps-converted-to.pdf, id=649, 1540.75626pt x
@@ -1069,7 +1069,7 @@ File: resources/eye_gmmbayes_texture_28-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/eye_gmmbayes_texture_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_gmmbayes_texture_28-eps-converted-to.pdf
- used on input line 935.
+ used on input line 936.
 (pdftex.def)             Requested size: 640.18703pt x 333.64313pt.
 Package epstopdf Info: Source file: <resources/eye_gmmbayes_all_28.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1080,7 +1080,7 @@ d-to.pdf>
 (epstopdf)                    size: 255571 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/eye_gmmbayes_all
 _28-eps-converted-to.pdf resources/eye_gmmbayes_all_28.eps>
-(epstopdf)             \includegraphics on input line 943.
+(epstopdf)             \includegraphics on input line 944.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/eye_gmmbayes_all_28-eps-converted-to.pdf, id=650, 1532.72626pt x 801
@@ -1089,7 +1089,7 @@ File: resources/eye_gmmbayes_all_28-eps-converted-to.pdf Graphic file (type pdf
 )
  <use resources/eye_gmmbayes_all_28-eps-converted-to.pdf>
 Package pdftex.def Info: resources/eye_gmmbayes_all_28-eps-converted-to.pdf use
-d on input line 943.
+d on input line 944.
 (pdftex.def)             Requested size: 640.18703pt x 334.97603pt.
  [36 <./resources/eye_gmmbayes_color_28-eps-converted-to.pdf>] [37 <./resources
 /eye_gmmbayes_edge_28-eps-converted-to.pdf>] [38 <./resources/eye_gmmbayes_text
@@ -1108,7 +1108,7 @@ erted-to.pdf>
 (epstopdf)                    size: 11052 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_bayes_sens_
 imgset2-eps-converted-to.pdf resources/hist_bayes_sens_imgset2.eps>
-(epstopdf)             \includegraphics on input line 957.
+(epstopdf)             \includegraphics on input line 958.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_bayes_sens_imgset2-eps-converted-to.pdf, id=724, 1540.75626pt x
@@ -1117,7 +1117,7 @@ File: resources/hist_bayes_sens_imgset2-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_bayes_sens_imgset2-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_bayes_sens_imgset2-eps-converted-to.pdf
- used on input line 957.
+ used on input line 958.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
 Package epstopdf Info: Source file: <resources/hist_bayes_spec_imgset2.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1128,7 +1128,7 @@ erted-to.pdf>
 (epstopdf)                    size: 11182 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_bayes_spec_
 imgset2-eps-converted-to.pdf resources/hist_bayes_spec_imgset2.eps>
-(epstopdf)             \includegraphics on input line 961.
+(epstopdf)             \includegraphics on input line 962.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_bayes_spec_imgset2-eps-converted-to.pdf, id=725, 1532.72626pt x
@@ -1137,7 +1137,7 @@ File: resources/hist_bayes_spec_imgset2-eps-converted-to.pdf Graphic file (type
  pdf)
  <use resources/hist_bayes_spec_imgset2-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_bayes_spec_imgset2-eps-converted-to.pdf
- used on input line 961.
+ used on input line 962.
 (pdftex.def)             Requested size: 405.45047pt x 212.14862pt.
 Package epstopdf Info: Source file: <resources/hist_gmmbayes_sens_imgset2.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1148,7 +1148,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 11057 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_gmmbayes_se
 ns_imgset2-eps-converted-to.pdf resources/hist_gmmbayes_sens_imgset2.eps>
-(epstopdf)             \includegraphics on input line 974.
+(epstopdf)             \includegraphics on input line 975.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_gmmbayes_sens_imgset2-eps-converted-to.pdf, id=730, 1532.72626p
@@ -1158,7 +1158,7 @@ ype pdf)
 
 <use resources/hist_gmmbayes_sens_imgset2-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_gmmbayes_sens_imgset2-eps-converted-to.
-pdf used on input line 974.
+pdf used on input line 975.
 (pdftex.def)             Requested size: 405.45047pt x 212.14862pt.
 Package epstopdf Info: Source file: <resources/hist_gmmbayes_spec_imgset2.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
@@ -1169,7 +1169,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 11082 bytes
 (epstopdf)             Command: <repstopdf --outfile=resources/hist_gmmbayes_sp
 ec_imgset2-eps-converted-to.pdf resources/hist_gmmbayes_spec_imgset2.eps>
-(epstopdf)             \includegraphics on input line 978.
+(epstopdf)             \includegraphics on input line 979.
 Package epstopdf Info: Output file is already uptodate.
 
 <resources/hist_gmmbayes_spec_imgset2-eps-converted-to.pdf, id=731, 1540.75626p
@@ -1178,7 +1178,7 @@ File: resources/hist_gmmbayes_spec_imgset2-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use resources/hist_gmmbayes_spec_imgset2-eps-converted-to.pdf>
 Package pdftex.def Info: resources/hist_gmmbayes_spec_imgset2-eps-converted-to.
-pdf used on input line 978.
+pdf used on input line 979.
 (pdftex.def)             Requested size: 405.45047pt x 211.29915pt.
 
 Overfull \hbox (15.02486pt too wide) has occurred while \output is active
@@ -1196,14 +1196,18 @@ AED: lastpage setting LastPage
 [43
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 989.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 989.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 990.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 990.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 989.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 989.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 990.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 990.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 8DFA16E30164B64F95D3BAD2E3B86613;1845.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 989.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 990.
  ) 
 Here is how much of TeX's memory you used:
  8926 strings out of 494465
@@ -1224,7 +1228,7 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (43 pages, 6910940 bytes).
+Output written on thesis.pdf (43 pages, 6911032 bytes).
 PDF statistics:
  878 PDF objects out of 1000 (max. 8388607)
  661 compressed objects within 7 object streams
