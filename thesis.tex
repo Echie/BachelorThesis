@@ -311,7 +311,7 @@ Figure~\ref{fig:opticdisk_gradient}. The image is then divided into slightly ove
 areas with a side of 140 pixels. The area
 with the highest sum of gradients is considered as region of interest, i.e. to hold the optic disk.
 This is because the dark blood vessels inside the bright optic disk result in a strong horizontal
-gradient. Images with a ``camera glare``, i.e a high intensity strip in the corner of the eye fundus
+gradient. Images with a ``camera glare``, i.e. a high intensity strip in the corner of the eye fundus
 are problematic, as that area also has a high horizontal gradient. An example region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
 
 Inside the area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
@@ -421,7 +421,7 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 }\end{figure}
 
 
-\subsection{Unsupervised methods}
+\subsection{Unsupervised image segmentation methods}
 \label{subsec:unsupervised}
 % An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
 % It perform the same operations on each image with the object of clustering the data into meaningful sets.
@@ -443,17 +443,17 @@ K_1 = \begin{bmatrix}
   5 & 5 & 5 \\
  -3 & 0 &-3 \\
  -3 &-3 &-3 
-\end{bmatrix}
+\end{bmatrix}, 
 K_2 = \begin{bmatrix}
   5 & 5 &-3 \\
   5 & 0 &-3 \\
  -3 &-3 &-3 
 \end{bmatrix} 
-... K_8 = \begin{bmatrix}
+, ..., K_8 = \begin{bmatrix}
  -3 & 5 & 5 \\
  -3 & 0 & 5 \\
  -3 &-3 &-3 
-\end{bmatrix}
+\end{bmatrix}.
 
 \]      
 \vspace{-20mm}
@@ -468,25 +468,25 @@ These transforms are defined as follows:
 %\vspace{-2mm}
 \begin{equation}\label{eq:tophat}
 \begin{split}
-TopHat(f) = f - (f \circ B)
+TopHat(f,B) = f - (f \circ B)
 \end{split}
 \end{equation}
 \vspace{-25mm}
 
 \begin{equation}\label{eq:bottomhat}
 \begin{split}
-BottomHat(f) = (f \bullet B) - f
+BottomHat(f,B) = (f \bullet B) - f
 \end{split}
 \end{equation}
 \vspace{-5mm}
 
 
 where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
-denotes the closing operation. Opening and closing are operations based on dilation and erosion, and they are defined in~\cite{Bai:2012}.
+denotes the closing operation. Opening and closing are standard operations based on dilation and erosion, and they are defined in~\cite{Bai:2012}.
 
 The exudate detection method proposed in~\cite{Eadgahi:2012} was also implemented, except for the optic disc detection, for which 
-the method described in~\ref{subsec:opticdisc} was used. The method is designed to use top-hat operation to highlight the exudates, 
-and bottom-hat operation to highlight and ultimately remove dim areas, e.g vessels from the results. The method is defined as follows:
+the method described in Section~\ref{subsec:opticdisc} was used. The method is designed to use the top-hat operation to highlight the exudates, 
+and the bottom-hat operation to highlight and ultimately remove dim areas, e.g. vessels from the results. The method is defined as follows:
 
 %\vspace{-12mm}
 \begin{equation}\label{eq:mehdi}
@@ -497,8 +497,8 @@ F(f) = TopHat(f) - BottomHat(f)
 %\vspace{-10mm}
 
 where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
-During the computations performed for this thesis, thresholding is applied after these operations even though
-it is not mentioned in~\cite{Eadgahi:2012}.
+Unlike in~\cite{Eadgahi:2012}, thresholding is applied after these operations to create a binary representation
+of the results.
 
 \subsection{Supervised methods}
 
@@ -661,7 +661,7 @@ variation of feature distributions and an increase of false positives.
 
 }\end{figure}
 
-\subsection{Supervised methods}
+\subsection{Supervised image segmentation methods}
 
 \subsubsection{Test settings}
 

@@ -11,7 +11,7 @@
 \contentsline {subsection}{\numberline {2.2}Optic disc detection}{10}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Blood vessel detection}{10}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Color transform}{12}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Unsupervised methods}{14}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.5}Unsupervised image segmentation methods}{14}{subsection.2.5}
 \contentsline {subsubsection}{\numberline {2.5.1}Kirsch operator}{14}{subsubsection.2.5.1}
 \contentsline {subsubsection}{\numberline {2.5.2}Morphological operations}{14}{subsubsection.2.5.2}
 \contentsline {subsection}{\numberline {2.6}Supervised methods}{15}{subsection.2.6}
@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {2.7}Evaluation metrics}{16}{subsection.2.7}
 \contentsline {section}{\numberline {3}EXPERIMENTS AND RESULTS}{18}{section.3}
 \contentsline {subsection}{\numberline {3.1}The ground truth}{18}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Supervised methods}{18}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}Supervised image segmentation methods}{18}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Test settings}{18}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Results}{19}{subsubsection.3.2.2}
 \contentsline {subsection}{\numberline {3.3}Unsupervised methods}{20}{subsection.3.3}
