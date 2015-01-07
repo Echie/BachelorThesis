@@ -18,6 +18,8 @@
 \documentclass{lutmscthesis}[2010/09/22]
 %\documentclass[draft]{lutmscthesis}   % leave figures blank, faster
 
+\usepackage{cite}
+
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english,finnish]{babel}
@@ -198,14 +200,14 @@ Lappeenranta, October 19th, 2014
 
 %Diabetes has established itself as a seemingly permanent, worldwide global problem. 
 The growing number of diabetes patients and the estimated amount of undiagnosed patients 
-motivate the research for an effective mass screening method for monitoring and early detection of diabetes. The most common
+motivate the research for an effective mass screening method for early detection and monitoring of diabetes. The most common
 complication of diabetes, diabetic retinopathy, causes abnormalities in the eye, and detecting these abnormalities in the eye fundus
-is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, handmade annotations of the objects
+is a promising mass screening method. ~\cite{Kauppi:2010} When developing a method for detecting these abnormalities, manual segmentation of the objects
 in the image are used as ground truth to train classifiers and to evaluate the results. In eye fundus image segmentation research,
 ground truths are usually produced by medical experts of the field (ophthalmologists) marking these abnormalities, such as exudates.
 
 Optimal ground truth would be a pixel-accurate binary representation of the abnormalities, but as ground truths are
-produced by a human hand, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
+produced manually, such accuracy is not possible. Because the marking of an accurate ground truth takes a good
 amount of time and patience, it is often necessary to use inaccurate markings of the abnormalities. Clusters of
 exudates are marked, rather than each small finding specified separately.
 
@@ -216,7 +218,7 @@ This thesis will address two main questions in its research:
 \begin{itemize} \itemsep1pt \parskip0pt
 \parsep0pt
   \item How will inaccurate ground truth affect image features and segmentation methods?
-  \item How will other features than colour perform?
+  \item How will other features than color perform?
 \end{itemize}
 %\vspace{-5mm}
 
@@ -224,13 +226,19 @@ This thesis will address two main questions in its research:
 % and segmentation methods. 
 
 This thesis focuses on exudate detection in terms of segmentation performance, and Bristol database is used as it is 
-readily available and has accurate ground truths of exudates. To enable comparison between features, colour, edge and
+readily available and includes accurate ground truth information. To enable comparison between image features, color, edge and
 texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
-disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored for context.
+disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored.
 
-Both supervised and unsupervised segmentation methods are used. In supervised methods, ground truths are used to label
-observations as either exudate or background. In unsupervised methods, ground truth is used to evaluate segmentation
-results. Best parameters for each method are chosen based on their performance.
+Both supervised and unsupervised segmentation methods are used. In supervised methods, the ground truth is used to label
+observations as either exudate or background. 
+
+In unsupervised methods, the ground truth is used to evaluate the performance of the methods with varying values of method parameters.
+From these results, the best set of parameters are then selected for each method based on their performance. The method performance is then compared
+to supervised methods only with these selected parameters.
+
+
+
 
 \subsection{Structure of the Thesis}
 
@@ -240,25 +248,24 @@ It also explains the theory behind the applied pre-processing
 and segmentation methods.
 Section~\ref{sec:experiments} describes the experiments in detail,
 and presents the results for each experiment.
-% Section~\ref{sec:discussion} sums up and interprets the results, and
-% discusses the impact of this thesis and possible future work this thesis
-% might invoke.
+Section~\ref{sec:discussion} sums up and interprets the results, and
+discusses the impact of this thesis and possible future research.
 
 \section{RETINAL IMAGES AND THEIR SEGMENTATION}
 \label{sec:segmentation}
 
 \subsection{Structure of the eye fundus}
 The function of the human eye on an abstract level can be compared to a camera. Light reflected from an object passes through the cornea,
-pupil and lens and is focused on the retina (the inner part of the eye). It is then processed by photoreceptors and then transmitted to 
+pupil and lens, and is then focused on the retina (the inner part of the eye). It is then processed by photoreceptors and then transmitted to 
 the brain via the optic nerve.~\cite{Wandell:1995} Rather than covering the eye as a whole, this chapter will focus on the structure of the eye fundus.
 
-The eye fundus is the area located in the retina, at the very back of the eye. The location of the eye fundus is illustrated in
-Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the arteries. Macula is a
-highly light sensitive area in the central region of the retina. Fovea is a round area located in the macula, which is densely
+The eye fundus is the interior lining of the eyeball, located at the very back of the eye. The location of the eye fundus is illustrated in
+Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the veins. Macula is a
+highly light-sensitive area in the central region of the retina. Fovea is a round area located in the macula, which is densely
 populated by cones (cells sensitive to color).~\cite{Kolb}
 
-Optic disc is where the optic nerve and main arteries connect with the eye. There are no light sensitive cells inside the
-optic disc, which creates a blind spot in the retina. Arteries inside the eye together with the choroid (vascular layer
+Optic disc is where the optic nerve and main arteries connect with the eye. There are no light-sensitive cells inside the
+optic disc, which creates a blind spot in the retina. Veins inside the eye together with the choroid (vascular layer
 surrounding the retina) provide nutritional support to the eye.~\cite{Kauppi:2010} These parts of the eye fundus
 are illustrated in Figure~\ref{fig:healthyeyefundus}.
 
@@ -280,9 +287,9 @@ are illustrated in Figure~\ref{fig:healthyeyefundus}.
     \label{fig:healthyeyefundus}
     \includegraphics[width=0.45\textwidth]{healthyeyefundus}}
      
-  \caption[moving]{Structure of the human eye
-  \subref{fig:cross_section_eye} Cross section of the eye (modified from~\cite{Kolb})
-  \subref{fig:healthyeyefundus} Structure of the fundus
+  \caption[moving]{Structure of the human eye:
+  \subref{fig:cross_section_eye} cross section of the eye (modified from~\cite{Kolb}),
+  \subref{fig:healthyeyefundus} structure of the fundus.
   
   
   \label{fig:eyestructure}}
@@ -298,18 +305,18 @@ There are papers dedicated to the localisation of the optic disk~\cite{Sekhar:20
 and it is also covered in papers concerning the detection of other parts of the eye
 fundus, such as exudates~\cite{Walter:2002}.
 
-This method is based on the brightness of the optic disk, and the vertical blood vessels inside it.
+The method used in this thesis is based on the brightness of the optic disk, and the vertical blood vessels inside it.
 The horizontal image gradient is calculated using Sobel operator, the result is shown in 
-Figure~\ref{fig:opticdisk_gradient}. Image is then divided into slightly overlapping square 
-areas with a side of 140 pixels (size is adjusted when operating close to image borders). The area
+Figure~\ref{fig:opticdisk_gradient}. The image is then divided into slightly overlapping square 
+areas with a side of 140 pixels. The area
 with the highest sum of gradients is considered as region of interest, i.e. to hold the optic disk.
 This is because the dark blood vessels inside the bright optic disk result in a strong horizontal
-gradient. Images with a ``camera glare``,i.e. a high intensity strip in the corner of the eye fundus
-are problematic, as that area also has a high horizontal gradient. Region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
+gradient. Images with a ``camera glare``, i.e. a high intensity strip in the corner of the eye fundus
+are problematic, as that area also has a high horizontal gradient. An example region of interest is shown in Figure~\ref{fig:opticdisk_ROI}.
 
-Inside this area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
-to be inside the optic disk. This pixel is then used as a center of a circle that will mask out the optic disk.
-Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
+Inside the area of highest sum of horizontal gradients, the pixel with the highest intensity is considered
+to be inside the optic disk. This pixel is then used as the center of a circle that will mask out the optic disk.
+The final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 
 \begin{figure}[ht]
 \centering
@@ -327,9 +334,9 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
      \includegraphics[width=0.45\textwidth]{OP_masked}}
 
   \caption[moving]{Locating and masking the optic disk:
-  \subref{fig:opticdisk_gradient} Horizontal gradient
-  \subref{fig:opticdisk_ROI} Region of interest
-  \subref{fig:opticdisk_masked} Optic disk masked out}
+  \subref{fig:opticdisk_gradient} horizontal gradient,
+  \subref{fig:opticdisk_ROI} region of interest,
+  \subref{fig:opticdisk_masked} optic disk masked out.}
   \label{fig:opticdisk}
 }\end{figure}
 
@@ -337,23 +344,24 @@ Final masking result is shown in Figure~\ref{fig:opticdisk_masked}.
 \subsection{Blood vessel detection}
 \label{subsec:vesselmask}
 
-The issue of blood vessel detection in fundus images has been a popular topic of research~\cite{Zana:1999}~\cite{Staal:2004}~\cite{Niemeijer:2004}. 
+The issue of blood vessel detection in fundus images has been a popular topic of research~\cite{Zana:1999,Staal:2004,Niemeijer:2004}.
+
 In the context of this thesis, however, the purpose of blood vessel detection is to create a mask, and to use that mask to remove false
 positives from exudate segmentation results. For example, edge detection techniques often highlight the
 borders of vessels as well as exudates. For this purpose, accurate vessel detection itself is not important and
 including other dark areas of the image is even beneficial.
 
-The mask is formed by first using contrast limited adaptive histogram equalization\linebreak(CLAHE)~\cite{Reza:2004} to enhance
+The mask is formed by first using contrast-limited adaptive histogram equalization\linebreak(CLAHE)~\cite{Reza:2004} to enhance
 contrast in the green channel of the image, the result for this is shown in Figure~\ref{fig:vesselmask_adaptive}. This
 contrast enhanced image is then thresholded with Otsu's method~\cite{Otsu:1975}, which separates the image into foreground
-and background by minimizing the intra-class variance. This results in all the vessels and other darker areas showing as
-black (or background), and all brighter areas as white (foreground). This is shown in Figure~\ref{fig:vesselmask_threshold}.
-To create a binary mask of the darker areas, we use the complement of this thresholded image. Final version of the
+and background by minimizing the intra-class variance. This results in all the vessels and other darker areas classified as background,
+and all brighter areas classified as foreground. This is shown in Figure~\ref{fig:vesselmask_threshold}.
+To create a binary mask of the darker areas, we use the complement of this thresholded image. The final version of the
 mask is shown in Figure~\ref{fig:vesselmask_complement}.
 
 This method is inadequate for blood vessel detection as it also includes other darker areas of the image, 
-such as the fovea. As a mask however, it clearly reduces the amount of false positives in exudate segmentation results.
-It also doesn't remove true positives, as only the darker areas of the image are included in the mask.
+such as the fovea. As a mask, however, it clearly reduces the amount of false positives in exudate segmentation results.
+It also does not remove true positives, as only the darker areas of the image are included in the mask.
 
 \begin{figure}[ht]
 \centering
@@ -371,24 +379,25 @@ It also doesn't remove true positives, as only the darker areas of the image are
      \includegraphics[width=0.45\textwidth]{vesselmask_complement}}
 
   \caption[moving]{Creating the blood vessel mask:
-  \subref{fig:vesselmask_adaptive} CLAHE
-  \subref{fig:vesselmask_threshold} Thresholding using Otsu's method
-  \subref{fig:vesselmask_complement} Final mask, complement of thresholded image}
+  \subref{fig:vesselmask_adaptive} CLAHE,
+  \subref{fig:vesselmask_threshold} thresholding using Otsu's method,
+  \subref{fig:vesselmask_complement} the final mask, complement of thresholded image.}
   \label{fig:vesselmask}
 }\end{figure}
 
 \subsection{Color transform}
 \label{subsec:colortransform}
-The human eye is capable of correcting the effect of varying light sources (illuminants) in perception of color~\cite{Foster:2011}.
+The human eye is capable of correcting the effect of varying light sources (illuminants) while perceiving color~\cite{Foster:2011}.
 In contrast, an image of an object taken under different light sources is perceived differently in terms of color by a computer.
-This is why color features need to be normalized in image sets where there's high variation in color properties.
+This is why color features need to be normalized in image sets where there's high variation in color properties. In this thesis,
+the use of color normalization is motivated by the variation of the color of the pigment epithelium layer in the eye fundus.
 
-The illumination and general color properties of the eye fundus images in Bristol database vary quite heavily.
-To be able to effectively use color features in teaching a classifier, the variance between image needs to be minimized.
+The illumination and general color properties of the eye fundus images vary quite heavily.
+To be able to effectively use color features in teaching a classifier, the variance between images needs to be minimized.
 This is achieved by estimating the illuminant by applying the gray-world assumption~\cite{Buchsbaum:1980}:
 \textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
 then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
-of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. Results are shown in Figure~\ref{fig:colortransform}.
+of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. The results are shown in Figure~\ref{fig:colortransform}.
 
 \begin{figure}[ht]
 \centering
@@ -412,7 +421,7 @@ of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channe
 }\end{figure}
 
 
-\subsection{Unsupervised methods}
+\subsection{Unsupervised image segmentation methods}
 \label{subsec:unsupervised}
 % An unsupervised method doesn't hold any information of the features it seeks, nor does it have any ''expectations'' of the image.
 % It perform the same operations on each image with the object of clustering the data into meaningful sets.
@@ -434,17 +443,17 @@ K_1 = \begin{bmatrix}
   5 & 5 & 5 \\
  -3 & 0 &-3 \\
  -3 &-3 &-3 
-\end{bmatrix}
+\end{bmatrix}, 
 K_2 = \begin{bmatrix}
   5 & 5 &-3 \\
   5 & 0 &-3 \\
  -3 &-3 &-3 
 \end{bmatrix} 
-... K_8 = \begin{bmatrix}
+, ..., K_8 = \begin{bmatrix}
  -3 & 5 & 5 \\
  -3 & 0 & 5 \\
  -3 &-3 &-3 
-\end{bmatrix}
+\end{bmatrix}.
 
 \]      
 \vspace{-20mm}
@@ -459,25 +468,25 @@ These transforms are defined as follows:
 %\vspace{-2mm}
 \begin{equation}\label{eq:tophat}
 \begin{split}
-TopHat(f) = f - (f \circ B)
+TopHat(f,B) = f - (f \circ B)
 \end{split}
 \end{equation}
 \vspace{-25mm}
 
 \begin{equation}\label{eq:bottomhat}
 \begin{split}
-BottomHat(f) = (f \bullet B) - f
+BottomHat(f,B) = (f \bullet B) - f
 \end{split}
 \end{equation}
 \vspace{-5mm}
 
 
 where $f$ is the input image, $B$ is the structuring element, $\circ$ denotes the opening operation and $\bullet$
-denotes the closing operation. Opening and closing are operations based on dilation and erosion, and they are defined in~\cite{Bai:2012}.
+denotes the closing operation. Opening and closing are standard operations based on dilation and erosion, and they are defined in~\cite{Bai:2012}.
 
 The exudate detection method proposed in~\cite{Eadgahi:2012} was also implemented, except for the optic disc detection, for which 
-the method described in~\ref{subsec:opticdisc} was used. The method is designed to use top-hat operation to highlight the exudates, 
-and bottom-hat operation to highlight and ultimately remove dim areas, e.g vessels from the results. The method is defined as follows:
+the method described in Section~\ref{subsec:opticdisc} was used. The method is designed to use the top-hat operation to highlight the exudates, 
+and the bottom-hat operation to highlight and ultimately remove dim areas, e.g. vessels from the results. The method is defined as follows:
 
 %\vspace{-12mm}
 \begin{equation}\label{eq:mehdi}
@@ -487,40 +496,33 @@ F(f) = TopHat(f) - BottomHat(f)
 \end{equation}
 %\vspace{-10mm}
 
-where $Tophat(f)$ and $BottomHat(f)$ denote the Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
-During the computations performed for this thesis, thresholding is applied after these operations even though
-it is not mentioned in~\cite{Eadgahi:2012}.
+where $Tophat(f)$ and $BottomHat(f)$ denote Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
+Unlike in~\cite{Eadgahi:2012}, thresholding is applied after these operations to create a binary representation
+of the results.
 
 \subsection{Supervised methods}
-
+\label{subsec:supervised}
 % Before a supervised method (or its classifier) can be used in classification, it needs to be trained. A specific training set
 % of labeled images is used to teach the classifier. The method then extracts features from the training images, and generally forms a model
 % for each used label. For example, to describe a fruit you might use its color and shape. You ''teach'' the method what each
 % fruit looks like by labeling a set of training images. The classifier learns which features describe each label. Yellow and round equals orange,
 % yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
-\subsubsection{Gaussian Mixture Models}
-
-A Gaussian Mixture Model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
-When using a GMM to model image classes (more specifically, class conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
-model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
-
-Application, parameter estimation and performance of a classifier using GMMs and\linebreak Bayesian classification is discussed in~\cite{paalanen2006feature}.
-GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of said methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
-and greedy EM algorithms are implemented in the Toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
-these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
-In this thesis, only Figuero-Jain is used.
+Color, edge and texture features were used to teach the classifiers of the supervised methods.
+Color was extracted from the image as pixel-wise RGB-values. Edge was represented with the differential of the
+maximum and minimum value in a 3-by-3 neighborhood (implemented with \textit{rangefilt}-function in MATLAB ~\cite{rangefilt}).
+Location-invariant local binary patterns (LBP)~\cite{Ojala:2000} were used for texture.
 
 \subsubsection{Naïve Bayes}
 
 Naïve Bayes is a probabilistic classifier that gets its name from the assumption that all features are independent from each other. Each feature
 contributes to the classification regardless of the absence or presence of other features. As the name also implies, the Naïve Bayes classifier
-uses the Bayes' theorem as a basis of classification.~\cite{Murphy:2006}
--
+uses the Bayesian theorem as the basis of classification.~\cite{Murphy:2006}
+
 The Naïve Bayes classifier calculates the posterior probability for the sample to belong in each of the possible classes based on its features, and then
 classifies the sample to the class with the highest posterior probability. The classes are modeled with a single probability density function, and in the case of
-binary pixel classification, classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
-is considered background. The posterior probability is calculated with the Bayes' theorem as follows:
+binary pixel classification, the classes are foreground and background. In this thesis, exudates represent the foreground and the rest 
+is considered the background. The posterior probability is calculated with the Bayesian theorem as follows:
 
 \begin{equation}\label{eq:naivebayes}
 \begin{split}
@@ -531,12 +533,18 @@ p(C_1) = \frac{P(C_1)p(\overline{x}|C_1)}{P(C_1)p(\overline{x}|C_1) + P(C_2)p(\o
 where $ p(C_1) $ is the posterior probability and $ P(C_1) $ is the prior probability for the sample to belong in class one, and $ p(\overline{x}|C_1) $
 denotes the conditional probability of the feature vector having the values of the sample pixel, if it were of class one.
 
-\subsubsection{Features}
-\label{subsubsec:features}
-Color, edge and texture features were used to teach the classifiers of the supervised methods.
-Color was extracted from the image as-is. Edge was represented with the differential of the
-maximum and minimum value in a 3-by-3 neighborhood (implemented with \textit{rangefilt}-function in MATLAB ~\cite{rangefilt}).
-Location invariant local binary patterns (LBP)~\cite{Ojala:2000} were used for texture.
+
+\subsubsection{Gaussian Mixture Models}
+
+A Gaussian mixture model (GMM) is a single probability density function (pdf) that describes a weighted sum of multiple Gaussian pdfs~\cite{Reynolds:2009}.
+When using a GMM to model image classes (more specifically, class-conditional pdfs), parameters of the underlying Gaussian pdfs are estimated by fitting the
+model to training data. After the formation of the model, it is possible to use Bayesian classification to classify pixels to the given classes.
+
+Application, parameter estimation and performance of a classifier using GMMs and\linebreak Bayesian classification is discussed in~\cite{paalanen2006feature}.
+GMMBayes Toolbox~\cite{Paalanen:2004} is a MATLAB implementation of these methods. For parameter estimation, Expectation Maximization (EM), Figuero-Jain (FJ)
+and greedy EM algorithms are implemented in the toolbox and described in both~\cite{paalanen2006feature} and~\cite{Paalanen:2004}. The main difference between
+these algorithms is that EM requires a fixed amount of Gaussian components, while FJ estimates the amount (maximum amount is fixed in the implementation).
+In this thesis, only FJ is used.
 
 \subsection{Evaluation metrics}
 \label{subsec:evaluation}
@@ -652,12 +660,12 @@ variation of feature distributions and an increase of false positives.
 
 }\end{figure}
 
-\subsection{Supervised methods}
+\subsection{Supervised image segmentation methods}
 
 \subsubsection{Test settings}
 
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
-As the optic disk's colour is very close to the exudates, a mask was generated with the method described in
+As the optic disk's color is very close to the exudates, a mask was generated with the method described in
 Sec.~\ref{subsec:opticdisc}. The eye outline was also included in the mask, as it was included in the results
 by edge detection methods. Vessels were not included in the mask.
 
@@ -665,9 +673,9 @@ The amount of background pixels in the images is considerably higher than the am
 This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
 All exudate pixels were used, and background pixels were selected randomly.
 
-Classifiers were trained with colour, edge and texture features, or a combination of the three. Feature extraction
-methods are described in Sec.~\ref{subsubsec:features}. No contrast enhancement was used, so raw colour info
-from the image was used for the colour feature.
+Classifiers were trained with color, edge and texture features, or a combination of the three. Feature extraction
+methods are described in Sec.~\ref{subsec:supervised}. No contrast enhancement was used, so raw color info
+from the image was used for the color feature.
 
 The Bristol image set was split in half, using the other half for training and the other half for evaluation,
 and then vice versa. This was done to study the effect the selection of training data has on the results.
@@ -685,7 +693,7 @@ All methods and classifiers behave similarly in this regard, having gradually mo
 as ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naïve-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher performance of colour-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
+a slighty higher performance of color-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
 is outperforming other single-feature trained classifier and even the classifier with all features included. It is worth noting the 
 linear progression of Naïve-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
@@ -810,7 +818,7 @@ were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color-, 
 The performance of unsupervised edge-detection methods was also evaluated.
 
 The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
-impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed colour- and texture-
+impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed color- and texture-
 based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
 even partially find exudates from the images.
 
@@ -820,7 +828,7 @@ accuracy declined almost linearly as ground truth became more inaccurate. The pe
 using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
 of Naïve- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
 
-The second goal of the thesis was to evaluate the performance of features other than colour. Based on the performance of 
+The second goal of the thesis was to evaluate the performance of features other than color. Based on the performance of 
 the unsupervised methods and edge-based classifiers of supervised methods, using edge in exudate segmentation proves to be a 
 valid method. Future work is required in studying the usefulness of texture in this matter.
 
