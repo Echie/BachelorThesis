@@ -15,7 +15,7 @@
 % http://www.tug.org/applications/hyperref/
 
 
-\documentclass{lutmscthesis}[2010/09/22]
+\documentclass[openany]{lutmscthesis}[2010/09/22]
 %\documentclass[draft]{lutmscthesis}   % leave figures blank, faster
 
 \usepackage{cite}
@@ -438,25 +438,25 @@ Edge detection operators that only detect gradients in specified directions are 
 Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
 It is defined as:
 
-\[
-K_1 = \begin{bmatrix}
-  5 & 5 & 5 \\
- -3 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}, 
-K_2 = \begin{bmatrix}
-  5 & 5 &-3 \\
-  5 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix} 
-, ..., K_8 = \begin{bmatrix}
- -3 & 5 & 5 \\
- -3 & 0 & 5 \\
- -3 &-3 &-3 
-\end{bmatrix}.
-
-\]      
-\vspace{-20mm}
+% \[
+% K_1 = \begin{bmatrix}
+%   5 & 5 & 5 \\
+%  -3 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}, 
+% K_2 = \begin{bmatrix}
+%   5 & 5 &-3 \\
+%   5 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix} 
+% , ..., K_8 = \begin{bmatrix}
+%  -3 & 5 & 5 \\
+%  -3 & 0 & 5 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}.
+% 
+% \]      
+% \vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -556,22 +556,22 @@ negatives are classified as background in the results, but are actually positive
 false positives are classified as positive in the results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
 an error matrix shown in Table ~\ref{tab:truepositive}.
 
-\begin{table}[hpt]
-\begin{center}
-\caption{General error matrix\label{tab:truepositive}}
-
-\begin{tabular}{cc|c|c|c|c|l}
-\cline{3-4}
-& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
-& & Positive & Negative  \\ \cline{1-4}
-\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
-\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
-\multicolumn{1}{ |c  }{}  &
-\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
-
-\end{tabular}
-\end{center}
-\end{table}
+% \begin{table}[hpt]
+% \begin{center}
+% \caption{General error matrix\label{tab:truepositive}}
+% 
+% \begin{tabular}{cc|c|c|c|c|l}
+% \cline{3-4}
+% & & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+% & & Positive & Negative  \\ \cline{1-4}
+% \multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+% \multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+% \multicolumn{1}{ |c  }{}  &
+% \multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+% 
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 % Sensitivity represents the amount of samples correctly classified as positive. and specificity in turn represents
@@ -848,6 +848,22 @@ valid method. Future work is required in studying the usefulness of texture in t
 \addcontentsline{toc}{section}{REFERENCES}
 \bibliography{resources/thesis}
 
+% \begin{minipage}{\textwidth}
+%  ×
+% \end{minipage}
+% 
+% 
+% \begin{minipage}{\textwidth}
+%   \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+%   \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+%   \captionof{figure}{watwatwat}
+% \end{minipage}
+% 
+% \begin{minipage}{\textwidth}
+%   \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
+%   \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+%   \captionof{figure}{watwatwat}
+% \end{minipage}
 
 
 %% ----------------------- APPENDICES ------------------------------
@@ -855,6 +871,7 @@ valid method. Future work is required in studying the usefulness of texture in t
 
 \section{Example results of unsupervised methods}
 \label{app:unsupervised}
+
 \begin{figure}[ht]
 {
     \label{fig:eye34_kirsch}
@@ -870,9 +887,8 @@ valid method. Future work is required in studying the usefulness of texture in t
     \caption[moving]{Example results of Tophat.}
 
 }\end{figure}
-
+\clearpage
 \sectionend
-
 
 \section{Example results of Naïve-Bayes}
 \label{app:bayes}

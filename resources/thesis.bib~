@@ -1,6 +1,6 @@
-@book{Kauppi:2010,
+@phdthesis{Kauppi:2010,
   title={Eye fundus image analysis for automatic detection of diabetic retinopathy},
-  author={Kauppi, Tomi and others},
+  author={Kauppi, Tomi},
   year={2010},
   publisher={Lappeenranta University of Technology}
 }
@@ -59,7 +59,7 @@
 }
 
 @article{Fawcett:2006,
-  title={An introduction to ROC analysis},
+  title={An introduction to {ROC} analysis},
   author={Fawcett, Tom},
   journal={Pattern recognition letters},
   volume={27},
@@ -108,10 +108,11 @@
   publisher={Sinauer Associates}
 }
 
-@book{Kolb,
-author = {Helga Kolb},
-title = {Simple Anatomy of the Retina
-url: http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the-retina/},
+@misc{Kolb,
+  author = {Helga Kolb},
+  title = {{Simple Anatomy of the Retina}},
+  howpublished = {\url{http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the-retina/}},
+  note = {Accessed: 2014-09-30}
 }
 
 @article{Foster:2011,
@@ -137,8 +138,8 @@ url: http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the
 }
 
 @article{Paalanen:2006,
-  title={Feature representation and discrimination based on Gaussian mixture model probability densities—practices and algorithms},
-  author={Paalanen, Pekka and Kamarainen, Joni-Kristian and Ilonen, Jarmo and K{\"a}lvi{\"a}inen, Heikki},
+  title={Feature representation and discrimination based on {G}aussian mixture model probability densities{—}practices and algorithms},
+  author={Paalanen, Pekka and K{\"a}m{\"a}r{\"a}inen, Joni-Kristian and Ilonen, Jarmo and K{\"a}lvi{\"a}inen, Heikki},
   journal={Pattern Recognition},
   volume={39},
   number={7},
@@ -212,4 +213,44 @@ url: http://webvision.med.utah.edu/book/part-i-foundations/simple-anatomy-of-the
   publisher={Prentice-Hall, Inc.}
 }
 
+@article{Reynolds:2009,
+  title={Gaussian mixture models},
+  author={Reynolds, Douglas},
+  journal={Encyclopedia of Biometrics},
+  pages={659--663},
+  year={2009},
+  publisher={Springer}
+}
 
+@article{Paalanen:2004,
+  title={Bayesian classification using {G}aussian mixture model and {EM} estimation: Implementations and comparisons},
+  author={Paalanen, Pekka},
+  journal={Information Technology Project},
+  year={2004}
+}
+
+@article{paalanen2006feature,
+  title={Feature representation and discrimination based on {G}aussian mixture model probability densities: practices and algorithms},
+  author={Paalanen, Pekka and K{\"a}m{\"a}r{\"a}inen, Joni-Kristian and Ilonen, Jarmo and K{\"a}lvi{\"a}inen, Heikki},
+  journal={Pattern Recognition},
+  volume={39},
+  number={7},
+  pages={1346--1358},
+  year={2006},
+  publisher={Elsevier}
+}
+
+@incollection{Ojala:2000,
+  title={Gray scale and rotation invariant texture classification with local binary patterns},
+  author={Ojala, Timo and Pietik{\"a}inen, Matti and M{\"a}enp{\"a}{\"a}, Topi},
+  booktitle={Computer Vision-ECCV 2000},
+  pages={404--420},
+  year={2000},
+  publisher={Springer}
+}
+
+@misc{rangefilt,
+  title = {{MATLAB rangefilt-function}},
+  howpublished = {\url{http://se.mathworks.com/help/images/ref/rangefilt.html}},
+  note = {Accessed: 2014-11-18}
+}
