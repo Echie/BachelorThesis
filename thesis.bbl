@@ -1,10 +1,10 @@
 \begin{thebibliography}{10}
 
 \bibitem{Kauppi:2010}
-Tomi Kauppi et~al.
+Tomi Kauppi.
 \newblock {\em Eye fundus image analysis for automatic detection of diabetic
   retinopathy}.
-\newblock Lappeenranta University of Technology, 2010.
+\newblock PhD thesis, 2010.
 
 \bibitem{Wandell:1995}
 Brian~A Wandell.
@@ -90,29 +90,6 @@ Mehdi Ghafourian~Fakhar Eadgahi and Hamidreza Pourreza.
 \newblock In {\em Computer and Knowledge Engineering (ICCKE), 2012 2nd
   International eConference on}, pages 185--189. IEEE, 2012.
 
-\bibitem{Reynolds:2009}
-Douglas Reynolds.
-\newblock Gaussian mixture models.
-\newblock {\em Encyclopedia of Biometrics}, pages 659--663, 2009.
-
-\bibitem{paalanen2006feature}
-Pekka Paalanen, Joni-Kristian Kamarainen, Jarmo Ilonen, and Heikki
-  K{\"a}lvi{\"a}inen.
-\newblock Feature representation and discrimination based on gaussian mixture
-  model probability densities—practices and algorithms.
-\newblock {\em Pattern Recognition}, 39(7):1346--1358, 2006.
-
-\bibitem{Paalanen:2004}
-Pekka Paalanen, Joni-Kristian Kamarainen, and Heikki K{\"a}lvi{\"a}inen.
-\newblock Bayesian classification using gaussian mixture model and em
-  estimation: implementations and comparisons.
-\newblock 2004.
-
-\bibitem{Murphy:2006}
-Kevin~P Murphy.
-\newblock Naive bayes classifiers.
-\newblock {\em University of British Columbia}, 2006.
-
 \bibitem{rangefilt}
 {MATLAB rangefilt-function}.
 \newblock \url{http://se.mathworks.com/help/images/ref/rangefilt.html}.
@@ -124,9 +101,32 @@ Timo Ojala, Matti Pietik{\"a}inen, and Topi M{\"a}enp{\"a}{\"a}.
   binary patterns.
 \newblock In {\em Computer Vision-ECCV 2000}, pages 404--420. Springer, 2000.
 
+\bibitem{Murphy:2006}
+Kevin~P Murphy.
+\newblock Naive bayes classifiers.
+\newblock {\em University of British Columbia}, 2006.
+
+\bibitem{Reynolds:2009}
+Douglas Reynolds.
+\newblock Gaussian mixture models.
+\newblock {\em Encyclopedia of Biometrics}, pages 659--663, 2009.
+
+\bibitem{paalanen2006feature}
+Pekka Paalanen, Joni-Kristian K{\"a}m{\"a}r{\"a}inen, Jarmo Ilonen, and Heikki
+  K{\"a}lvi{\"a}inen.
+\newblock Feature representation and discrimination based on gaussian mixture
+  model probability densities—practices and algorithms.
+\newblock {\em Pattern Recognition}, 39(7):1346--1358, 2006.
+
+\bibitem{Paalanen:2004}
+Pekka Paalanen.
+\newblock Bayesian classification using {G}aussian mixture model and {EM}
+  estimation: Implementations and comparisons.
+\newblock {\em Information Technology Project}, 2004.
+
 \bibitem{Fawcett:2006}
 Tom Fawcett.
-\newblock An introduction to roc analysis.
+\newblock An introduction to {ROC} analysis.
 \newblock {\em Pattern recognition letters}, 27(8):861--874, 2006.
 
 \bibitem{Dice:1945}

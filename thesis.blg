@@ -3,40 +3,40 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: resources/thesis.bib
-Warning--empty journal in Paalanen:2004
+Warning--empty school in Kauppi:2010
 You've used 23 entries,
             1791 wiz_defined-function locations,
-            609 strings with 7478 characters,
-and the built_in function-call counts, 5522 in all, are:
-= -- 540
-> -- 175
+            610 strings with 7454 characters,
+and the built_in function-call counts, 5452 in all, are:
+= -- 538
+> -- 164
 < -- 5
-+ -- 70
-- -- 47
-* -- 338
-:= -- 821
++ -- 67
+- -- 44
+* -- 335
+:= -- 814
 add.period$ -- 74
 call.type$ -- 23
 change.case$ -- 20
 chr.to.int$ -- 0
 cite$ -- 24
-duplicate$ -- 260
-empty$ -- 567
-format.name$ -- 47
-if$ -- 1267
+duplicate$ -- 257
+empty$ -- 559
+format.name$ -- 44
+if$ -- 1247
 int.to.chr$ -- 0
 int.to.str$ -- 23
-missing$ -- 24
+missing$ -- 22
 newline$ -- 119
 num.names$ -- 22
-pop$ -- 82
+pop$ -- 76
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 126
+skip$ -- 125
 stack$ -- 0
 substring$ -- 434
-swap$ -- 72
+swap$ -- 73
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
@@ -44,5 +44,5 @@ type$ -- 0
 warning$ -- 1
 while$ -- 59
 width$ -- 25
-write$ -- 251
+write$ -- 252
 (There was 1 warning)
