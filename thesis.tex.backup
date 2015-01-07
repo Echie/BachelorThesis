@@ -509,7 +509,7 @@ of the results.
 % yellow and long equals banana, green and round equals apple. After training, the classifier can be used to classify new images.
 
 Color, edge and texture features were used to teach the classifiers of the supervised methods.
-Color was extracted from the image as pixel-wise RGB-values. Edge was represented with the differential of the
+Color was extracted from the image as pixel-specific RGB-values. Edge was represented with the differential of the
 maximum and minimum value in a 3-by-3 neighborhood (implemented with \textit{rangefilt}-function in MATLAB ~\cite{rangefilt}).
 Location-invariant local binary patterns (LBP)~\cite{Ojala:2000} were used for texture.
 
@@ -551,10 +551,10 @@ In this thesis, only FJ is used.
 
 In evaluation, correctly classified samples can be split into true positives and true negatives. Errors are then similarly split
 into false positives and false negatives. In this thesis, true positives are findings correctly classified as exudates 
-in the segmentation results, and true negatives are consequently findings correctly classified as background. False
-negatives are classified as background in results, but are actually positive (classified as exudate) in ground truth, and
-false positives are classified as positive in results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
-a error matrix shown in Table ~\ref{tab:truepositive}.
+in the segmentation results, and true negatives are consequently findings correctly classified as the background. False
+negatives are classified as background in the results, but are actually positive (classified as exudate) in the ground truth, and
+false positives are classified as positive in the results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
+an error matrix shown in Table ~\ref{tab:truepositive}.
 
 \begin{table}[hpt]
 \begin{center}
@@ -577,38 +577,38 @@ a error matrix shown in Table ~\ref{tab:truepositive}.
 % Sensitivity represents the amount of samples correctly classified as positive. and specificity in turn represents
 % the amount correctly classified as negative. Both have values ranging from 0 to 1, where 1 represents the best possible
 % result.
-Sensitivity represents the amount of samples correctly classified as positive. Its values range from 0 to 1, where 1
-means all foreground samples were correctly classified. Specificity in turn represents the amount of background pixels
-correctly described as negative. Its values also range from 0 to 1, where 1 means all background pixels were correctly classified. ~\cite{Fawcett:2006}
+Sensitivity represents the proportion of samples correctly classified as positive. Its values range from 0 to 1, where 1
+means all foreground samples were correctly classified. Specificity in turn represents the proportion of background pixels
+correctly described as negative. Its values also range from 0 to 1, where 1 means all the background pixels were correctly classified. ~\cite{Fawcett:2006}
 They are defined as:
 
 % \vspace{-1mm}
 \begin{equation}\label{eq:sensitivity}
-Sensitivity = \frac{TP}{TP+FN}
+\text{Sensitivity} = \frac{TP}{TP+FN}
 \end{equation}
 \vspace{-2mm}
 \begin{equation} \label{eq:specificity}
- Specificity = \frac{TN}{TN+FP}
+\text{Specificity} = \frac{TN}{TN+FP}
 \end{equation}
 
-The Dice coefficient~\cite{Dice:1945}, Jaccard index and F-score all measure set agreement, representing the success of segmentation in a single number.
+The Dice coefficient~\cite{Dice:1945}, Jaccard index and F-score all measure set agreement, representing the success of segmentation with a single number.
 All of these coefficients can have values from the range [0,1], where 0 indicates no similarities, and 1 indicates perfect agreement. The coefficients
 are defined as follows:
 \begin{equation}\label{eq:dice}
 \begin{split}
-Dice = \frac{2|A\cap B|}{|A| + |B|}
+\text{Dice} = \frac{2|A\cap B|}{|A| + |B|}
 \end{split}
 \end{equation}
 %\vspace{-2mm}
 \begin{equation}\label{eq:jaccard}
 \begin{split}
-Jaccard = \frac{|A\cap B|}{|A\cup B|}
+\text{Jaccard} = \frac{|A\cap B|}{|A\cup B|}
 \end{split}
 \end{equation}
 %\vspace{-2mm}
 \begin{equation}\label{eq:fscore}
 \begin{split}
-F-score = \frac{2PR}{P + R}
+\text{F-score} = \frac{2PR}{P + R}
 \end{split}
 \end{equation}
 
@@ -628,7 +628,7 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 
 \subsection{The ground truth}
 \label{subsec:groundtruth}
-The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
+The ground truth of exudates in Bristol database is very accurate, and to enable the comparison of results and sensitivity analysis,
 more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
 made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was
 also present in the inaccurate ground truth. Markings were done in a way that estimated the way doctors marked their findings 
@@ -639,7 +639,7 @@ To create a basis for more comprehensive testing, different stages of inaccurate
 ground truth. Three different stages were created; one, three and five iterations of dilation by a disk-shaped structuring element, with a radius of 1 pixel.
 The dilation was restricted to stay inside the inaccurate ground truth.
 
-The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
+The accuracy of the ground truth has a direct impact on training and performance of supervised methods. In general, the inaccurate ground truth 
 will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
 variation of feature distributions and an increase of false positives.
 
@@ -673,11 +673,11 @@ The amount of background pixels in the images is considerably higher than the am
 This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
 All exudate pixels were used, and background pixels were selected randomly.
 
-Classifiers were trained with color, edge and texture features, or a combination of the three. Feature extraction
-methods are described in Sec.~\ref{subsec:supervised}. No contrast enhancement was used, so raw color info
-from the image was used for the color feature.
+Classifiers were trained with color, edge and texture features, and with the combination of the three. The feature extraction
+methods are described in Sec.~\ref{subsec:supervised}. No contrast enhancement was used, so raw color information
+from the image was used as the color feature.
 
-The Bristol image set was split in half, using the other half for training and the other half for evaluation,
+The Bristol image set was divided into two parts, using the other half for training and the other half for evaluation,
 and then vice versa. This was done to study the effect the selection of training data has on the results.
 Classifiers were trained with each level of inaccurate ground truth described in Sec.~\ref{subsec:groundtruth}.
 Two different image sets were used; the original Bristol images, and the color-normalized images. Colors were adjusted

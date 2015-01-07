@@ -628,7 +628,7 @@ where A is the segmented set, and B is the ground truth, P stands for precision 
 
 \subsection{The ground truth}
 \label{subsec:groundtruth}
-The ground truth of exudates in Bristol database is very accurate, and to enable comparison of results and sensitivity analysis,
+The ground truth of exudates in Bristol database is very accurate, and to enable the comparison of results and sensitivity analysis,
 more inaccurate ground truths were made by hand. Instead of the original color images, markings for the inaccurate ground truth were
 made on the black-and-white images of Bristol ground truth. This was to ensure every exudate present in the Bristol ground truth was
 also present in the inaccurate ground truth. Markings were done in a way that estimated the way doctors marked their findings 
@@ -639,7 +639,7 @@ To create a basis for more comprehensive testing, different stages of inaccurate
 ground truth. Three different stages were created; one, three and five iterations of dilation by a disk-shaped structuring element, with a radius of 1 pixel.
 The dilation was restricted to stay inside the inaccurate ground truth.
 
-The accuracy of ground truth has a direct impact on training and performance of supervised methods. In general, inaccurate ground truth 
+The accuracy of the ground truth has a direct impact on training and performance of supervised methods. In general, the inaccurate ground truth 
 will mean a significant amount of background samples close to exudates will be categorized as positive. This will result in higher 
 variation of feature distributions and an increase of false positives.
 
@@ -673,35 +673,36 @@ The amount of background pixels in the images is considerably higher than the am
 This was balanced by applying sampling to the training data, using equal amounts of background and exudate pixels.
 All exudate pixels were used, and background pixels were selected randomly.
 
-Classifiers were trained with color, edge and texture features, or a combination of the three. Feature extraction
-methods are described in Sec.~\ref{subsec:supervised}. No contrast enhancement was used, so raw color info
-from the image was used for the color feature.
+Classifiers were trained with color, edge and texture features, and with the combination of the three. The feature extraction
+methods are described in Sec.~\ref{subsec:supervised}. No contrast enhancement was used, so raw color information
+from the image was used as the color feature.
 
-The Bristol image set was split in half, using the other half for training and the other half for evaluation,
+The Bristol image set was divided into two parts, using one half for training and the other half for evaluation,
 and then vice versa. This was done to study the effect the selection of training data has on the results.
 Classifiers were trained with each level of inaccurate ground truth described in Sec.~\ref{subsec:groundtruth}.
-Two different image sets were used; the original Bristol images, and the color-normalized images. Colors were adjusted
+Two different image sets were used; the original Bristol images, and the color-normalized images. The colors were adjusted
 with the method described in Sec.~\ref{subsec:colortransform}, with the objective of reducing the color variation in the images.
 With this setup, each calculation used a specific ground truth accuracy, image set, and teaching set.
 
-\subsubsection{Results}
+\subsubsection{Results and discussion}
 
-Using inaccurate ground truth is expected to result in more false positives in segmentation results.
+Using inaccurate ground truth was expected to result in more false positives in image segmentation results.
 This can be seen in the results as an increase in sensitivity and a decrease in specificity with all features and classifiers 
-when the level of inaccuracy in ground truth increases. This is also visible in the image-specific results show in Appendix~\ref{app:bayes} and~\ref{app:gmmbayes}.
-All methods and classifiers behave similarly in this regard, having gradually more and more false positives in their segmentation results
-as ground truth is made more inaccurate.
+when the level of inaccuracy in the ground truth increases. This is also visible in the image-specific results shown in Appendices~\ref{app:bayes} and~\ref{app:gmmbayes}.
+All image segmentation methods and classifiers behave similarly in this regard, having gradually more and more false positives in their segmentation results
+as the ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naïve-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher performance of color-feature GMM-Bayes classifiers can be seen. The Naïve-Bayes edge-classifier on the other hand,
-is outperforming other single-feature trained classifier and even the classifier with all features included. It is worth noting the 
+a slighty higher performance of color-feature GMM-Bayes classifier can be seen. The Naïve-Bayes edge-classifier on the other hand,
+is outperforming other single-feature trained classifier and even the classifier with all the features included. It is worth noting that the 
 linear progression of Naïve-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
-explain this, as the texture-based classifier behaves similarly to a random classifier. This could be because of the feature's
+explain this, as the texture-based classifier behave similarly to a random classifier. This could be because of the feature's
 variation in the training set, but this was not confirmed. It is worth noting that images without exudates are excluded from these results,
-as they have no other effect than decreasing the average performance.
+as they have no other effect than decreasing the average performance. It is worth noting that it is necessary to also include the exudate-free 
+images when developing a practical application.
 
-Color normalization's impact on the results was negligible. It was expected to improve the performance of classifier using the color feature by 
+Color normalization's impact on the results was negligible. It was expected to improve the performance of a classifier using the color feature by 
 reducing the color variance of the exudates and background. However, results with Naïve-Bayes are almost identical between the image sets,
 and no clear improvement can be seen from the results of GMM-Bayes.
 
@@ -724,7 +725,7 @@ meaningful effect.
   \caption[moving]{Performance of Naïve-Bayes classifiers:
   \subref{fig:bayes_sens} Sensitivity
   \subref{fig:bayes_spec} Specificity. Note that these graphs represent
-  the methods' performance over images that have exudates present. Original
+  the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
   ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:bayes}
@@ -744,7 +745,7 @@ meaningful effect.
   \caption[moving]{Performance of GMM-Bayes classifiers:
   \subref{fig:gmmbayes_sens} Sensitivity
   \subref{fig:gmmbayes_spec} Specificity. Note that these graphs represent
-  the methods' performance over images that have exudates present. Original
+  the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
   ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
   \label{fig:gmmbayes}
@@ -757,33 +758,33 @@ meaningful effect.
 
 \subsubsection{Finding the best parameters}
 
-When researching feature sensitivity to ground truth accuracy, standard segmentation with unsupervised methods isn't really useful as
-it doesn't use the ground truth. In this thesis, the ground truth is used in finding the best parameters for unsupervised methods.
+When researching feature sensitivity to the ground truth accuracy, standard segmentation with unsupervised methods is not really useful as
+it does not use the ground truth. In this thesis, the ground truth is used in finding the best parameters for the unsupervised methods.
 First, the images used for teaching are segmented with each method and a large set of parameters. The results are then evaluated with
 the ground truth.
 
-For this purpose, it was desired to have a single value describing the ''goodness'' of segmentation results to enable easier comparison and ranking of results.
+For this purpose, it was desired to have a single value describing the goodness of segmentation results to enable easier comparison and ranking of the results.
 Different values, such as sensitivity, specificity and precision (defined in Sec.~\ref{subsec:evaluation}) were considered, but these were discarded as they
 only described one aspect of the result, either the amount of samples correctly positive or negative. The used coefficient
-would have to describe the ''goodness'' in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index
+would have to describe the goodness in a more wholesome way, and for that reason, the Dice coefficient, Jaccard index
 and F-score were considered (defined in Sec.~\ref{subsec:evaluation}).
 
 Dice coefficient and F-score values are interchangeable in practice as their values are exactly equal. Jaccard index behaves 
 similary to the two, though being considerably more critical. The use of Jaccard was discarded because of its criticality, and the
 choice between Dice and F-score was arbitrary. Dice coefficient was chosen as it is simple to implement.
 
-\subsubsection{Results}
+\subsubsection{Results and discussion}
 
 Kirsch and Tophat (described in Sec.~\ref{subsec:unsupervised}) and the method described in~\cite{Eadgahi:2012}, were evaluated. Eadgahi's
 methods performance is not present in this thesis as it was noticed to be very close to the performance of Tophat.
 
-The sensitivity of unsupervised methods behaves similarly with the supervised methods, as can be seen in Figure~\ref{fig:unsupsens}.
-More exudates are found as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to inaccurate
+The sensitivity of the unsupervised methods behaves similarly with the supervised methods, as can be seen in Figure~\ref{fig:unsupsens}.
+More exudates are found as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to the inaccurate
 ground truth, maintaining a high value throughout the different levels of inaccurate ground truth. This can be seen in Figure~\ref{fig:unsupspec}.
 
 The used mask has a major impact on these results. It was expected that the edge-detection methods highlight the 
 blood vessels in the image, so the method described in Sec.~\ref{subsec:vesselmask} was used to create
-a mask of the main arteries in the image. Without this mask, the amount of false positives in segmentation
+a mask of the main arteries in the image. Without this mask, the amount of false positives in the image segmentation
 results would drastically increase with the inaccurate ground truths.
 
 \begin{figure}[ht]
@@ -799,7 +800,7 @@ results would drastically increase with the inaccurate ground truths.
   \caption[moving]{Performance of unsupervised methods:
   \subref{fig:unsupsens} Sensitivity
   \subref{fig:unsupspec} Specificity. Note that these graphs represent
-  the methods' performance over images that have exudates present. Original
+  the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
   ground truth is on the right. Different training/testing sets are shown with a filled and dotted line.}
   \label{fig:unsup}
@@ -812,24 +813,24 @@ results would drastically increase with the inaccurate ground truths.
 % todennäköisesti epätarkkaa ja piti tietää miten se vaikuttaa tuloksiin.
 % It is always nice to give some ideas for the future.
 
-The main goal of this thesis was to study if and how much the accuracy of used ground truth affects
+The main goal of this thesis was to study if and how much the spatial accuracy of the ground truth affects
 the segmentation of retinal images using different image features and segmentation methods. Two supervised methods
 were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
 The performance of unsupervised edge-detection methods was also evaluated.
 
-The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a signifact
-impact on segmentation performance. As for the features, classifiers using the edge-feature outperformed color- and texture-
+The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a significant
+impact on the segmentation performance. As for the features, classifiers using the edge-feature outperformed color- and texture-
 based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
 even partially find exudates from the images.
 
 GMM-Bayes was expected to outperform the simpler Naïve-Bayes, but there was no clear difference in overall performance of these methods.
-However, Naïve-Bayes' performance with higher levels of inaccuracy in ground truth was much more predictable, as the segmentation 
-accuracy declined almost linearly as ground truth became more inaccurate. The performance of GMM-Bayes classifiers, mainly the ones
+However, Naïve-Bayes' performance with higher levels of inaccuracy in the ground truth was much more predictable, as the segmentation 
+accuracy declined almost linearly as the ground truth became more inaccurate. The performance of GMM-Bayes classifiers, mainly the ones
 using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
-of Naïve- and GMM-Bayes, largely due to the mask used to rule out blood vessels. 
+of Naïve- and GMM-Bayes, largely due to the mask used to exclude the blood vessels. 
 
 The second goal of the thesis was to evaluate the performance of features other than color. Based on the performance of 
-the unsupervised methods and edge-based classifiers of supervised methods, using edge in exudate segmentation proves to be a 
+the unsupervised methods and edge-based classifiers of supervised methods, using the edge feature in exudate segmentation proves to be a 
 valid method. Future work is required in studying the usefulness of texture in this matter.
 
 
