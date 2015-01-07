@@ -114,14 +114,14 @@ Douglas Reynolds.
 \bibitem{paalanen2006feature}
 Pekka Paalanen, Joni-Kristian K{\"a}m{\"a}r{\"a}inen, Jarmo Ilonen, and Heikki
   K{\"a}lvi{\"a}inen.
-\newblock Feature representation and discrimination based on gaussian mixture
-  model probability densities—practices and algorithms.
+\newblock Feature representation and discrimination based on {G}aussian mixture
+  model probability densities: practices and algorithms.
 \newblock {\em Pattern Recognition}, 39(7):1346--1358, 2006.
 
 \bibitem{Paalanen:2004}
 Pekka Paalanen.
 \newblock Bayesian classification using {G}aussian mixture model and {EM}
-  estimation: Implementations and comparisons.
+  estimation: implementations and comparisons.
 \newblock {\em Information Technology Project}, 2004.
 
 \bibitem{Fawcett:2006}

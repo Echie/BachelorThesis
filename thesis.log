@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.4)  7 JAN 2015 16:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.4)  7 JAN 2015 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -854,34 +854,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--20
 
 [27
 
-]
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `latin1'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118   model probability densitiesâ€
-                                     ”practices and algorithms.
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `latin1'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118   model probability densitiesâ€”
-                                      practices and algorithms.
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-) [28]
+]) [28]
 Package epstopdf Info: Source file: <resources/eye_kirsch_34.eps>
 (epstopdf)                    date: 2015-01-04 21:28:30
 (epstopdf)                    size: 1871100 bytes
@@ -1224,9 +1197,9 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (44 pages, 6909428 bytes).
+Output written on thesis.pdf (44 pages, 6909321 bytes).
 PDF statistics:
- 877 PDF objects out of 1000 (max. 8388607)
+ 878 PDF objects out of 1000 (max. 8388607)
  659 compressed objects within 7 object streams
  157 named destinations out of 1000 (max. 500000)
  379 words of extra memory for PDF output out of 10000 (max. 10000000)
