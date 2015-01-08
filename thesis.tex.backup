@@ -15,7 +15,7 @@
 % http://www.tug.org/applications/hyperref/
 
 
-\documentclass{lutmscthesis}[2010/09/22]
+\documentclass[openany]{lutmscthesis}[2010/09/22]
 %\documentclass[draft]{lutmscthesis}   % leave figures blank, faster
 
 \usepackage{cite}
@@ -438,25 +438,25 @@ Edge detection operators that only detect gradients in specified directions are 
 Kirsch operator applies a compass operator in eight directions by rotating a mask in 45$^{\circ}$ shifts.~\cite{Jain:1989}
 It is defined as:
 
-\[
-K_1 = \begin{bmatrix}
-  5 & 5 & 5 \\
- -3 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix}, 
-K_2 = \begin{bmatrix}
-  5 & 5 &-3 \\
-  5 & 0 &-3 \\
- -3 &-3 &-3 
-\end{bmatrix} 
-, ..., K_8 = \begin{bmatrix}
- -3 & 5 & 5 \\
- -3 & 0 & 5 \\
- -3 &-3 &-3 
-\end{bmatrix}.
-
-\]      
-\vspace{-20mm}
+% \[
+% K_1 = \begin{bmatrix}
+%   5 & 5 & 5 \\
+%  -3 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}, 
+% K_2 = \begin{bmatrix}
+%   5 & 5 &-3 \\
+%   5 & 0 &-3 \\
+%  -3 &-3 &-3 
+% \end{bmatrix} 
+% , ..., K_8 = \begin{bmatrix}
+%  -3 & 5 & 5 \\
+%  -3 & 0 & 5 \\
+%  -3 &-3 &-3 
+% \end{bmatrix}.
+% 
+% \]      
+% \vspace{-20mm}
 
 \subsubsection{Morphological operations}
 
@@ -556,22 +556,22 @@ negatives are classified as background in the results, but are actually positive
 false positives are classified as positive in the results, when they are in fact background~\cite{Fawcett:2006}. These terms are illustrated with
 an error matrix shown in Table ~\ref{tab:truepositive}.
 
-\begin{table}[hpt]
-\begin{center}
-\caption{General error matrix\label{tab:truepositive}}
-
-\begin{tabular}{cc|c|c|c|c|l}
-\cline{3-4}
-& & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
-& & Positive & Negative  \\ \cline{1-4}
-\multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
-\multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
-\multicolumn{1}{ |c  }{}  &
-\multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
-
-\end{tabular}
-\end{center}
-\end{table}
+% \begin{table}[hpt]
+% \begin{center}
+% \caption{General error matrix\label{tab:truepositive}}
+% 
+% \begin{tabular}{cc|c|c|c|c|l}
+% \cline{3-4}
+% & & \multicolumn{2}{ c| }{Ground truth} \\ \cline{3-4}
+% & & Positive & Negative  \\ \cline{1-4}
+% \multicolumn{1}{ |c| }{\multirow{}{}{Tests} } &
+% \multicolumn{1}{ |c| }{Positive} & True Positive (TP)& False Positive (FP) \\ \cline{2-4}
+% \multicolumn{1}{ |c  }{}  &
+% \multicolumn{1}{ |c| }{Negative} & False Negative (FN)& True Negative (TN) \\ \cline{1-4}
+% 
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 
 % Sensitivity represents the amount of samples correctly classified as positive. and specificity in turn represents
@@ -849,142 +849,287 @@ valid method. Future work is required in studying the usefulness of texture in t
 \bibliography{resources/thesis}
 
 
-
 %% ----------------------- APPENDICES ------------------------------
+
 \appendix
 
 \section{Example results of unsupervised methods}
 \label{app:unsupervised}
-\begin{figure}[ht]
-{
-    \label{fig:eye34_kirsch}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_kirsch_34}     
-    \caption[moving]{Example results of Kirsch}
 
-}\end{figure}
+\begin{minipage}[c]{\textwidth}
+  \label{fig:eye34_kirsch}
+  \includegraphics[width=1.5\textwidth,angle=90]{eye_kirsch_34}     
+  \captionof{figure}{Example results of Kirsch.}
+\end{minipage}
 
-\begin{figure}[ht]
-{
-    \label{fig:eye34_tophat}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_tophat_34}     
-    \caption[moving]{Example results of Tophat}
-
-}\end{figure}
+\begin{minipage}[c]{\textwidth}
+  \label{fig:eye34_tophat}
+  \includegraphics[width=1.5\textwidth,angle=90]{eye_tophat_34}     
+  \captionof{figure}{Example results of Tophat.}
+\end{minipage}
 
 \sectionend
 
-
 \section{Example results of Naïve-Bayes}
 \label{app:bayes}
-\begin{figure}[ht]
-{
-    \label{fig:eye28_bayes_color}
-    \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
-    \caption[moving]{Example results of Naïve-Bayes classifier using color}
-
-}\end{figure}
 
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+  \label{fig:eye28_bayes_color}
+  \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
+  \captionof{figure}{Example results of Naïve-Bayes classifier using color.}
+\end{minipage}
+
+\begin{minipage}[c]{\textwidth}
     \label{fig:eye28_bayes_edge}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_edge_28}     
-    \caption[moving]{Example results of Naïve-Bayes classifier using edge}
+    \captionof{figure}{Example results of Naïve-Bayes classifier using edge.}
 
-}\end{figure}
+\end{minipage}
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_bayes_texture}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_texture_28}     
-    \caption[moving]{Example results of Naïve-Bayes classifier using texture}
+    \captionof{figure}{Example results of Naïve-Bayes classifier using texture.}
 
-}\end{figure}
+\end{minipage}
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_bayes_all}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_all_28}     
-    \caption[moving]{Example results of Naïve-Bayes classifier using all features}
+    \captionof{figure}{Example results of Naïve-Bayes classifier using all features.}
 
-}\end{figure}
+\end{minipage}
 
 \sectionend
 
 
 \section{Example results of GMM-Bayes}
 \label{app:gmmbayes}
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_gmmbayes_color}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using color}
+    \captionof{figure}{Example results of GMM-Bayes classifier using color.}
 
-}\end{figure}
+\end{minipage}
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_gmmbayes_edge}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using edge}
+    \captionof{figure}{Example results of GMM-Bayes classifier using edge.}
 
-}\end{figure}
+\end{minipage}
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_gmmbayes_texture}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using texture}
+    \captionof{figure}{Example results of GMM-Bayes classifier using texture.}
 
-}\end{figure}
+\end{minipage}
 
-\begin{figure}[ht]
-{
+\begin{minipage}[c]{\textwidth}
+
     \label{fig:eye28_gmmbayes_all}
     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
-    \caption[moving]{Example results of GMM-Bayes classifier using all features}
+    \captionof{figure}{Example results of GMM-Bayes classifier using all features.}
 
-}\end{figure}
+\end{minipage}
 
 \sectionend
 
 \section{Supervised methods' performance using gray world pictures}
 \label{app:grayworld}
 
-\begin{figure}[ht]
-{
-  \subfloat[]{
-     \label{fig:grayworld_bayes_sens}
-     \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
-  
-  \subfloat[]{
-     \label{fig:grayworld_bayes_spec}
-     \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}}
-     
-  \caption[moving]{Performance of Naïve-Bayes classifiers using gray world images:
-  \subref{fig:grayworld_bayes_sens} Sensitivity
-  \subref{fig:grayworld_bayes_spec} Specificity. }
-  \label{fig:grayworld_bayes}
+% \begin{minipage}[c]{\textwidth}
+% 
+%   \label{fig:grayworld_bayes_sens}
+%   \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}
+%   
+%   \label{fig:grayworld_bayes_spec}
+%   \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}
+%      
+%   \captionof{figure}{Performance of Naïve-Bayes classifiers using gray world images:
+%   \subref{fig:grayworld_bayes_sens} Sensitivity
+%   \subref{fig:grayworld_bayes_spec} Specificity.
+%   \label{fig:grayworld_bayes}
+% 
+% \end{minipage}
+% 
+% \begin{minipage}[c]{\textwidth}
+% 
+%   \subfloat[]{
+%      \label{fig:grayworld_gmmbayes_sens}
+%      \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
+%   
+%   \subfloat[]{
+%      \label{fig:grayworld_gmmbayes_spec}
+%      \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset2}}
+%   
+%   \captionof{figure}{Performance of GMM-Bayes classifiers using gray world images:     
+%   \subref{fig:grayworld_gmmbayes_sens} Sensitivity
+%   \subref{fig:grayworld_gmmbayes_spec} Specificity. }
+%   \label{fig:grayworld_gmmbayes}
+% 
+% \end{minipage}
 
-}\end{figure}
+\begin{minipage}{\linewidth}
+      \centering
+      \begin{figure}[H]
+	  \includegraphics[width=\linewidth]{hist_gmmbayes_sens_imgset2}
+	  \caption{This is the first figure}
+      \end{figure}
+      \begin{figure}[H]
+	  \includegraphics[width=\linewidth]{hist_gmmbayes_sens_imgset2}
+	  \caption{This is the second figure}
+      \end{figure}
+  \end{minipage}
 
-\begin{figure}[ht]
-{
-  \subfloat[]{
-     \label{fig:grayworld_gmmbayes_sens}
-     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
-  
-  \subfloat[]{
-     \label{fig:grayworld_gmmbayes_spec}
-     \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset2}}
-     
-  \subref{fig:grayworld_gmmbayes_sens} Sensitivity
-  \caption[moving]{Performance of GMM-Bayes classifiers using gray world images:
-  \subref{fig:grayworld_gmmbayes_spec} Specificity. }
-  \label{fig:grayworld_gmmbayes}
-
-}\end{figure}
 
 \sectionend
 
 \end{document}
+
+% \appendix
+% 
+% \section{Example results of unsupervised methods}
+% \label{app:unsupervised}
+% 
+% 
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye34_kirsch}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_kirsch_34}     
+%     \caption[moving]{Example results of Kirsch.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye34_tophat}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_tophat_34}     
+%     \caption[moving]{Example results of Tophat.}
+% 
+% }\end{figure}
+% 
+% \sectionend
+% 
+% \section{Example results of Naïve-Bayes}
+% \label{app:bayes}
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_bayes_color}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_color_28}     
+%     \caption[moving]{Example results of Naïve-Bayes classifier using color.}
+% 
+% }\end{figure}
+% 
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_bayes_edge}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_edge_28}     
+%     \caption[moving]{Example results of Naïve-Bayes classifier using edge.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_bayes_texture}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_texture_28}     
+%     \caption[moving]{Example results of Naïve-Bayes classifier using texture.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_bayes_all}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_bayes_all_28}     
+%     \caption[moving]{Example results of Naïve-Bayes classifier using all features.}
+% 
+% }\end{figure}
+% 
+% \sectionend
+% 
+% 
+% \section{Example results of GMM-Bayes}
+% \label{app:gmmbayes}
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_gmmbayes_color}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_color_28}     
+%     \caption[moving]{Example results of GMM-Bayes classifier using color.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_gmmbayes_edge}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_edge_28}     
+%     \caption[moving]{Example results of GMM-Bayes classifier using edge.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_gmmbayes_texture}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_texture_28}     
+%     \caption[moving]{Example results of GMM-Bayes classifier using texture.}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%     \label{fig:eye28_gmmbayes_all}
+%     \includegraphics[width=1.5\textwidth,angle=90]{eye_gmmbayes_all_28}     
+%     \caption[moving]{Example results of GMM-Bayes classifier using all features.}
+% 
+% }\end{figure}
+% 
+% \sectionend
+% 
+% \section{Supervised methods' performance using gray world pictures}
+% \label{app:grayworld}
+% 
+% \begin{figure}[ht]
+% {
+%   \subfloat[]{
+%      \label{fig:grayworld_bayes_sens}
+%      \includegraphics[width=0.95\textwidth]{hist_bayes_sens_imgset2}}
+%   
+%   \subfloat[]{
+%      \label{fig:grayworld_bayes_spec}
+%      \includegraphics[width=0.95\textwidth]{hist_bayes_spec_imgset2}}
+%      
+%   \caption[moving]{Performance of Naïve-Bayes classifiers using gray world images:
+%   \subref{fig:grayworld_bayes_sens} Sensitivity
+%   \subref{fig:grayworld_bayes_spec} Specificity. }
+%   \label{fig:grayworld_bayes}
+% 
+% }\end{figure}
+% 
+% \begin{figure}[ht]
+% {
+%   \subfloat[]{
+%      \label{fig:grayworld_gmmbayes_sens}
+%      \includegraphics[width=0.95\textwidth]{hist_gmmbayes_sens_imgset2}}
+%   
+%   \subfloat[]{
+%      \label{fig:grayworld_gmmbayes_spec}
+%      \includegraphics[width=0.95\textwidth]{hist_gmmbayes_spec_imgset2}}
+%   
+%   \caption[moving]{Performance of GMM-Bayes classifiers using gray world images:     
+%   \subref{fig:grayworld_gmmbayes_sens} Sensitivity
+%   \subref{fig:grayworld_gmmbayes_spec} Specificity. }
+%   \label{fig:grayworld_gmmbayes}
+% 
+% }\end{figure}
+% 
+% \sectionend
+% 
+% \end{document}
