@@ -4,45 +4,45 @@ The top-level auxiliary file: thesis.aux
 The style file: unsrt.bst
 Database file #1: resources/thesis.bib
 Warning--empty school in Kauppi:2010
-You've used 23 entries,
+You've used 24 entries,
             1791 wiz_defined-function locations,
-            610 strings with 7455 characters,
-and the built_in function-call counts, 5452 in all, are:
-= -- 538
-> -- 164
-< -- 5
-+ -- 67
-- -- 44
-* -- 335
-:= -- 814
-add.period$ -- 74
-call.type$ -- 23
-change.case$ -- 20
+            617 strings with 7608 characters,
+and the built_in function-call counts, 5823 in all, are:
+= -- 574
+> -- 175
+< -- 6
++ -- 71
+- -- 47
+* -- 355
+:= -- 860
+add.period$ -- 77
+call.type$ -- 24
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 257
-empty$ -- 559
-format.name$ -- 44
-if$ -- 1247
+cite$ -- 25
+duplicate$ -- 278
+empty$ -- 597
+format.name$ -- 47
+if$ -- 1339
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 22
-newline$ -- 119
-num.names$ -- 22
-pop$ -- 76
+int.to.str$ -- 24
+missing$ -- 23
+newline$ -- 124
+num.names$ -- 23
+pop$ -- 82
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 125
+skip$ -- 141
 stack$ -- 0
-substring$ -- 434
-swap$ -- 73
-text.length$ -- 5
+substring$ -- 466
+swap$ -- 84
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 59
-width$ -- 25
-write$ -- 252
+while$ -- 63
+width$ -- 26
+write$ -- 263
 (There was 1 warning)

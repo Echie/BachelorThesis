@@ -30,6 +30,11 @@ Thomas Walter, J-C Klein, Pascale Massin, and Ali Erginay.
   retinopathy-detection of exudates in color fundus images of the human retina.
 \newblock {\em Medical Imaging, IEEE Transactions on}, 21(10):1236--1243, 2002.
 
+\bibitem{Perra:2005}
+Cristian Perra, Francesco Massidda, and Daniele~D Giusto.
+\newblock Image blockiness evaluation based on sobel operator.
+\newblock In {\em ICIP (1)}, pages 389--392, 2005.
+
 \bibitem{Zana:1999}
 Fr{\'e}d{\'e}ric Zana and Jean-Claude Klein.
 \newblock A multimodal registration algorithm of eye fundus images using

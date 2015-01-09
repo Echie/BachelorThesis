@@ -223,7 +223,7 @@
 }
 
 @article{Paalanen:2004,
-  title={Bayesian classification using {G}aussian mixture model and {EM} estimation: Implementations and comparisons},
+  title={Bayesian classification using {G}aussian mixture model and {EM} estimation: implementations and comparisons},
   author={Paalanen, Pekka},
   journal={Information Technology Project},
   year={2004}
@@ -253,4 +253,12 @@
   title = {{MATLAB rangefilt-function}},
   howpublished = {\url{http://se.mathworks.com/help/images/ref/rangefilt.html}},
   note = {Accessed: 2014-11-18}
+}
+
+@inproceedings{Perra:2005,
+  title={Image blockiness evaluation based on Sobel operator.},
+  author={Perra, Cristian and Massidda, Francesco and Giusto, Daniele D},
+  booktitle={ICIP (1)},
+  pages={389--392},
+  year={2005}
 }

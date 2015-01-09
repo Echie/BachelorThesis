@@ -20,14 +20,14 @@
 \contentsline {subsection}{\numberline {2.7}Evaluation metrics}{16}{subsection.2.7}
 \contentsline {section}{\numberline {3}EXPERIMENTS AND RESULTS}{18}{section.3}
 \contentsline {subsection}{\numberline {3.1}The ground truth}{18}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Supervised image segmentation methods}{18}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Test settings}{18}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2}Supervised image segmentation methods}{19}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Test settings}{19}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Results and discussion}{19}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}Unsupervised methods}{21}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Finding the best parameters}{21}{subsubsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3}Unsupervised methods}{20}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Finding the best parameters}{20}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Results and discussion}{21}{subsubsection.3.3.2}
-\contentsline {section}{\numberline {4}DISCUSSION}{26}{section.4}
-\contentsline {section}{REFERENCES}{26}{section.4}
+\contentsline {section}{\numberline {4}DISCUSSION}{25}{section.4}
+\contentsline {section}{REFERENCES}{25}{section.4}
 \contentsline {section}{APPENDICES}{}{}
 \hspace *{1.5em}Appendix~\makebox [1.5em][l]{1:} Example results of unsupervised methods\\
 \hspace *{1.5em}Appendix~\makebox [1.5em][l]{2:} Example results of Na\IeC {\"\i }ve-Bayes\\
