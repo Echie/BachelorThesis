@@ -171,7 +171,7 @@ Lappeenranta, October 19th, 2014
 \textbf{pdf} & Probability Density Function\\
 \textbf{FJ} & Figuero-Jain\\
 \textbf{EM} & Expectation Maximization\\
-\textbf{RGB} & Red Green Blue\\
+\textbf{RGB} & Red-Green-Blue\\
 \textbf{TP} & True Positive\\
 \textbf{TN} & True Negative\\
 \textbf{FP} & False Positive\\
@@ -218,10 +218,10 @@ readily available and includes accurate ground truth information. To enable comp
 texture features are used. Blood vessel detection is explored only to create a mask for them. A rough method for optic
 disk detection is also implemented as a preprocessing step for masking reasons. Structure of the eye fundus is briefly explored.
 
-Both supervised and unsupervised segmentation methods are used. In supervised methods, the ground truth is used to label
-observations as either exudate or background. 
+Both supervised and unsupervised segmentation methods are used. In supervised methods, the ground truth is used to evaluate the results and to label
+pixels on the training set as either exudate or background. 
 
-In unsupervised methods, the ground truth is used to evaluate the performance of the methods with varying values of method parameters.
+In unsupervised methods, the ground truth is used to evaluate the performance of the methods on the training set with varying values of method parameters.
 From these results, the best set of parameters are then selected for each method based on their performance. The method performance is then compared
 to supervised methods only with these selected parameters.
 
@@ -244,17 +244,18 @@ discusses the impact of this thesis and possible future research.
 
 \subsection{Structure of the eye fundus}
 The function of the human eye on an abstract level can be compared to a camera. Light reflected from an object passes through the cornea,
-pupil and lens, and is then focused on the retina (the inner part of the eye). It is then processed by photoreceptors and then transmitted to 
+pupil and lens, and is then focused on the retina (the inner part of the eye). The light is absorbed by photoreceptors and the response is then transmitted to 
 the brain via the optic nerve.~\cite{Wandell:1995} Rather than covering the eye as a whole, this chapter will focus on the structure of the eye fundus.
 
 The eye fundus is the interior lining of the eyeball, located at the very back of the eye. The location of the eye fundus is illustrated in
 Figure~\ref{fig:cross_section_eye}. Its most noticeable parts are the optic disk, the macula, and the veins. Macula is a
 highly light-sensitive area in the central region of the retina. Fovea is a round area located in the macula, which is densely
-populated by cones (cells sensitive to color).~\cite{Kolb}
+populated by cones (cells sensitive to color). The orange background seen in the eye fundus images is formed by the pigment epithelium,
+which is a barrier between the choroid (vascular layer surrounding the retina) and the photoreceptors.~\cite{Kolb}
 
 Optic disc is where the optic nerve and main arteries connect with the eye. There are no light-sensitive cells inside the
-optic disc, which creates a blind spot in the retina. Veins inside the eye together with the choroid (vascular layer
-surrounding the retina) provide nutritional support to the eye.~\cite{Kauppi:2010} These parts of the eye fundus
+optic disc, which creates a blind spot in the retina. Veins inside the eye together with the choroid
+provide nutritional support to the eye.~\cite{Kauppi:2010} These parts of the eye fundus
 are illustrated in Figure~\ref{fig:healthyeyefundus}.
 
 \begin{figure}[ht]
@@ -369,15 +370,16 @@ It also does not remove true positives, as only the darker areas of the image ar
 \label{subsec:colortransform}
 The human eye is capable of correcting the effect of varying light sources (illuminants) while perceiving color~\cite{Foster:2011}.
 In contrast, an image of an object taken under different light sources is perceived differently in terms of color by a computer.
-This is why color features need to be normalized in image sets where there's high variation in color properties. In this thesis,
+This promotes the normalization of color features in image sets where there's high variation in color properties. In this thesis,
 the use of color normalization is motivated by the variation of the color of the pigment epithelium layer in the eye fundus.
 
 The illumination and general color properties of the eye fundus images vary quite heavily.
 To be able to effectively use color features in teaching a classifier, the variance between images needs to be minimized.
 This is achieved by estimating the illuminant by applying the gray-world assumption~\cite{Buchsbaum:1980}:
-\textit{the average reflectance in a scene under a neutral light source is achromatic.} Color feature normalization was 
-then done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
-of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel. The results are shown in Figure~\ref{fig:colortransform}.
+\textit{the average reflectance in a scene under a neutral light source is achromatic.} While this does not hold true in the case of eye fundus
+images, the application had positive results in terms of color feature normalization as seen in Figure~\ref{fig:colortransform}. Normalization was 
+done by multiplying each channel with a coefficient defined as $ K_r = I_{avg} / r_{avg}$, where $I_{avg}$ is the mean
+of all RGB-values in the image, and $r_{avg}$ is the mean of the specific channel.
 
 \begin{figure}[ht]
 \centering
@@ -477,7 +479,7 @@ F(f) = TopHat(f) - BottomHat(f)
 %\vspace{-10mm}
 
 where $Tophat(f)$ and $BottomHat(f)$ denote Equations \ref{eq:tophat} and \ref{eq:bottomhat}, respectively.
-Unlike in~\cite{Eadgahi:2012}, thresholding is applied after these operations to create a binary representation
+Unlike in~\cite{Eadgahi:2012}, thresholding is applied after these operations to enable evaluation by creating a binary representation
 of the results.
 
 \subsection{Supervised methods}
