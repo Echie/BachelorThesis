@@ -635,7 +635,7 @@ variation of feature distributions and an increase of false positives.
 \subsection{Supervised image segmentation methods}
 
 \subsubsection{Test settings}
-
+\label{subsubsec:settings}
 Preprocessing was kept to a minimum as only the timestamp was removed from the eye fundus images.
 As the optic disk's color is very close to the exudates, a mask was generated with the method described in
 Sec.~\ref{subsec:opticdisc}. The eye outline was also included in the mask, as it was included in the results
@@ -699,7 +699,8 @@ meaningful effect.
   \subref{fig:bayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
+  ground truth is on the right. Solid and dotted lines represent the use of different
+  training/testing sets, as described in Section~\ref{subsubsec:settings}. }
   \label{fig:bayes}
 
 }\end{figure}
@@ -719,7 +720,8 @@ meaningful effect.
   \subref{fig:gmmbayes_spec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line. }
+  ground truth is on the right. Solid and dotted lines represent the use of different
+  training/testing sets, as described in Section~\ref{subsubsec:settings}. }
   \label{fig:gmmbayes}
 
 }\end{figure}
@@ -774,7 +776,8 @@ results would drastically increase with the inaccurate ground truths.
   \subref{fig:unsupspec} Specificity. Note that these graphs represent
   the methods' performance over images that have exudates present. The original
   Bristol ground truth is on the left on the x-axis, and the most inaccurate
-  ground truth is on the right. Different training/testing sets are shown with a filled and dotted line.}
+  ground truth is on the right. Solid and dotted lines represent the use of different
+  training/testing sets, as described in Section~\ref{subsubsec:settings}. }
   \label{fig:unsup}
 
 }\end{figure}
