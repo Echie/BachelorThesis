@@ -119,7 +119,7 @@ is detection of diabetic retinopathy in retinal images.
 The object of this thesis is to study the effects of inaccurate ground truth
 in exudate segmentation in retinal images, and to compare the performance of
 different image features and methods. This is done by studying the performance of Naïve-Bayes
-and Gaussian mixture models (GMM) with Bayesian classification, and also unsupervised edge-detection
+and Gaussian mixture models (GMM) with Bayesian classification, and also unsupervised edge detection
 methods with varying degrees of ground truth accuracy.
 The results confirm the negative effect inaccurate ground truth has on segmentation accuracy.
 Also the method- and feature-specific performance is explored.
@@ -665,7 +665,7 @@ All image segmentation methods and classifiers behave similarly in this regard, 
 as the ground truth is made more inaccurate.
 
 Comparing the sensitivity and specificity of Naïve-Bayes and GMM-Bayes classifiers shown in Figures~\ref{fig:bayes} and~\ref{fig:gmmbayes},
-a slighty higher performance of color-feature GMM-Bayes classifier can be seen. The Naïve-Bayes edge-classifier on the other hand,
+a slighty higher performance of color feature GMM-Bayes classifier can be seen. The Naïve-Bayes edge-classifier on the other hand,
 is outperforming other single-feature trained classifier and even the classifier with all the features included. It is worth noting that the 
 linear progression of Naïve-Bayes' sensitivity and specificity as the ground truth becomes more inaccurate.
 Based on the specificity of the texture-based classifiers, their performance was below the others. The image-specific results
@@ -756,7 +756,7 @@ The sensitivity of the unsupervised methods behaves similarly with the supervise
 More exudates are found as the ground truth inaccuracy increases. However, their specificity is significantly more resistant to the inaccurate
 ground truth, maintaining a high value throughout the different levels of inaccurate ground truth. This can be seen in Figure~\ref{fig:unsupspec}.
 
-The used mask has a major impact on these results. It was expected that the edge-detection methods highlight the 
+The used mask has a major impact on these results. It was expected that the edge detection methods highlight the 
 blood vessels in the image, so the method described in Sec.~\ref{subsec:vesselmask} was used to create
 a mask of the main arteries in the image. Without this mask, the amount of false positives in the image segmentation
 results would drastically increase with the inaccurate ground truths.
@@ -787,18 +787,18 @@ results would drastically increase with the inaccurate ground truths.
 
 The main goal of this thesis was to study if and how much the spatial accuracy of the ground truth affects
 the segmentation of retinal images using different image features and segmentation methods. Two supervised methods
-were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color-, edge- and texture-features.
-The performance of unsupervised edge-detection methods was also evaluated.
+were compared, Naïve-Bayes and GMM-Bayes. Classifiers were trained with color, edge and texture features.
+The performance of unsupervised edge detection methods was also evaluated.
 
 The segmentation results of all used methods confirm the fact that accuracy of the used ground truth has a significant
-impact on the segmentation performance. As for the features, classifiers using the edge-feature outperformed color- and texture-
+impact on the segmentation performance. As for the features, classifiers using the edge feature outperformed color and texture
 based classifiers. Even though texture seemed promising in initial testing, texture-based classifiers were unable to
 even partially find exudates from the images.
 
 GMM-Bayes was expected to outperform the simpler Naïve-Bayes, but there was no clear difference in overall performance of these methods.
 However, Naïve-Bayes' performance with higher levels of inaccuracy in the ground truth was much more predictable, as the segmentation 
 accuracy declined almost linearly as the ground truth became more inaccurate. The performance of GMM-Bayes classifiers, mainly the ones
-using texture, was less linear. The performance of unsupervised edge-detection methods was significantly better than the performance
+using texture, was less linear. The performance of unsupervised edge detection methods was significantly better than the performance
 of Naïve- and GMM-Bayes, largely due to the mask used to exclude the blood vessels. 
 
 The second goal of the thesis was to evaluate the performance of features other than color. Based on the performance of 

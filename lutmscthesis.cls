@@ -105,7 +105,7 @@
 \newcommand\schoolen{Lappeenranta University of Technology}
 
 \MakeStringVar[School of Business and Management]{Faculty}
-\MakeStringVar[School of Business and Management]{Facultyfin}
+\MakeStringVar[LUT Kauppatieteet ja tuotantotalous]{Facultyfin}
 \MakeStringVar[Department of Computer Science]{Department}
 \MakeStringVar[Tietotekniikan laitos]{Departmentfin}
 \MakeStringVar[Lappeenranta]{City}
